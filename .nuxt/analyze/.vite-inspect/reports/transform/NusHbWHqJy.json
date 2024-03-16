@@ -1,0 +1,221 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/icons/PencilIcon.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  xmlns: \"http://www.w3.org/2000/svg\",\n  width: \"32\",\n  height: \"32\",\n  viewBox: \"0 0 24 24\"\n}\nconst _hoisted_2 = [\"fill\"]\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'PencilIcon',\n  props: {\r\n  currentColor:{\r\n    default:\"currentColor\",\r\n    type: String\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"svg\", _hoisted_1, [\n    _createElementVNode(\"path\", {\n      fill: __props.currentColor,\n      d: \"M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15q.4 0 .775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z\"\n    }, null, 8, _hoisted_2)\n  ]))\n}\n}\n\n})",
+      "start": 1709290878832,
+      "end": 1709290878832
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290878832,
+      "end": 1709290878832,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290878832,
+      "end": 1709290878832,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290878832,
+      "end": 1709290878832,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290878832,
+      "end": 1709290878833,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = {\n  xmlns: \"http://www.w3.org/2000/svg\",\n  width: \"32\",\n  height: \"32\",\n  viewBox: \"0 0 24 24\"\n};\nconst _hoisted_2 = [\"fill\"];\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PencilIcon\",\n  props: {\n    currentColor: {\n      default: \"currentColor\",\n      type: String\n    }\n  },\n  setup(__props) {\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"svg\", _hoisted_1, [\n        _createElementVNode(\"path\", {\n          fill: __props.currentColor,\n          d: \"M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15q.4 0 .775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z\"\n        }, null, 8, _hoisted_2)\n      ]);\n    };\n  }\n});\n",
+      "start": 1709290878833,
+      "end": 1709290878904,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/components/icons/PencilIcon.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  xmlns: \"http://www.w3.org/2000/svg\",\n  width: \"32\",\n  height: \"32\",\n  viewBox: \"0 0 24 24\"\n}\nconst _hoisted_2 = [\"fill\"]\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'PencilIcon',\n  props: {\r\n  currentColor:{\r\n    default:\"currentColor\",\r\n    type: String\r\n  }\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"svg\", _hoisted_1, [\n    _createElementVNode(\"path\", {\n      fill: __props.currentColor,\n      d: \"M5 19h1.425L16.2 9.225L14.775 7.8L5 17.575zm-2 2v-4.25L16.2 3.575q.3-.275.663-.425t.762-.15q.4 0 .775.15t.65.45L20.425 5q.3.275.438.65T21 6.4q0 .4-.137.763t-.438.662L7.25 21zM19 6.4L17.6 5zm-3.525 2.125l-.7-.725L16.2 9.225z\"\n    }, null, 8, _hoisted_2)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,aAAa,YAAY,sBAAsB,2BAA2B;AAE9H,MAAM,aAAa;AAAA,EACjB,OAAO;AAAA,EACP,OAAO;AAAA,EACP,QAAQ;AAAA,EACR,SAAS;AACX;AACA,MAAM,aAAa,CAAC,MAAM;AAG1B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,cAAa;AAAA,MACX,SAAQ;AAAA,MACR,MAAM;AAAA,IACR;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,oBAAoB,QAAQ;AAAA,UAC1B,MAAM,QAAQ;AAAA,UACd,GAAG;AAAA,QACL,GAAG,MAAM,GAAG,UAAU;AAAA,MACxB,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290878904,
+      "end": 1709290878904,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878904,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290878905,
+      "end": 1709290878905,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290878905,
+      "end": 1709290878907,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290878908,
+      "end": 1709290878908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290878908,
+      "end": 1709290878909,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/dashboard/TopBar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { toggleSidebar } from \"./store\";\n</script>\n\n<template>\n  <header\n    class=\"relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl\"\n  >\n    <div class=\"relative mx-auto flex h-full flex-col justify-center px-3\">\n      <div class=\"relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2\">\n        <div class=\"relative left-0 flex h-full w-3/4\">\n          <div class=\"group relative flex h-full w-12 items-center\">\n            <button\n              type=\"button\"\n              aria-expanded=\"false\"\n              aria-label=\"Toggle sidenav\"\n              class=\"text-4xl text-gray-500 focus:outline-none\"\n              @click=\"toggleSidebar\"\n            >\n              &#8801;\n            </button>\n          </div>\n          <div class=\"group relative flex h-full w-36 items-center lg:w-64\">\n            <div\n              class=\"absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden\"\n            >\n              <svg\n                fill=\"none\"\n                class=\"relative h-5 w-5\"\n                stroke-linecap=\"round\"\n                stroke-linejoin=\"round\"\n                stroke-width=\"2\"\n                stroke=\"currentColor\"\n                viewBox=\"0 0 24 24\"\n              >\n                <path\n                  d=\"M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z\"\n                />\n              </svg>\n            </div>\n            <svg\n              class=\"pointer-events-none absolute left-0 ml-4 hidden h-4 w-4 fill-current text-gray-500 group-hover:text-gray-400 sm:block\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n              viewBox=\"0 0 20 20\"\n            >\n              <path\n                d=\"M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z\"\n              />\n            </svg>\n            <input\n              type=\"text\"\n              class=\"block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-400 opacity-90 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500\"\n              placeholder=\"Search\"\n            />\n            <div\n              class=\"absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block\"\n            >\n              +\n            </div>\n          </div>\n        </div>\n        <div\n          class=\"relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0\"\n        >\n          <a href=\"#\" class=\"relative block\">\n            <img\n              alt=\"Jonathan Ilunga\"\n              src=\"/images/9.jpg\"\n              class=\"mx-auto h-10 w-10 rounded-full object-cover\"\n            />\n          </a>\n        </div>\n      </div>\n    </div>\n  </header>\n</template>\n",
+      "start": 1709290883323,
+      "end": 1709290883323,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290883323,
+      "end": 1709290883323,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290883323,
+      "end": 1709290883323,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290883323,
+      "end": 1709290883324,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290883323,
+      "end": 1709290883324,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290883324,
+      "end": 1709290883324,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290883324,
+      "end": 1709290883324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709290883324,
+      "end": 1709290883324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290883324,
+      "end": 1709290883324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290883324,
+      "end": 1709290883324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/home/bichwaa/Desktop/work/skystar/dashboard/TopBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/bichwaa/Desktop/work/skystar/dashboard/TopBar.vue?vue&type=script&setup=true&lang.ts\";\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"dashboard/TopBar.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\n",
+      "start": 1709290883324,
+      "end": 1709290883335,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290883335,
+      "end": 1709290883335,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883335,
+      "end": 1709290883335,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883335,
+      "end": 1709290883335,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290883335,
+      "end": 1709290883335,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290883335,
+      "end": 1709290883335,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290883335,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290883336,
+      "end": 1709290883336,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290883336,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290883336,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290883337,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290883337,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290883337,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290883337,
+      "end": 1709290883337,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709290883338,
+      "end": 1709290883338,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290883338,
+      "end": 1709290883338,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290883338,
+      "end": 1709290883338,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290883338,
+      "end": 1709290883338,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290883338,
+      "end": 1709290883338,
+      "order": "normal"
+    }
+  ]
+}

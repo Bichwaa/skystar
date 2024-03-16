@@ -1,0 +1,291 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true&vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'register',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nfunction formSubmitted(){\r\n    window.alert('form fake submitted')\r\n}\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-full grid place-items-center\" }, _attrs))}><form class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\"><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"firstname\" class=\"text-xs font-medium\">First name</label><input type=\"firstname\" name=\"firstname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"lastname\" class=\"text-xs font-medium\">Last name</label><input type=\"lastname\" name=\"lastname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"email\" class=\"text-xs font-medium\">Email</label><input type=\"email\" name=\"email\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"password\" class=\"text-xs font-medium\">Password</label><input type=\"password\" name=\"password\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col my-3\"><div class=\"grid place-items-center\"><p>Already registered `)\n  _push(_ssrRenderComponent(_component_nuxt_link, {\n    to: \"/login\",\n    class: \"text-blue-500 my-2\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`Login`)\n      } else {\n        return [\n          _createTextVNode(\"Login\")\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</p></div></div></form></div>`)\n}\n}\n\n})",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/pages/register.vue"
+        ],
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"h-full grid place-items-center \">\r\n      <form \r\n      @submit.prevent=\"formSubmitted\" \r\n          class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\">\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"firstname\" class=\"text-xs font-medium\">First name</label>\r\n                  <input type=\"firstname\" name=\"firstname\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"lastname\" class=\"text-xs font-medium\">Last name</label>\r\n                  <input type=\"lastname\" name=\"lastname\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n          \r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"email\" class=\"text-xs font-medium\">Email</label>\r\n                  <input type=\"email\" name=\"email\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"password\" class=\"text-xs font-medium\">Password</label>\r\n                  <input type=\"password\" name=\"password\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n\r\n          <div class=\"flex flex-col my-3\">\r\n          <div class=\"grid place-items-center\">\r\n              <p>Already registered <nuxt-link to=\"/login\" class=\"text-blue-500 my-2\">Login</nuxt-link></p>\r\n          </div>\r\n          </div>\r\n      </form>\r\n  </div>\r\n</template>\r\n\r\n<script lang=\"ts\" setup>\r\nfunction formSubmitted(){\r\n    window.alert('form fake submitted')\r\n}\r\n</script>\r\n\r\n<style>\r\n\r\n</style>"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;AA2CwB,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC;;;;;;;;;;;;;;;;;;;;;;;;;"
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290882471,
+      "end": 1709290882471,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"register\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    function formSubmitted() {\n      window.alert(\"form fake submitted\");\n    }\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_nuxt_link = _resolveComponent(\"nuxt-link\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-full grid place-items-center\" }, _attrs))}><form class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\"><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"firstname\" class=\"text-xs font-medium\">First name</label><input type=\"firstname\" name=\"firstname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"lastname\" class=\"text-xs font-medium\">Last name</label><input type=\"lastname\" name=\"lastname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"email\" class=\"text-xs font-medium\">Email</label><input type=\"email\" name=\"email\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"password\" class=\"text-xs font-medium\">Password</label><input type=\"password\" name=\"password\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col my-3\"><div class=\"grid place-items-center\"><p>Already registered `);\n      _push(_ssrRenderComponent(_component_nuxt_link, {\n        to: \"/login\",\n        class: \"text-blue-500 my-2\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`Login`);\n          } else {\n            return [\n              _createTextVNode(\"Login\")\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</p></div></div></form></div>`);\n    };\n  }\n});\n",
+      "start": 1709290882471,
+      "end": 1709290882490,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true&vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'register',\n  __ssrInlineRender: true,\n  setup(__props) {\n\r\nfunction formSubmitted(){\r\n    window.alert('form fake submitted')\r\n}\r\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_nuxt_link = _resolveComponent(\"nuxt-link\")!\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-full grid place-items-center\" }, _attrs))}><form class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\"><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"firstname\" class=\"text-xs font-medium\">First name</label><input type=\"firstname\" name=\"firstname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"lastname\" class=\"text-xs font-medium\">Last name</label><input type=\"lastname\" name=\"lastname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"email\" class=\"text-xs font-medium\">Email</label><input type=\"email\" name=\"email\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"password\" class=\"text-xs font-medium\">Password</label><input type=\"password\" name=\"password\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col my-3\"><div class=\"grid place-items-center\"><p>Already registered `)\n  _push(_ssrRenderComponent(_component_nuxt_link, {\n    to: \"/login\",\n    class: \"text-blue-500 my-2\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`Login`)\n      } else {\n        return [\n          _createTextVNode(\"Login\")\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</p></div></div></form></div>`)\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,WAAW,UAAU,mBAAmB,kBAAkB,cAAc,mBAAmB;AAC3I,SAAS,sBAAsB,qBAAqB,kBAAkB,uBAAuB;AAG7F,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AAEjB,aAAS,gBAAe;AACpB,aAAO,MAAM,qBAAqB;AAAA,IACtC;AAEA,WAAO,CAAC,MAAU,OAAW,SAAa,WAAgB;AACxD,YAAM,uBAAuB,kBAAkB,WAAW;AAE1D,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,iCAAiC,GAAG,MAAM,CAAC,CAAC,gvCAAgvC;AAC90C,YAAM,oBAAoB,sBAAsB;AAAA,QAC9C,IAAI;AAAA,QACJ,OAAO;AAAA,MACT,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAGA,QAAOC,UAAS,aAAa;AACjD,cAAID,QAAO;AACT,YAAAA,OAAM,OAAO;AAAA,UACf,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,OAAO;AAAA,YAC1B;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,+BAA+B;AAAA,IACvC;AAAA,EACA;AAEA,CAAC;",
+        "names": [
+          "_push",
+          "_parent"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290882490,
+      "end": 1709290882490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290882490,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882491,
+      "end": 1709290882491,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290882492,
+      "end": 1709290882492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"register\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    function formSubmitted() {\n      (void 0).alert(\"form fake submitted\");\n    }\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_nuxt_link = _resolveComponent(\"nuxt-link\");\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"h-full grid place-items-center\" }, _attrs))}><form class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\"><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"firstname\" class=\"text-xs font-medium\">First name</label><input type=\"firstname\" name=\"firstname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"lastname\" class=\"text-xs font-medium\">Last name</label><input type=\"lastname\" name=\"lastname\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"email\" class=\"text-xs font-medium\">Email</label><input type=\"email\" name=\"email\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\"><div class=\"grp flex flex-col\"><label for=\"password\" class=\"text-xs font-medium\">Password</label><input type=\"password\" name=\"password\" class=\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\"></div></div><div class=\"flex flex-col my-3\"><div class=\"grid place-items-center\"><p>Already registered `);\n      _push(_ssrRenderComponent(_component_nuxt_link, {\n        to: \"/login\",\n        class: \"text-blue-500 my-2\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`Login`);\n          } else {\n            return [\n              _createTextVNode(\"Login\")\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</p></div></div></form></div>`);\n    };\n  }\n});\n",
+      "start": 1709290882492,
+      "end": 1709290882517,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true&vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \\\"vue\\\";\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \\\"vue/server-renderer\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"register\\\",\\n  __ssrInlineRender: true,\\n  setup(__props) {\\n    function formSubmitted() {\\n      window.alert(\\\"form fake submitted\\\");\\n    }\\n    return (_ctx, _push, _parent, _attrs) => {\\n      const _component_nuxt_link = _resolveComponent(\\\"nuxt-link\\\");\\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \\\"h-full grid place-items-center\\\" }, _attrs))}><form class=\\\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\\\"><div class=\\\"flex flex-col lg:flex-row gap-8 justify-center py-1\\\"><div class=\\\"grp flex flex-col\\\"><label for=\\\"firstname\\\" class=\\\"text-xs font-medium\\\">First name</label><input type=\\\"firstname\\\" name=\\\"firstname\\\" class=\\\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\\\"></div></div><div class=\\\"flex flex-col lg:flex-row gap-8 justify-center py-1\\\"><div class=\\\"grp flex flex-col\\\"><label for=\\\"lastname\\\" class=\\\"text-xs font-medium\\\">Last name</label><input type=\\\"lastname\\\" name=\\\"lastname\\\" class=\\\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\\\"></div></div><div class=\\\"flex flex-col lg:flex-row gap-8 justify-center py-1\\\"><div class=\\\"grp flex flex-col\\\"><label for=\\\"email\\\" class=\\\"text-xs font-medium\\\">Email</label><input type=\\\"email\\\" name=\\\"email\\\" class=\\\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\\\"></div></div><div class=\\\"flex flex-col lg:flex-row gap-8 justify-center py-1\\\"><div class=\\\"grp flex flex-col\\\"><label for=\\\"password\\\" class=\\\"text-xs font-medium\\\">Password</label><input type=\\\"password\\\" name=\\\"password\\\" class=\\\"border border-1 border-slate-400 rounded-md lg:h-8 w-full\\\"></div></div><div class=\\\"flex flex-col my-3\\\"><div class=\\\"grid place-items-center\\\"><p>Already registered `);\\n      _push(_ssrRenderComponent(_component_nuxt_link, {\\n        to: \\\"/login\\\",\\n        class: \\\"text-blue-500 my-2\\\"\\n      }, {\\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\\n          if (_push2) {\\n            _push2(`Login`);\\n          } else {\\n            return [\\n              _createTextVNode(\\\"Login\\\")\\n            ];\\n          }\\n        }),\\n        _: 1\\n      }, _parent));\\n      _push(`</p></div></div></form></div>`);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,WAAW,UAAU,mBAAmB,kBAAkB,cAAc,mBAAmB;AAC3I,SAAS,sBAAsB,qBAAqB,kBAAkB,uBAAuB;AAC7F,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,MAAM,SAAS;AACb,aAAS,gBAAgB;AACvB,eAAO,MAAM,qBAAqB;AAAA,IACpC;AACA,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AACvC,YAAM,uBAAuB,kBAAkB,WAAW;AAC1D,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,iCAAiC,GAAG,MAAM,CAAC,CAAC,gvCAAgvC;AAC90C,YAAM,oBAAoB,sBAAsB;AAAA,QAC9C,IAAI;AAAA,QACJ,OAAO;AAAA,MACT,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAG,QAAQ,UAAU,aAAa;AACnD,cAAI,QAAQ;AACV,mBAAO,OAAO;AAAA,UAChB,OAAO;AACL,mBAAO;AAAA,cACL,iBAAiB,OAAO;AAAA,YAC1B;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,+BAA+B;AAAA,IACvC;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290882517,
+      "end": 1709290882517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290882517,
+      "end": 1709290882517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290882518,
+      "end": 1709290882518,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290882519,
+      "end": 1709290882521,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290882519,
+      "end": 1709290882521,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290882521,
+      "end": 1709290882521,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290882521,
+      "end": 1709290882521,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709290882522,
+      "end": 1709290882522,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709290882522,
+      "end": 1709290882522,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709290882522,
+      "end": 1709290882522,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290882523,
+      "end": 1709290882523,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290882523,
+      "end": 1709290882523,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290882523,
+      "end": 1709290882523,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290882523,
+      "end": 1709290882523,
+      "order": "normal"
+    }
+  ]
+}

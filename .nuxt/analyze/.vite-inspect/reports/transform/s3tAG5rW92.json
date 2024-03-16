@@ -1,0 +1,230 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue?macro=true&vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createStaticVNode as _createStaticVNode } from \"vue\"\nimport _imports_0 from '/images/2.jpg'\n\n\nconst _hoisted_1 = { class: \"flex flex-wrap sm:flex-row gap-8\" }\nconst _hoisted_2 = { class: \"w-full sm:w-1/2 xl:w-1/3\" }\nconst _hoisted_3 = { class: \"mb-4\" }\nconst _hoisted_4 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_5 = { class: \"mb-6 flex items-center justify-between\" }\nconst _hoisted_6 = { class: \"flex items-center\" }\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"relative rounded-xl bg-blue-100 p-2\" }, null, -1)\nconst _hoisted_8 = { class: \"flex flex-col\" }\nconst _hoisted_9 = { class: \"ml-2 font-bold text-black\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"ml-2 text-sm text-gray-500\" }, \"Available roles\", -1)\nconst _hoisted_11 = { class: \"flex items-center\" }\nconst _hoisted_12 = { class: \"rounded-full border border-gray-200 p-1\" }\nconst _hoisted_13 = { class: \"m-auto block\" }\nconst _hoisted_14 = { class: \"flex flex-col gap-2\" }\nconst _hoisted_15 = { class: \"flex justify-between py-3 h-14 bg-gray-100\" }\nconst _hoisted_16 = { class: \"p-3 text-md capitalize flex items-center\" }\nconst _hoisted_17 = { class: \"flex gap-4 p-3 items-center\" }\nconst _hoisted_18 = { class: \"mb-4\" }\nconst _hoisted_19 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_20 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"mb-6 flex items-center justify-between\\\"><div class=\\\"flex items-center\\\"><span class=\\\"relative rounded-xl bg-blue-100 p-2\\\"></span><div class=\\\"flex flex-col\\\"><span class=\\\"ml-2 font-bold text-black\\\">Leaderboard</span><span class=\\\"ml-2 text-sm text-gray-500\\\"> Top Performers </span></div></div></div>\", 1)\nconst _hoisted_21 = { class: \"mb-4 flex items-center justify-between space-x-12\" }\nconst _hoisted_22 = { class: \"flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-semibold text-green-700\" }\nconst _hoisted_23 = { class: \"m-auto block\" }\nconst _hoisted_24 = /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1)\nconst _hoisted_25 = { class: \"flex flex-col\" }\nconst _hoisted_26 = { class: \"ml-2 text-sm font-semibold text-gray-900\" }\nconst _hoisted_27 = { class: \"ml-2 text-sm text-gray-400\" }\nconst _hoisted_28 = { class: \"w-full sm:w-1/2 xl:w-1/3\" }\nconst _hoisted_29 = { class: \"mb-4\" }\nconst _hoisted_30 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_31 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"font-bold text-black\" }, \"Staff\", -1)\nconst _hoisted_32 = /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1)\nconst _hoisted_33 = { class: \"flex flex-col\" }\nconst _hoisted_34 = { class: \"ml-2 text-sm font-semibold text-gray-900\" }\nconst _hoisted_35 = { class: \"ml-2 text-sm text-gray-400\" }\n\nimport { ref, onMounted } from 'vue';\nimport axios from 'axios';\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'calendar',\n  props: {\n  title: {\n    type: String,\n    default: \"\",\n  },\n},\n  setup(__props) {\n\n\nconst staff = ref([]);\nconst roles = ref([]);\n\nconst currentDate = new Date();\nconst OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\nconst formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);\n\nonMounted(async () => {\n  try {\n    const response = await axios.get('http://localhost:3006/api/users');\n    staff.value = response.data;\n    const roleResponse = await axios.get('http://localhost:3006/api/roles');\n    roles.value = roleResponse.data;\n  } catch (error) {\n    console.error('Error fetching data:', error);\n    staff.value = null; // Set items to an empty array or handle error as needed\n  }\n});\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_IconsAddIcon = _resolveComponent(\"IconsAddIcon\")!\n  const _component_IconsPencilIcon = _resolveComponent(\"IconsPencilIcon\")!\n  const _component_IconsDeleteIcon = _resolveComponent(\"IconsDeleteIcon\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createElementVNode(\"div\", _hoisted_6, [\n              _hoisted_7,\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", _hoisted_9, _toDisplayString(__props.title || \"Employee roles\"), 1),\n                _hoisted_10\n              ])\n            ]),\n            _createElementVNode(\"div\", _hoisted_11, [\n              _createElementVNode(\"button\", _hoisted_12, [\n                _createVNode(_component_IconsAddIcon, { class: \"h-7 w-7\" })\n              ])\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_13, [\n            _createElementVNode(\"div\", _hoisted_14, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(roles.value, (role, i) => {\n                return (_openBlock(), _createElementBlock(\"div\", _hoisted_15, [\n                  _createElementVNode(\"p\", _hoisted_16, _toDisplayString(role.name), 1),\n                  _createElementVNode(\"div\", _hoisted_17, [\n                    _createVNode(_component_IconsPencilIcon, {\n                      class: \"w-6 h-6 cursor-pointer\",\n                      \"current-color\": '#fbbf24'\n                    }),\n                    _createVNode(_component_IconsDeleteIcon, { class: \"w-6 h-6 cursor-pointer\" })\n                  ])\n                ]))\n              }), 256))\n            ])\n          ])\n        ])\n      ]),\n      _createElementVNode(\"div\", _hoisted_18, [\n        _createElementVNode(\"div\", _hoisted_19, [\n          _hoisted_20,\n          _createElementVNode(\"div\", _hoisted_21, [\n            _createElementVNode(\"span\", _hoisted_22, _toDisplayString(_unref(formattedDate)), 1)\n          ]),\n          _createElementVNode(\"div\", _hoisted_23, [\n            _createElementVNode(\"ul\", null, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value.slice(0,2), (st, i) => {\n                return (_openBlock(), _createElementBlock(\"li\", {\n                  class: \"my-6 flex items-center space-x-2\",\n                  key: i\n                }, [\n                  _hoisted_24,\n                  _createElementVNode(\"div\", _hoisted_25, [\n                    _createElementVNode(\"span\", _hoisted_26, _toDisplayString(st.firstName), 1),\n                    _createElementVNode(\"span\", _hoisted_27, _toDisplayString(st.email), 1)\n                  ])\n                ]))\n              }), 128))\n            ])\n          ])\n        ])\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_28, [\n      _createElementVNode(\"div\", _hoisted_29, [\n        _createElementVNode(\"div\", _hoisted_30, [\n          _hoisted_31,\n          _createElementVNode(\"ul\", null, [\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value, (st, i) => {\n              return (_openBlock(), _createElementBlock(\"li\", {\n                class: \"my-6 flex items-center space-x-2\",\n                key: i\n              }, [\n                _hoisted_32,\n                _createElementVNode(\"div\", _hoisted_33, [\n                  _createElementVNode(\"span\", _hoisted_34, _toDisplayString(st.firstName), 1),\n                  _createElementVNode(\"span\", _hoisted_35, _toDisplayString(st.email), 1)\n                ])\n              ]))\n            }), 128))\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1709290878204,
+      "end": 1709290878205
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290878205,
+      "end": 1709290878205,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290878205,
+      "end": 1709290878205,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290878205,
+      "end": 1709290878205,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290878206,
+      "end": 1709290878206,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createStaticVNode as _createStaticVNode } from \"vue\";\nimport _imports_0 from \"/images/2.jpg\";\nconst _hoisted_1 = { class: \"flex flex-wrap sm:flex-row gap-8\" };\nconst _hoisted_2 = { class: \"w-full sm:w-1/2 xl:w-1/3\" };\nconst _hoisted_3 = { class: \"mb-4\" };\nconst _hoisted_4 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" };\nconst _hoisted_5 = { class: \"mb-6 flex items-center justify-between\" };\nconst _hoisted_6 = { class: \"flex items-center\" };\nconst _hoisted_7 = /* @__PURE__ */ _createElementVNode(\"span\", { class: \"relative rounded-xl bg-blue-100 p-2\" }, null, -1);\nconst _hoisted_8 = { class: \"flex flex-col\" };\nconst _hoisted_9 = { class: \"ml-2 font-bold text-black\" };\nconst _hoisted_10 = /* @__PURE__ */ _createElementVNode(\"span\", { class: \"ml-2 text-sm text-gray-500\" }, \"Available roles\", -1);\nconst _hoisted_11 = { class: \"flex items-center\" };\nconst _hoisted_12 = { class: \"rounded-full border border-gray-200 p-1\" };\nconst _hoisted_13 = { class: \"m-auto block\" };\nconst _hoisted_14 = { class: \"flex flex-col gap-2\" };\nconst _hoisted_15 = { class: \"flex justify-between py-3 h-14 bg-gray-100\" };\nconst _hoisted_16 = { class: \"p-3 text-md capitalize flex items-center\" };\nconst _hoisted_17 = { class: \"flex gap-4 p-3 items-center\" };\nconst _hoisted_18 = { class: \"mb-4\" };\nconst _hoisted_19 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" };\nconst _hoisted_20 = /* @__PURE__ */ _createStaticVNode('<div class=\"mb-6 flex items-center justify-between\"><div class=\"flex items-center\"><span class=\"relative rounded-xl bg-blue-100 p-2\"></span><div class=\"flex flex-col\"><span class=\"ml-2 font-bold text-black\">Leaderboard</span><span class=\"ml-2 text-sm text-gray-500\"> Top Performers </span></div></div></div>', 1);\nconst _hoisted_21 = { class: \"mb-4 flex items-center justify-between space-x-12\" };\nconst _hoisted_22 = { class: \"flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-semibold text-green-700\" };\nconst _hoisted_23 = { class: \"m-auto block\" };\nconst _hoisted_24 = /* @__PURE__ */ _createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1);\nconst _hoisted_25 = { class: \"flex flex-col\" };\nconst _hoisted_26 = { class: \"ml-2 text-sm font-semibold text-gray-900\" };\nconst _hoisted_27 = { class: \"ml-2 text-sm text-gray-400\" };\nconst _hoisted_28 = { class: \"w-full sm:w-1/2 xl:w-1/3\" };\nconst _hoisted_29 = { class: \"mb-4\" };\nconst _hoisted_30 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" };\nconst _hoisted_31 = /* @__PURE__ */ _createElementVNode(\"p\", { class: \"font-bold text-black\" }, \"Staff\", -1);\nconst _hoisted_32 = /* @__PURE__ */ _createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /* @__PURE__ */ _createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1);\nconst _hoisted_33 = { class: \"flex flex-col\" };\nconst _hoisted_34 = { class: \"ml-2 text-sm font-semibold text-gray-900\" };\nconst _hoisted_35 = { class: \"ml-2 text-sm text-gray-400\" };\nimport { ref, onMounted } from \"vue\";\nimport axios from \"axios\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"calendar\",\n  props: {\n    title: {\n      type: String,\n      default: \"\"\n    }\n  },\n  setup(__props) {\n    const staff = ref([]);\n    const roles = ref([]);\n    const currentDate = /* @__PURE__ */ new Date();\n    const OPTIONS = { weekday: \"long\", year: \"numeric\", month: \"long\", day: \"numeric\" };\n    const formattedDate = currentDate.toLocaleDateString(\"en-US\", OPTIONS);\n    onMounted(async () => {\n      try {\n        const response = await axios.get(\"http://localhost:3006/api/users\");\n        staff.value = response.data;\n        const roleResponse = await axios.get(\"http://localhost:3006/api/roles\");\n        roles.value = roleResponse.data;\n      } catch (error) {\n        console.error(\"Error fetching data:\", error);\n        staff.value = null;\n      }\n    });\n    return (_ctx, _cache) => {\n      const _component_IconsAddIcon = _resolveComponent(\"IconsAddIcon\");\n      const _component_IconsPencilIcon = _resolveComponent(\"IconsPencilIcon\");\n      const _component_IconsDeleteIcon = _resolveComponent(\"IconsDeleteIcon\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"div\", _hoisted_5, [\n                _createElementVNode(\"div\", _hoisted_6, [\n                  _hoisted_7,\n                  _createElementVNode(\"div\", _hoisted_8, [\n                    _createElementVNode(\"span\", _hoisted_9, _toDisplayString(__props.title || \"Employee roles\"), 1),\n                    _hoisted_10\n                  ])\n                ]),\n                _createElementVNode(\"div\", _hoisted_11, [\n                  _createElementVNode(\"button\", _hoisted_12, [\n                    _createVNode(_component_IconsAddIcon, { class: \"h-7 w-7\" })\n                  ])\n                ])\n              ]),\n              _createElementVNode(\"div\", _hoisted_13, [\n                _createElementVNode(\"div\", _hoisted_14, [\n                  (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(roles.value, (role, i) => {\n                    return _openBlock(), _createElementBlock(\"div\", _hoisted_15, [\n                      _createElementVNode(\"p\", _hoisted_16, _toDisplayString(role.name), 1),\n                      _createElementVNode(\"div\", _hoisted_17, [\n                        _createVNode(_component_IconsPencilIcon, {\n                          class: \"w-6 h-6 cursor-pointer\",\n                          \"current-color\": \"#fbbf24\"\n                        }),\n                        _createVNode(_component_IconsDeleteIcon, { class: \"w-6 h-6 cursor-pointer\" })\n                      ])\n                    ]);\n                  }), 256))\n                ])\n              ])\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_18, [\n            _createElementVNode(\"div\", _hoisted_19, [\n              _hoisted_20,\n              _createElementVNode(\"div\", _hoisted_21, [\n                _createElementVNode(\"span\", _hoisted_22, _toDisplayString(_unref(formattedDate)), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_23, [\n                _createElementVNode(\"ul\", null, [\n                  (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value.slice(0, 2), (st, i) => {\n                    return _openBlock(), _createElementBlock(\"li\", {\n                      class: \"my-6 flex items-center space-x-2\",\n                      key: i\n                    }, [\n                      _hoisted_24,\n                      _createElementVNode(\"div\", _hoisted_25, [\n                        _createElementVNode(\"span\", _hoisted_26, _toDisplayString(st.firstName), 1),\n                        _createElementVNode(\"span\", _hoisted_27, _toDisplayString(st.email), 1)\n                      ])\n                    ]);\n                  }), 128))\n                ])\n              ])\n            ])\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_28, [\n          _createElementVNode(\"div\", _hoisted_29, [\n            _createElementVNode(\"div\", _hoisted_30, [\n              _hoisted_31,\n              _createElementVNode(\"ul\", null, [\n                (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value, (st, i) => {\n                  return _openBlock(), _createElementBlock(\"li\", {\n                    class: \"my-6 flex items-center space-x-2\",\n                    key: i\n                  }, [\n                    _hoisted_32,\n                    _createElementVNode(\"div\", _hoisted_33, [\n                      _createElementVNode(\"span\", _hoisted_34, _toDisplayString(st.firstName), 1),\n                      _createElementVNode(\"span\", _hoisted_35, _toDisplayString(st.email), 1)\n                    ])\n                  ]);\n                }), 128))\n              ])\n            ])\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1709290878206,
+      "end": 1709290878492,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue?macro=true&vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, unref as _unref, createStaticVNode as _createStaticVNode } from \"vue\"\nimport _imports_0 from '/images/2.jpg'\n\n\nconst _hoisted_1 = { class: \"flex flex-wrap sm:flex-row gap-8\" }\nconst _hoisted_2 = { class: \"w-full sm:w-1/2 xl:w-1/3\" }\nconst _hoisted_3 = { class: \"mb-4\" }\nconst _hoisted_4 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_5 = { class: \"mb-6 flex items-center justify-between\" }\nconst _hoisted_6 = { class: \"flex items-center\" }\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"relative rounded-xl bg-blue-100 p-2\" }, null, -1)\nconst _hoisted_8 = { class: \"flex flex-col\" }\nconst _hoisted_9 = { class: \"ml-2 font-bold text-black\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"ml-2 text-sm text-gray-500\" }, \"Available roles\", -1)\nconst _hoisted_11 = { class: \"flex items-center\" }\nconst _hoisted_12 = { class: \"rounded-full border border-gray-200 p-1\" }\nconst _hoisted_13 = { class: \"m-auto block\" }\nconst _hoisted_14 = { class: \"flex flex-col gap-2\" }\nconst _hoisted_15 = { class: \"flex justify-between py-3 h-14 bg-gray-100\" }\nconst _hoisted_16 = { class: \"p-3 text-md capitalize flex items-center\" }\nconst _hoisted_17 = { class: \"flex gap-4 p-3 items-center\" }\nconst _hoisted_18 = { class: \"mb-4\" }\nconst _hoisted_19 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_20 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"mb-6 flex items-center justify-between\\\"><div class=\\\"flex items-center\\\"><span class=\\\"relative rounded-xl bg-blue-100 p-2\\\"></span><div class=\\\"flex flex-col\\\"><span class=\\\"ml-2 font-bold text-black\\\">Leaderboard</span><span class=\\\"ml-2 text-sm text-gray-500\\\"> Top Performers </span></div></div></div>\", 1)\nconst _hoisted_21 = { class: \"mb-4 flex items-center justify-between space-x-12\" }\nconst _hoisted_22 = { class: \"flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-semibold text-green-700\" }\nconst _hoisted_23 = { class: \"m-auto block\" }\nconst _hoisted_24 = /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1)\nconst _hoisted_25 = { class: \"flex flex-col\" }\nconst _hoisted_26 = { class: \"ml-2 text-sm font-semibold text-gray-900\" }\nconst _hoisted_27 = { class: \"ml-2 text-sm text-gray-400\" }\nconst _hoisted_28 = { class: \"w-full sm:w-1/2 xl:w-1/3\" }\nconst _hoisted_29 = { class: \"mb-4\" }\nconst _hoisted_30 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_31 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"font-bold text-black\" }, \"Staff\", -1)\nconst _hoisted_32 = /*#__PURE__*/_createElementVNode(\"a\", {\n  href: \"#\",\n  class: \"relative block\"\n}, [\n  /*#__PURE__*/_createElementVNode(\"img\", {\n    alt: \"Maurice Lokumba\",\n    src: _imports_0,\n    class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n  })\n], -1)\nconst _hoisted_33 = { class: \"flex flex-col\" }\nconst _hoisted_34 = { class: \"ml-2 text-sm font-semibold text-gray-900\" }\nconst _hoisted_35 = { class: \"ml-2 text-sm text-gray-400\" }\n\nimport { ref, onMounted } from 'vue';\nimport axios from 'axios';\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'calendar',\n  props: {\n  title: {\n    type: String,\n    default: \"\",\n  },\n},\n  setup(__props) {\n\n\nconst staff = ref([]);\nconst roles = ref([]);\n\nconst currentDate = new Date();\nconst OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\nconst formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);\n\nonMounted(async () => {\n  try {\n    const response = await axios.get('http://localhost:3006/api/users');\n    staff.value = response.data;\n    const roleResponse = await axios.get('http://localhost:3006/api/roles');\n    roles.value = roleResponse.data;\n  } catch (error) {\n    console.error('Error fetching data:', error);\n    staff.value = null; // Set items to an empty array or handle error as needed\n  }\n});\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_IconsAddIcon = _resolveComponent(\"IconsAddIcon\")!\n  const _component_IconsPencilIcon = _resolveComponent(\"IconsPencilIcon\")!\n  const _component_IconsDeleteIcon = _resolveComponent(\"IconsDeleteIcon\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createElementVNode(\"div\", _hoisted_6, [\n              _hoisted_7,\n              _createElementVNode(\"div\", _hoisted_8, [\n                _createElementVNode(\"span\", _hoisted_9, _toDisplayString(__props.title || \"Employee roles\"), 1),\n                _hoisted_10\n              ])\n            ]),\n            _createElementVNode(\"div\", _hoisted_11, [\n              _createElementVNode(\"button\", _hoisted_12, [\n                _createVNode(_component_IconsAddIcon, { class: \"h-7 w-7\" })\n              ])\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_13, [\n            _createElementVNode(\"div\", _hoisted_14, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(roles.value, (role, i) => {\n                return (_openBlock(), _createElementBlock(\"div\", _hoisted_15, [\n                  _createElementVNode(\"p\", _hoisted_16, _toDisplayString(role.name), 1),\n                  _createElementVNode(\"div\", _hoisted_17, [\n                    _createVNode(_component_IconsPencilIcon, {\n                      class: \"w-6 h-6 cursor-pointer\",\n                      \"current-color\": '#fbbf24'\n                    }),\n                    _createVNode(_component_IconsDeleteIcon, { class: \"w-6 h-6 cursor-pointer\" })\n                  ])\n                ]))\n              }), 256))\n            ])\n          ])\n        ])\n      ]),\n      _createElementVNode(\"div\", _hoisted_18, [\n        _createElementVNode(\"div\", _hoisted_19, [\n          _hoisted_20,\n          _createElementVNode(\"div\", _hoisted_21, [\n            _createElementVNode(\"span\", _hoisted_22, _toDisplayString(_unref(formattedDate)), 1)\n          ]),\n          _createElementVNode(\"div\", _hoisted_23, [\n            _createElementVNode(\"ul\", null, [\n              (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value.slice(0,2), (st, i) => {\n                return (_openBlock(), _createElementBlock(\"li\", {\n                  class: \"my-6 flex items-center space-x-2\",\n                  key: i\n                }, [\n                  _hoisted_24,\n                  _createElementVNode(\"div\", _hoisted_25, [\n                    _createElementVNode(\"span\", _hoisted_26, _toDisplayString(st.firstName), 1),\n                    _createElementVNode(\"span\", _hoisted_27, _toDisplayString(st.email), 1)\n                  ])\n                ]))\n              }), 128))\n            ])\n          ])\n        ])\n      ])\n    ]),\n    _createElementVNode(\"div\", _hoisted_28, [\n      _createElementVNode(\"div\", _hoisted_29, [\n        _createElementVNode(\"div\", _hoisted_30, [\n          _hoisted_31,\n          _createElementVNode(\"ul\", null, [\n            (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(staff.value, (st, i) => {\n              return (_openBlock(), _createElementBlock(\"li\", {\n                class: \"my-6 flex items-center space-x-2\",\n                key: i\n              }, [\n                _hoisted_32,\n                _createElementVNode(\"div\", _hoisted_33, [\n                  _createElementVNode(\"span\", _hoisted_34, _toDisplayString(st.firstName), 1),\n                  _createElementVNode(\"span\", _hoisted_35, _toDisplayString(st.email), 1)\n                ])\n              ]))\n            }), 128))\n          ])\n        ])\n      ])\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "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",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290878492,
+      "end": 1709290878492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290878493,
+      "end": 1709290878493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290878494,
+      "end": 1709290878494,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290878494,
+      "end": 1709290878494,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878494,
+      "end": 1709290878494,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290878495,
+      "end": 1709290878495,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290878495,
+      "end": 1709290878495,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290878495,
+      "end": 1709290878496,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878496,
+      "end": 1709290878496,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290878496,
+      "end": 1709290878496,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290878496,
+      "end": 1709290878496,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290878497,
+      "end": 1709290878497,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290878498,
+      "end": 1709290878498,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290878499,
+      "end": 1709290878546,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290878547,
+      "end": 1709290878547,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709290878547,
+      "end": 1709290878567,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290878571,
+      "end": 1709290878572,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290878572,
+      "end": 1709290878572,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290878573,
+      "end": 1709290878573,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290878573,
+      "end": 1709290878573,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290878574,
+      "end": 1709290878574,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290878574,
+      "end": 1709290878574,
+      "order": "normal"
+    }
+  ]
+}

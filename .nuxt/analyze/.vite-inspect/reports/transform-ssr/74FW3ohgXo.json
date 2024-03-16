@@ -1,0 +1,278 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <DocsDoc />\n</template>\n",
+      "start": 1709290882173,
+      "end": 1709290882337,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290882337,
+      "end": 1709290882337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290882338,
+      "end": 1709290882338,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_DocsDoc = _resolveComponent(\"DocsDoc\")\n\n  _push(_ssrRenderComponent(_component_DocsDoc, _attrs, null, _parent))\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"pages/admin/documentation.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])",
+      "start": 1709290882338,
+      "end": 1709290882339,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue"
+        ],
+        "names": [],
+        "mappings": ";;;;;;EAAA,MAAA,wCAAA",
+        "sourcesContent": [
+          "<template>\n  <DocsDoc />\n</template>\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290882339,
+      "end": 1709290882339,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882339,
+      "end": 1709290882339,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882339,
+      "end": 1709290882339,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290882339,
+      "end": 1709290882339,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290882339,
+      "end": 1709290882339,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290882340,
+      "end": 1709290882340,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290882340,
+      "end": 1709290882340,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290882340,
+      "end": 1709290882340,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "const _sfc_main = {};\nimport { resolveComponent as _resolveComponent } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent } from \"vue/server-renderer\";\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_DocsDoc = _resolveComponent(\"DocsDoc\");\n  _push(_ssrRenderComponent(_component_DocsDoc, _attrs, null, _parent));\n}\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"pages/admin/documentation.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"ssrRender\", _sfc_ssrRender]]);\n",
+      "start": 1709290882340,
+      "end": 1709290882444,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue?macro=true\"],\n  \"sourcesContent\": [\"const _sfc_main = {}\\nimport { resolveComponent as _resolveComponent } from \\\"vue\\\"\\nimport { ssrRenderComponent as _ssrRenderComponent } from \\\"vue/server-renderer\\\"\\n\\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\\n  const _component_DocsDoc = _resolveComponent(\\\"DocsDoc\\\")\\n\\n  _push(_ssrRenderComponent(_component_DocsDoc, _attrs, null, _parent))\\n}\\n\\n\\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\\nconst _sfc_setup = _sfc_main.setup\\n_sfc_main.setup = (props, ctx) => {\\n  const ssrContext = __vite_useSSRContext()\\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\\\"pages/admin/documentation.vue\\\")\\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\\n}\\nimport _export_sfc from '\\u0000plugin-vue:export-helper'\\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])\"],\n  \"mappings\": \"AAAA,MAAM,YAAY,CAAC;AACnB,SAAS,oBAAoB,yBAAyB;AACtD,SAAS,sBAAsB,2BAA2B;AAE1D,SAAS,eAAe,MAAM,OAAO,SAAS,QAAQ;AACpD,QAAM,qBAAqB,kBAAkB,SAAS;AAEtD,QAAM,oBAAoB,oBAAoB,QAAQ,MAAM,OAAO,CAAC;AACtE;AAGA,SAAS,iBAAiB,4BAA4B;AACtD,MAAM,aAAa,UAAU;AAC7B,UAAU,QAAQ,CAAC,OAAO,QAAQ;AAChC,QAAM,aAAa,qBAAqB;AACvC,GAAC,WAAW,YAAY,WAAW,UAAU,oBAAI,IAAI,IAAI,IAAI,+BAA+B;AAC7F,SAAO,aAAa,WAAW,OAAO,GAAG,IAAI;AAC/C;AACA,OAAO,iBAAiB;AACxB,eAA4B,4BAAY,WAAW,CAAC,CAAC,aAAY,cAAc,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290882444,
+      "end": 1709290882444,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290882444,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290882445,
+      "end": 1709290882445,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290882445,
+      "end": 1709290882447,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290882445,
+      "end": 1709290882447,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290882447,
+      "end": 1709290882447,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290882447,
+      "end": 1709290882447,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709290882447,
+      "end": 1709290882448,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1709290882447,
+      "end": 1709290882448,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709290882448,
+      "end": 1709290882448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290882449,
+      "end": 1709290882449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290882449,
+      "end": 1709290882449,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290882449,
+      "end": 1709290882449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290882449,
+      "end": 1709290882449,
+      "order": "normal"
+    }
+  ]
+}

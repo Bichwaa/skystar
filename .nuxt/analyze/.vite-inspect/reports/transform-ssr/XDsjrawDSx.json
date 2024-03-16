@@ -1,0 +1,259 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/docs/icons/VueIcon.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <svg\n    viewBox=\"0 0 261.76 226.69\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    stroke=\"currentColor\"\n    fill=\"none\"\n    :class=\"extendClass ? extendClass : 'h-4 w-4 mt-1'\"\n  >\n    <g transform=\"matrix(1.3333 0 0 -1.3333 -76.311 313.34)\">\n      <g transform=\"translate(178.06 235.01)\">\n        <path\n          d=\"m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z\"\n          fill=\"#41b883\"\n        />\n      </g>\n      <g transform=\"translate(178.06 235.01)\">\n        <path\n          d=\"m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z\"\n          fill=\"#34495e\"\n        />\n      </g>\n    </g>\n  </svg>\n</template>\n\n<script>\nexport default {\n  name: 'VueIcon',\n  props: {\n    extendClass: {\n      type: String,\n      default: '',\n    },\n  },\n};\n</script>\n\n<style scoped></style>\n",
+      "start": 1709290883153,
+      "end": 1709290883186,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290883186,
+      "end": 1709290883186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "\nconst _sfc_main = {\n  name: 'VueIcon',\n  props: {\n    extendClass: {\n      type: String,\n      default: '',\n    },\n  },\n};\n\nimport { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs, $props, $setup, $data, $options) {\n  _push(`<svg${_ssrRenderAttrs(_mergeProps({\n    viewBox: \"0 0 261.76 226.69\",\n    xmlns: \"http://www.w3.org/2000/svg\",\n    stroke: \"currentColor\",\n    fill: \"none\",\n    class: $props.extendClass ? $props.extendClass : 'h-4 w-4 mt-1'\n  }, _attrs))}><g transform=\"matrix(1.3333 0 0 -1.3333 -76.311 313.34)\"><g transform=\"translate(178.06 235.01)\"><path d=\"m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z\" fill=\"#41b883\"></path></g><g transform=\"translate(178.06 235.01)\"><path d=\"m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z\" fill=\"#34495e\"></path></g></g></svg>`)\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/docs/icons/VueIcon.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])",
+      "start": 1709290883186,
+      "end": 1709290883191,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "file": "/home/bichwaa/Desktop/work/skystar/components/docs/icons/VueIcon.vue",
+        "names": [],
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/components/docs/icons/VueIcon.vue"
+        ],
+        "sourcesContent": [
+          "<template>\n  <svg\n    viewBox=\"0 0 261.76 226.69\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    stroke=\"currentColor\"\n    fill=\"none\"\n    :class=\"extendClass ? extendClass : 'h-4 w-4 mt-1'\"\n  >\n    <g transform=\"matrix(1.3333 0 0 -1.3333 -76.311 313.34)\">\n      <g transform=\"translate(178.06 235.01)\">\n        <path\n          d=\"m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z\"\n          fill=\"#41b883\"\n        />\n      </g>\n      <g transform=\"translate(178.06 235.01)\">\n        <path\n          d=\"m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z\"\n          fill=\"#34495e\"\n        />\n      </g>\n    </g>\n  </svg>\n</template>\n\n<script>\nexport default {\n  name: 'VueIcon',\n  props: {\n    extendClass: {\n      type: String,\n      default: '',\n    },\n  },\n};\n</script>\n\n<style scoped></style>\n"
+        ],
+        "mappings": ";AA0BA,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACb,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACf,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;IACL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;MACX,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;MACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC;IACb,CAAC;EACH,CAAC;AACH,CAAC;;;;;;EAlCD,aAAA,gBAAA;IAEI,OAAO,EAAC,mBAAmB;IAC3B,KAAK,EAAC,4BAA4B;IAClC,MAAM,EAAC,cAAc;IACrB,IAAI,EAAC,MAAM;IACV,KAAK,EAAE,kBAAW,GAAG,kBAAW;KANrC"
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290883191,
+      "end": 1709290883191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290883191,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290883191,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290883192,
+      "end": 1709290883192,
+      "order": "normal"
+    }
+  ]
+}

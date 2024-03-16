@@ -1,0 +1,221 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/dashboard/TopBar.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/images/9.jpg'\n\n\nconst _hoisted_1 = { class: \"relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl\" }\nconst _hoisted_2 = { class: \"relative mx-auto flex h-full flex-col justify-center px-3\" }\nconst _hoisted_3 = { class: \"relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2\" }\nconst _hoisted_4 = { class: \"relative left-0 flex h-full w-3/4\" }\nconst _hoisted_5 = { class: \"group relative flex h-full w-12 items-center\" }\nconst _hoisted_6 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"group relative flex h-full w-36 items-center lg:w-64\\\"><div class=\\\"absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden\\\"><svg fill=\\\"none\\\" class=\\\"relative h-5 w-5\\\" stroke-linecap=\\\"round\\\" stroke-linejoin=\\\"round\\\" stroke-width=\\\"2\\\" stroke=\\\"currentColor\\\" viewBox=\\\"0 0 24 24\\\"><path d=\\\"M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z\\\"></path></svg></div><svg class=\\\"pointer-events-none absolute left-0 ml-4 hidden h-4 w-4 fill-current text-gray-500 group-hover:text-gray-400 sm:block\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 20 20\\\"><path d=\\\"M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z\\\"></path></svg><input type=\\\"text\\\" class=\\\"block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-400 opacity-90 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500\\\" placeholder=\\\"Search\\\"><div class=\\\"absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block\\\"> + </div></div>\", 1)\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0\" }, [\n  /*#__PURE__*/_createElementVNode(\"a\", {\n    href: \"#\",\n    class: \"relative block\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"img\", {\n      alt: \"Jonathan Ilunga\",\n      src: _imports_0,\n      class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n    })\n  ])\n], -1)\n\nimport { toggleSidebar } from \"./store\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TopBar',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createElementVNode(\"button\", {\n              type: \"button\",\n              \"aria-expanded\": \"false\",\n              \"aria-label\": \"Toggle sidenav\",\n              class: \"text-4xl text-gray-500 focus:outline-none\",\n              onClick: _cache[0] || (_cache[0] = \n//@ts-ignore\n(...args) => (_unref(toggleSidebar) && _unref(toggleSidebar)(...args)))\n            }, \" ≡ \")\n          ]),\n          _hoisted_6\n        ]),\n        _hoisted_7\n      ])\n    ])\n  ]))\n}\n}\n\n})",
+      "start": 1709290879024,
+      "end": 1709290879024
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290879024,
+      "end": 1709290879024,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290879024,
+      "end": 1709290879024,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290879024,
+      "end": 1709290879024,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290879024,
+      "end": 1709290879024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createElementVNode as _createElementVNode, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport _imports_0 from \"/images/9.jpg\";\nconst _hoisted_1 = { class: \"relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl\" };\nconst _hoisted_2 = { class: \"relative mx-auto flex h-full flex-col justify-center px-3\" };\nconst _hoisted_3 = { class: \"relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2\" };\nconst _hoisted_4 = { class: \"relative left-0 flex h-full w-3/4\" };\nconst _hoisted_5 = { class: \"group relative flex h-full w-12 items-center\" };\nconst _hoisted_6 = /* @__PURE__ */ _createStaticVNode('<div class=\"group relative flex h-full w-36 items-center lg:w-64\"><div class=\"absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden\"><svg fill=\"none\" class=\"relative h-5 w-5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path d=\"M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg></div><svg class=\"pointer-events-none absolute left-0 ml-4 hidden h-4 w-4 fill-current text-gray-500 group-hover:text-gray-400 sm:block\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z\"></path></svg><input type=\"text\" class=\"block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-400 opacity-90 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500\" placeholder=\"Search\"><div class=\"absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block\"> + </div></div>', 1);\nconst _hoisted_7 = /* @__PURE__ */ _createElementVNode(\"div\", { class: \"relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0\" }, [\n  /* @__PURE__ */ _createElementVNode(\"a\", {\n    href: \"#\",\n    class: \"relative block\"\n  }, [\n    /* @__PURE__ */ _createElementVNode(\"img\", {\n      alt: \"Jonathan Ilunga\",\n      src: _imports_0,\n      class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n    })\n  ])\n], -1);\nimport { toggleSidebar } from \"./store\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TopBar\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n        _createElementVNode(\"div\", _hoisted_2, [\n          _createElementVNode(\"div\", _hoisted_3, [\n            _createElementVNode(\"div\", _hoisted_4, [\n              _createElementVNode(\"div\", _hoisted_5, [\n                _createElementVNode(\"button\", {\n                  type: \"button\",\n                  \"aria-expanded\": \"false\",\n                  \"aria-label\": \"Toggle sidenav\",\n                  class: \"text-4xl text-gray-500 focus:outline-none\",\n                  onClick: _cache[0] || (_cache[0] = //@ts-ignore\n                  (...args) => _unref(toggleSidebar) && _unref(toggleSidebar)(...args))\n                }, \" ≡ \")\n              ]),\n              _hoisted_6\n            ]),\n            _hoisted_7\n          ])\n        ])\n      ]);\n    };\n  }\n});\n",
+      "start": 1709290879024,
+      "end": 1709290879039,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/dashboard/TopBar.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createElementVNode as _createElementVNode, createStaticVNode as _createStaticVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\nimport _imports_0 from '/images/9.jpg'\n\n\nconst _hoisted_1 = { class: \"relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl\" }\nconst _hoisted_2 = { class: \"relative mx-auto flex h-full flex-col justify-center px-3\" }\nconst _hoisted_3 = { class: \"relative flex w-full items-center pl-1 sm:ml-0 sm:pr-2\" }\nconst _hoisted_4 = { class: \"relative left-0 flex h-full w-3/4\" }\nconst _hoisted_5 = { class: \"group relative flex h-full w-12 items-center\" }\nconst _hoisted_6 = /*#__PURE__*/_createStaticVNode(\"<div class=\\\"group relative flex h-full w-36 items-center lg:w-64\\\"><div class=\\\"absolute flex h-10 w-auto cursor-pointer items-center justify-center p-3 pr-2 text-sm uppercase text-gray-500 sm:hidden\\\"><svg fill=\\\"none\\\" class=\\\"relative h-5 w-5\\\" stroke-linecap=\\\"round\\\" stroke-linejoin=\\\"round\\\" stroke-width=\\\"2\\\" stroke=\\\"currentColor\\\" viewBox=\\\"0 0 24 24\\\"><path d=\\\"M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z\\\"></path></svg></div><svg class=\\\"pointer-events-none absolute left-0 ml-4 hidden h-4 w-4 fill-current text-gray-500 group-hover:text-gray-400 sm:block\\\" xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 20 20\\\"><path d=\\\"M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z\\\"></path></svg><input type=\\\"text\\\" class=\\\"block w-full rounded-2xl bg-gray-100 py-1.5 pl-10 pr-4 leading-normal text-gray-400 opacity-90 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500\\\" placeholder=\\\"Search\\\"><div class=\\\"absolute right-0 mr-2 hidden h-auto rounded-2xl border border-gray-300 px-2 py-1 text-xs text-gray-400 md:block\\\"> + </div></div>\", 1)\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0\" }, [\n  /*#__PURE__*/_createElementVNode(\"a\", {\n    href: \"#\",\n    class: \"relative block\"\n  }, [\n    /*#__PURE__*/_createElementVNode(\"img\", {\n      alt: \"Jonathan Ilunga\",\n      src: _imports_0,\n      class: \"mx-auto h-10 w-10 rounded-full object-cover\"\n    })\n  ])\n], -1)\n\nimport { toggleSidebar } from \"./store\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TopBar',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"header\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createElementVNode(\"button\", {\n              type: \"button\",\n              \"aria-expanded\": \"false\",\n              \"aria-label\": \"Toggle sidenav\",\n              class: \"text-4xl text-gray-500 focus:outline-none\",\n              onClick: _cache[0] || (_cache[0] = \n//@ts-ignore\n(...args) => (_unref(toggleSidebar) && _unref(toggleSidebar)(...args)))\n            }, \" ≡ \")\n          ]),\n          _hoisted_6\n        ]),\n        _hoisted_7\n      ])\n    ])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,sBAAsB,qBAAqB,qBAAqB,oBAAoB,aAAa,YAAY,sBAAsB,2BAA2B;AACxL,OAAO,gBAAgB;AAGvB,MAAM,aAAa,EAAE,OAAO,gFAAgF;AAC5G,MAAM,aAAa,EAAE,OAAO,4DAA4D;AACxF,MAAM,aAAa,EAAE,OAAO,yDAAyD;AACrF,MAAM,aAAa,EAAE,OAAO,oCAAoC;AAChE,MAAM,aAAa,EAAE,OAAO,+CAA+C;AAC3E,MAAM,aAA0B,mCAAmB,4lCAAgoC,CAAC;AACprC,MAAM,aAA0B,oCAAoB,OAAO,EAAE,OAAO,8EAA8E,GAAG;AAAA,EACtI,oCAAoB,KAAK;AAAA,IACpC,MAAM;AAAA,IACN,OAAO;AAAA,EACT,GAAG;AAAA,IACY,oCAAoB,OAAO;AAAA,MACtC,KAAK;AAAA,MACL,KAAK;AAAA,MACL,OAAO;AAAA,IACT,CAAC;AAAA,EACH,CAAC;AACH,GAAG,EAAE;AAEL,SAAS,qBAAqB;AAE9B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAGjB,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,UAAU,YAAY;AAAA,QAC9D,oBAAoB,OAAO,YAAY;AAAA,UACrC,oBAAoB,OAAO,YAAY;AAAA,YACrC,oBAAoB,OAAO,YAAY;AAAA,cACrC,oBAAoB,OAAO,YAAY;AAAA,gBACrC,oBAAoB,UAAU;AAAA,kBAC5B,MAAM;AAAA,kBACN,iBAAiB;AAAA,kBACjB,cAAc;AAAA,kBACd,OAAO;AAAA,kBACP,SAAS,OAAO,CAAC,MAAM,OAAO,CAAC;AAAA,kBAE7C,IAAI,SAAU,OAAO,aAAa,KAAK,OAAO,aAAa,EAAE,GAAG,IAAI;AAAA,gBACxD,GAAG,KAAK;AAAA,cACV,CAAC;AAAA,cACD;AAAA,YACF,CAAC;AAAA,YACD;AAAA,UACF,CAAC;AAAA,QACH,CAAC;AAAA,MACH,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290879039,
+      "end": 1709290879039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290879039,
+      "end": 1709290879039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290879039,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290879040,
+      "end": 1709290879040,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290879040,
+      "end": 1709290879042,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290879042,
+      "end": 1709290879042,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290879042,
+      "end": 1709290879043,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290879043,
+      "end": 1709290879043,
+      "order": "normal"
+    }
+  ]
+}

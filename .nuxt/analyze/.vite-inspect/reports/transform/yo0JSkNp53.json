@@ -1,0 +1,212 @@
+{
+  "resolvedId": "virtual:nuxt:/home/bichwaa/Desktop/work/skystar/.nuxt/routes.mjs",
+  "transforms": [
+    {
+      "name": "virtual",
+      "result": "import { default as calendarqDLQBmRFACMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue?macro=true\";\nimport { default as customerslSSC9nGcU3Meta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/customers.vue?macro=true\";\nimport { default as documentationBsAQFyzi7VMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue?macro=true\";\nimport { default as employees2zUIVGMgEBMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/employees.vue?macro=true\";\nimport { default as reportsiOz5tzjigaMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/reports.vue?macro=true\";\nimport { default as settingsw26V5rOyVfMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/settings.vue?macro=true\";\nimport { default as time_45manageKVWjVzxEROMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/time-manage.vue?macro=true\";\nimport { default as indexWJKxxYRGclMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/index.vue?macro=true\";\nimport { default as loginj3N4wHBeOvMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/login.vue?macro=true\";\nimport { default as register43zV7Np5UHMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true\";\nexport default [\n  {\n    name: calendarqDLQBmRFACMeta?.name ?? \"admin-calendar\",\n    path: calendarqDLQBmRFACMeta?.path ?? \"/admin/calendar\",\n    meta: calendarqDLQBmRFACMeta || {},\n    alias: calendarqDLQBmRFACMeta?.alias || [],\n    redirect: calendarqDLQBmRFACMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue\").then(m => m.default || m)\n  },\n  {\n    name: customerslSSC9nGcU3Meta?.name ?? \"admin-customers\",\n    path: customerslSSC9nGcU3Meta?.path ?? \"/admin/customers\",\n    meta: customerslSSC9nGcU3Meta || {},\n    alias: customerslSSC9nGcU3Meta?.alias || [],\n    redirect: customerslSSC9nGcU3Meta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/customers.vue\").then(m => m.default || m)\n  },\n  {\n    name: documentationBsAQFyzi7VMeta?.name ?? \"admin-documentation\",\n    path: documentationBsAQFyzi7VMeta?.path ?? \"/admin/documentation\",\n    meta: documentationBsAQFyzi7VMeta || {},\n    alias: documentationBsAQFyzi7VMeta?.alias || [],\n    redirect: documentationBsAQFyzi7VMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue\").then(m => m.default || m)\n  },\n  {\n    name: employees2zUIVGMgEBMeta?.name ?? \"admin-employees\",\n    path: employees2zUIVGMgEBMeta?.path ?? \"/admin/employees\",\n    meta: employees2zUIVGMgEBMeta || {},\n    alias: employees2zUIVGMgEBMeta?.alias || [],\n    redirect: employees2zUIVGMgEBMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/employees.vue\").then(m => m.default || m)\n  },\n  {\n    name: reportsiOz5tzjigaMeta?.name ?? \"admin-reports\",\n    path: reportsiOz5tzjigaMeta?.path ?? \"/admin/reports\",\n    meta: reportsiOz5tzjigaMeta || {},\n    alias: reportsiOz5tzjigaMeta?.alias || [],\n    redirect: reportsiOz5tzjigaMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/reports.vue\").then(m => m.default || m)\n  },\n  {\n    name: settingsw26V5rOyVfMeta?.name ?? \"admin-settings\",\n    path: settingsw26V5rOyVfMeta?.path ?? \"/admin/settings\",\n    meta: settingsw26V5rOyVfMeta || {},\n    alias: settingsw26V5rOyVfMeta?.alias || [],\n    redirect: settingsw26V5rOyVfMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/settings.vue\").then(m => m.default || m)\n  },\n  {\n    name: time_45manageKVWjVzxEROMeta?.name ?? \"admin-time-manage\",\n    path: time_45manageKVWjVzxEROMeta?.path ?? \"/admin/time-manage\",\n    meta: time_45manageKVWjVzxEROMeta || {},\n    alias: time_45manageKVWjVzxEROMeta?.alias || [],\n    redirect: time_45manageKVWjVzxEROMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/time-manage.vue\").then(m => m.default || m)\n  },\n  {\n    name: indexWJKxxYRGclMeta?.name ?? \"index\",\n    path: indexWJKxxYRGclMeta?.path ?? \"/\",\n    meta: indexWJKxxYRGclMeta || {},\n    alias: indexWJKxxYRGclMeta?.alias || [],\n    redirect: indexWJKxxYRGclMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/index.vue\").then(m => m.default || m)\n  },\n  {\n    name: loginj3N4wHBeOvMeta?.name ?? \"login\",\n    path: loginj3N4wHBeOvMeta?.path ?? \"/login\",\n    meta: loginj3N4wHBeOvMeta || {},\n    alias: loginj3N4wHBeOvMeta?.alias || [],\n    redirect: loginj3N4wHBeOvMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/login.vue\").then(m => m.default || m)\n  },\n  {\n    name: register43zV7Np5UHMeta?.name ?? \"register\",\n    path: register43zV7Np5UHMeta?.path ?? \"/register\",\n    meta: register43zV7Np5UHMeta || {},\n    alias: register43zV7Np5UHMeta?.alias || [],\n    redirect: register43zV7Np5UHMeta?.redirect,\n    component: () => import(\"/home/bichwaa/Desktop/work/skystar/pages/register.vue\").then(m => m.default || m)\n  }\n]",
+      "start": 1709290875630,
+      "end": 1709290875630,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290875630,
+      "end": 1709290875630,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290875631,
+      "end": 1709290875631,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290875632,
+      "end": 1709290875632,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290875632,
+      "end": 1709290875633,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290875633,
+      "end": 1709290875633,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290875633,
+      "end": 1709290875633,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290875634,
+      "end": 1709290875640,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290875641,
+      "end": 1709290875641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290875641,
+      "end": 1709290875641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290875641,
+      "end": 1709290875641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290875641,
+      "end": 1709290875641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290875641,
+      "end": 1709290875641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290875642,
+      "end": 1709290875642,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";import { default as calendarqDLQBmRFACMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue?macro=true\";\nimport { default as customerslSSC9nGcU3Meta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/customers.vue?macro=true\";\nimport { default as documentationBsAQFyzi7VMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue?macro=true\";\nimport { default as employees2zUIVGMgEBMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/employees.vue?macro=true\";\nimport { default as reportsiOz5tzjigaMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/reports.vue?macro=true\";\nimport { default as settingsw26V5rOyVfMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/settings.vue?macro=true\";\nimport { default as time_45manageKVWjVzxEROMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/admin/time-manage.vue?macro=true\";\nimport { default as indexWJKxxYRGclMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/index.vue?macro=true\";\nimport { default as loginj3N4wHBeOvMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/login.vue?macro=true\";\nimport { default as register43zV7Np5UHMeta } from \"/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true\";\nexport default [\n  {\n    name: calendarqDLQBmRFACMeta?.name ?? \"admin-calendar\",\n    path: calendarqDLQBmRFACMeta?.path ?? \"/admin/calendar\",\n    meta: calendarqDLQBmRFACMeta || {},\n    alias: calendarqDLQBmRFACMeta?.alias || [],\n    redirect: calendarqDLQBmRFACMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/calendar.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: customerslSSC9nGcU3Meta?.name ?? \"admin-customers\",\n    path: customerslSSC9nGcU3Meta?.path ?? \"/admin/customers\",\n    meta: customerslSSC9nGcU3Meta || {},\n    alias: customerslSSC9nGcU3Meta?.alias || [],\n    redirect: customerslSSC9nGcU3Meta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/customers.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: documentationBsAQFyzi7VMeta?.name ?? \"admin-documentation\",\n    path: documentationBsAQFyzi7VMeta?.path ?? \"/admin/documentation\",\n    meta: documentationBsAQFyzi7VMeta || {},\n    alias: documentationBsAQFyzi7VMeta?.alias || [],\n    redirect: documentationBsAQFyzi7VMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/documentation.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: employees2zUIVGMgEBMeta?.name ?? \"admin-employees\",\n    path: employees2zUIVGMgEBMeta?.path ?? \"/admin/employees\",\n    meta: employees2zUIVGMgEBMeta || {},\n    alias: employees2zUIVGMgEBMeta?.alias || [],\n    redirect: employees2zUIVGMgEBMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/employees.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: reportsiOz5tzjigaMeta?.name ?? \"admin-reports\",\n    path: reportsiOz5tzjigaMeta?.path ?? \"/admin/reports\",\n    meta: reportsiOz5tzjigaMeta || {},\n    alias: reportsiOz5tzjigaMeta?.alias || [],\n    redirect: reportsiOz5tzjigaMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/reports.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: settingsw26V5rOyVfMeta?.name ?? \"admin-settings\",\n    path: settingsw26V5rOyVfMeta?.path ?? \"/admin/settings\",\n    meta: settingsw26V5rOyVfMeta || {},\n    alias: settingsw26V5rOyVfMeta?.alias || [],\n    redirect: settingsw26V5rOyVfMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/settings.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: time_45manageKVWjVzxEROMeta?.name ?? \"admin-time-manage\",\n    path: time_45manageKVWjVzxEROMeta?.path ?? \"/admin/time-manage\",\n    meta: time_45manageKVWjVzxEROMeta || {},\n    alias: time_45manageKVWjVzxEROMeta?.alias || [],\n    redirect: time_45manageKVWjVzxEROMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/admin/time-manage.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: indexWJKxxYRGclMeta?.name ?? \"index\",\n    path: indexWJKxxYRGclMeta?.path ?? \"/\",\n    meta: indexWJKxxYRGclMeta || {},\n    alias: indexWJKxxYRGclMeta?.alias || [],\n    redirect: indexWJKxxYRGclMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/index.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: loginj3N4wHBeOvMeta?.name ?? \"login\",\n    path: loginj3N4wHBeOvMeta?.path ?? \"/login\",\n    meta: loginj3N4wHBeOvMeta || {},\n    alias: loginj3N4wHBeOvMeta?.alias || [],\n    redirect: loginj3N4wHBeOvMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/login.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  },\n  {\n    name: register43zV7Np5UHMeta?.name ?? \"register\",\n    path: register43zV7Np5UHMeta?.path ?? \"/register\",\n    meta: register43zV7Np5UHMeta || {},\n    alias: register43zV7Np5UHMeta?.alias || [],\n    redirect: register43zV7Np5UHMeta?.redirect,\n    component: () => __vitePreload(() => import(\"/home/bichwaa/Desktop/work/skystar/pages/register.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n  }\n]",
+      "start": 1709290875642,
+      "end": 1709290875643,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290875643,
+      "end": 1709290875643,
+      "order": "normal"
+    }
+  ]
+}

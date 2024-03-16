@@ -1,0 +1,221 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/dashboard/sidebar/Sidebar.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-3e233641\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"pb-32 lg:pb-6\" }\n\nimport { sidebarOpen } from \"../store\";\nimport SidebarItems from \"./SidebarItems.vue\";\nimport SidebarHeader from \"./SidebarHeader.vue\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'Sidebar',\n  props: {\n  mobileOrientation: {\n    type: String,\n    default: \"end\",\n  },\n},\n  setup(__props) {\n\n\n\nconst style = {\n  mobileOrientation: {\n    start: \"left-0\",\n    end: \"right-0\",\n  },\n};\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"aside\", {\n    class: _normalizeClass([\"scrollbar top-0 h-screen overflow-y-auto bg-white lg:relative\", [\n      style.mobileOrientation[__props.mobileOrientation],\n      _unref(sidebarOpen)\n        ? 'absolute z-40 w-8/12 sm:w-5/12 lg:hidden'\n        : 'hidden lg:z-auto lg:block lg:w-64',\n    ]])\n  }, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(SidebarHeader),\n      _createVNode(SidebarItems)\n    ])\n  ], 2))\n}\n}\n\n})",
+      "start": 1709290879045,
+      "end": 1709290879045
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290879045,
+      "end": 1709290879045,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290879045,
+      "end": 1709290879045,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290879045,
+      "end": 1709290879045,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290879045,
+      "end": 1709290879045,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-3e233641\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"pb-32 lg:pb-6\" };\nimport { sidebarOpen } from \"../store\";\nimport SidebarItems from \"./SidebarItems.vue\";\nimport SidebarHeader from \"./SidebarHeader.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Sidebar\",\n  props: {\n    mobileOrientation: {\n      type: String,\n      default: \"end\"\n    }\n  },\n  setup(__props) {\n    const style = {\n      mobileOrientation: {\n        start: \"left-0\",\n        end: \"right-0\"\n      }\n    };\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"aside\", {\n        class: _normalizeClass([\"scrollbar top-0 h-screen overflow-y-auto bg-white lg:relative\", [\n          style.mobileOrientation[__props.mobileOrientation],\n          _unref(sidebarOpen) ? \"absolute z-40 w-8/12 sm:w-5/12 lg:hidden\" : \"hidden lg:z-auto lg:block lg:w-64\"\n        ]])\n      }, [\n        _createElementVNode(\"div\", _hoisted_1, [\n          _createVNode(SidebarHeader),\n          _createVNode(SidebarItems)\n        ])\n      ], 2);\n    };\n  }\n});\n",
+      "start": 1709290879085,
+      "end": 1709290879107,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/dashboard/sidebar/Sidebar.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, createVNode as _createVNode, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-3e233641\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"pb-32 lg:pb-6\" }\n\nimport { sidebarOpen } from \"../store\";\nimport SidebarItems from \"./SidebarItems.vue\";\nimport SidebarHeader from \"./SidebarHeader.vue\";\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'Sidebar',\n  props: {\n  mobileOrientation: {\n    type: String,\n    default: \"end\",\n  },\n},\n  setup(__props) {\n\n\n\nconst style = {\n  mobileOrientation: {\n    start: \"left-0\",\n    end: \"right-0\",\n  },\n};\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"aside\", {\n    class: _normalizeClass([\"scrollbar top-0 h-screen overflow-y-auto bg-white lg:relative\", [\n      style.mobileOrientation[__props.mobileOrientation],\n      _unref(sidebarOpen)\n        ? 'absolute z-40 w-8/12 sm:w-5/12 lg:hidden'\n        : 'hidden lg:z-auto lg:block lg:w-64',\n    ]])\n  }, [\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(SidebarHeader),\n      _createVNode(SidebarItems)\n    ])\n  ], 2))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,eAAe,cAAc,sBAAsB,qBAAqB,kBAAkB,iBAAiB,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAEvQ,MAAM,eAAe,QAAM,aAAa,iBAAiB,GAAE,IAAE,EAAE,GAAE,YAAY,GAAE;AAC/E,MAAM,aAAa,EAAE,OAAO,gBAAgB;AAE5C,SAAS,mBAAmB;AAC5B,OAAO,kBAAkB;AACzB,OAAO,mBAAmB;AAG1B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,mBAAmB;AAAA,MACjB,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS;AAIjB,UAAM,QAAQ;AAAA,MACZ,mBAAmB;AAAA,QACjB,OAAO;AAAA,QACP,KAAK;AAAA,MACP;AAAA,IACF;AAEA,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,SAAS;AAAA,QACjD,OAAO,gBAAgB,CAAC,iEAAiE;AAAA,UACvF,MAAM,kBAAkB,QAAQ,iBAAiB;AAAA,UACjD,OAAO,WAAW,IACd,6CACA;AAAA,QACN,CAAC,CAAC;AAAA,MACJ,GAAG;AAAA,QACD,oBAAoB,OAAO,YAAY;AAAA,UACrC,aAAa,aAAa;AAAA,UAC1B,aAAa,YAAY;AAAA,QAC3B,CAAC;AAAA,MACH,GAAG,CAAC;AAAA,IACN;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290879107,
+      "end": 1709290879107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290879108,
+      "end": 1709290879108,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290879109,
+      "end": 1709290879109,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290879109,
+      "end": 1709290879109,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290879109,
+      "end": 1709290879109,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290879109,
+      "end": 1709290879109,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290879109,
+      "end": 1709290879109,
+      "order": "normal"
+    }
+  ]
+}

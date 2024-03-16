@@ -1,0 +1,223 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"h-full grid place-items-center \">\r\n      <form \r\n      @submit.prevent=\"formSubmitted\" \r\n          class=\"form-card bg-[#F5F6F7] p-2 lg:p-16 rounded-lg\">\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"firstname\" class=\"text-xs font-medium\">First name</label>\r\n                  <input type=\"firstname\" name=\"firstname\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"lastname\" class=\"text-xs font-medium\">Last name</label>\r\n                  <input type=\"lastname\" name=\"lastname\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n          \r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"email\" class=\"text-xs font-medium\">Email</label>\r\n                  <input type=\"email\" name=\"email\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n          <div class=\"flex flex-col lg:flex-row gap-8 justify-center py-1\">\r\n              <div class=\"grp flex flex-col \">\r\n                  <label for=\"password\" class=\"text-xs font-medium\">Password</label>\r\n                  <input type=\"password\" name=\"password\" class=\" border border-1 border-slate-400 rounded-md lg:h-8 w-full\">\r\n              </div>\r\n          </div>\r\n\r\n\r\n          <div class=\"flex flex-col my-3\">\r\n          <div class=\"grid place-items-center\">\r\n              <p>Already registered <nuxt-link to=\"/login\" class=\"text-blue-500 my-2\">Login</nuxt-link></p>\r\n          </div>\r\n          </div>\r\n      </form>\r\n  </div>\r\n</template>\r\n\r\n<script lang=\"ts\" setup>\r\nfunction formSubmitted(){\r\n    window.alert('form fake submitted')\r\n}\r\n</script>\r\n\r\n<style>\r\n\r\n</style>",
+      "start": 1709290876155,
+      "end": 1709290877078,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1709290877078,
+      "end": 1709290877078,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1709290877078,
+      "end": 1709290877078,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1709290877078,
+      "end": 1709290877078,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1709290877078,
+      "end": 1709290877078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1709290877078,
+      "end": 1709290877078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1709290877078,
+      "end": 1709290877079,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1709290877079,
+      "end": 1709290877079,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/home/bichwaa/Desktop/work/skystar/pages/register.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/home/bichwaa/Desktop/work/skystar/pages/register.vue?vue&type=script&setup=true&lang.ts\";\nexport default _sfc_main;\n",
+      "start": 1709290877079,
+      "end": 1709290878128,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1709290878129,
+      "end": 1709290878129,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878129,
+      "end": 1709290878129,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1709290878130,
+      "end": 1709290878130,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1709290878130,
+      "end": 1709290878130,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1709290878130,
+      "end": 1709290878131,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1709290878131,
+      "end": 1709290878131,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1709290878131,
+      "end": 1709290878131,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1709290878132,
+      "end": 1709290878132,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1709290878132,
+      "end": 1709290878132,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1709290878132,
+      "end": 1709290878132,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1709290878133,
+      "end": 1709290878133,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1709290878133,
+      "end": 1709290878133,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1709290878133,
+      "end": 1709290878133,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1709290878133,
+      "end": 1709290878133,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1709290878133,
+      "end": 1709290878133,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1709290878133,
+      "end": 1709290878134,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1709290878134,
+      "end": 1709290878136,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1709290878137,
+      "end": 1709290878137,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "export { default } from \"/home/bichwaa/Desktop/work/skystar/pages/register.vue?macro=true&vue&type=script&setup=true&lang.ts\"",
+      "start": 1709290878139,
+      "end": 1709290878140,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1709290878141,
+      "end": 1709290878141,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1709290878142,
+      "end": 1709290878142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1709290878142,
+      "end": 1709290878143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1709290878143,
+      "end": 1709290878143,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1709290878143,
+      "end": 1709290878144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1709290878144,
+      "end": 1709290878144,
+      "order": "normal"
+    }
+  ]
+}
