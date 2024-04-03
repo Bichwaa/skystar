@@ -24,10 +24,6 @@ import TimeManageIcon from "./icons/TimeManageIcon.vue";
       <TasksIcon />
     </SidebarItem>
 
-    <SidebarItem title="Petty Cash" to="/admin/calendar">
-      <CalendarIcon />
-    </SidebarItem>
-
     <!-- <SidebarItem title="Time Manage" to="/admin/time-manage">
       <TimeManageIcon />
     </SidebarItem>
@@ -38,11 +34,15 @@ import TimeManageIcon from "./icons/TimeManageIcon.vue";
 
     <SidebarItem title="Settings" to="/admin/settings">
       <SettingsIcon />
+    </SidebarItem>-->
+
+    <SidebarItem title="Consignments" to="/admin/consignments">
+      <DocIcon />
     </SidebarItem>
 
-    <SidebarItem title="Documentation" to="/admin/documentation">
-      <DocIcon />
-    </SidebarItem>-->
+    <SidebarItem title="Petty Cash" to="/admin/petty-cash">
+      <CalendarIcon />
+    </SidebarItem>
 
     <SidebarItem title="login" to="/login">
       <DocIcon />

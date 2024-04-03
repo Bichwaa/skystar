@@ -1,1 +1,0 @@
-import{_ as t}from"./Content.vue.YqWraZXg.js";import{_ as o,y as n,o as c}from"./entry.CZlNlqWW.js";import"./2.f9XqJx11.js";const a={};function r(_,s){const e=t;return c(),n(e,{title:"Time Manage"})}const p=o(a,[["render",r]]);export{p as default};

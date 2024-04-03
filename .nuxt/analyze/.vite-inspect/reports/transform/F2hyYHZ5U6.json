@@ -1,0 +1,215 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/DeleteDialog.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <Modal @close-modal=\"close\">\n        <div class=\"flex flex-col gap-6 items-center \">\n            <p class=\"text-center\">\n                Are you sure you want to delete this {{ entity }} ?\n                <br/>\n                this action is not reversible\n            </p>\n\n            <Loader v-if=\"loading\" class=\"h-12 w-12\"/>\n            \n            <div class=\"flex gap-4 items-center\">\n                <button \n                    class=\"flex items-center justify-center py-2 px-3 mt-3 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\"\n                    @click=\"close\"\n                    >\n                    No\n                </button>\n\n                <span class=\"text-red-600 cursor-pointer\" @click=\"proceed\">Yes, Delete</span>\n            </div>\n        </div>\n    </Modal>\n</template>\n\n<script setup>\n\nconst props = defineProps({\n    entity:{\n        type:String,\n        default: \"item\"\n    },\n    loading:{\n        type:Boolean,\n        default:false\n     }\n})\n\nconst emit = defineEmits(['close'])\n\nfunction close(){\n    emit(\"close\")\n}\n\nfunction proceed(){\n    emit(\"proceed\")\n}\n\n</Script>",
+      "start": 1711532989597,
+      "end": 1711532992975,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711532992976,
+      "end": 1711532992976,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711532992976,
+      "end": 1711532992976,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711532992976,
+      "end": 1711532992976,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711532992977,
+      "end": 1711532992977,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711532992977,
+      "end": 1711532992977,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711532992977,
+      "end": 1711532992977,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711532992977,
+      "end": 1711532992977,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col gap-6 items-center\" }\nconst _hoisted_2 = { class: \"text-center\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"br\", null, null, -1)\n\n\nconst _sfc_main = {\n  __name: 'DeleteDialog',\n  props: {\n    entity:{\n        type:String,\n        default: \"item\"\n    },\n    loading:{\n        type:Boolean,\n        default:false\n     }\n},\n  emits: ['close'],\n  setup(__props, { emit: __emit }) {\n\n\nconst props = __props\n\nconst emit = __emit\n\nfunction close(){\n    emit(\"close\")\n}\n\nfunction proceed(){\n    emit(\"proceed\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Loader = _resolveComponent(\"Loader\")\n  const _component_Modal = _resolveComponent(\"Modal\")\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"p\", _hoisted_2, [\n          _createTextVNode(\" Are you sure you want to delete this \" + _toDisplayString(__props.entity) + \" ? \", 1),\n          _hoisted_3,\n          _createTextVNode(\" this action is not reversible \")\n        ]),\n        (__props.loading)\n          ? (_openBlock(), _createBlock(_component_Loader, {\n              key: 0,\n              class: \"h-12 w-12\"\n            }))\n          : _createCommentVNode(\"\", true),\n        _createElementVNode(\"div\", { class: \"flex gap-4 items-center\" }, [\n          _createElementVNode(\"button\", {\n            class: \"flex items-center justify-center py-2 px-3 mt-3 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\",\n            onClick: close\n          }, \" No \"),\n          _createElementVNode(\"span\", {\n            class: \"text-red-600 cursor-pointer\",\n            onClick: proceed\n          }, \"Yes, Delete\")\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532992977,
+      "end": 1711532992998,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711532992998,
+      "end": 1711532992998,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532992998,
+      "end": 1711532992998,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711532992999,
+      "end": 1711532992999,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711532992999,
+      "end": 1711532992999,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711532992999,
+      "end": 1711532992999,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532992999,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711532993000,
+      "end": 1711532993000,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711532993000,
+      "end": 1711532993001,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711532993001,
+      "end": 1711532993001,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711532993001,
+      "end": 1711532993001,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711532993001,
+      "end": 1711532993023,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711532993023,
+      "end": 1711532993024,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711532993024,
+      "end": 1711532993024,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711532993024,
+      "end": 1711532993024,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711532993025,
+      "end": 1711532993025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/bichwaa/Desktop/work/skystar/components/Loader.vue\";\nimport { default as __nuxt_component_1 } from \"/home/bichwaa/Desktop/work/skystar/components/Modal.vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col gap-6 items-center\" }\nconst _hoisted_2 = { class: \"text-center\" }\nconst _hoisted_3 = /*#__PURE__*/_createElementVNode(\"br\", null, null, -1)\n\n\nconst _sfc_main = {\n  __name: 'DeleteDialog',\n  props: {\n    entity:{\n        type:String,\n        default: \"item\"\n    },\n    loading:{\n        type:Boolean,\n        default:false\n     }\n},\n  emits: ['close'],\n  setup(__props, { emit: __emit }) {\n\n\nconst props = __props\n\nconst emit = __emit\n\nfunction close(){\n    emit(\"close\")\n}\n\nfunction proceed(){\n    emit(\"proceed\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Loader = __nuxt_component_0\n  const _component_Modal = __nuxt_component_1\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"p\", _hoisted_2, [\n          _createTextVNode(\" Are you sure you want to delete this \" + _toDisplayString(__props.entity) + \" ? \", 1),\n          _hoisted_3,\n          _createTextVNode(\" this action is not reversible \")\n        ]),\n        (__props.loading)\n          ? (_openBlock(), _createBlock(_component_Loader, {\n              key: 0,\n              class: \"h-12 w-12\"\n            }))\n          : _createCommentVNode(\"\", true),\n        _createElementVNode(\"div\", { class: \"flex gap-4 items-center\" }, [\n          _createElementVNode(\"button\", {\n            class: \"flex items-center justify-center py-2 px-3 mt-3 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\",\n            onClick: close\n          }, \" No \"),\n          _createElementVNode(\"span\", {\n            class: \"text-red-600 cursor-pointer\",\n            onClick: proceed\n          }, \"Yes, Delete\")\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532993025,
+      "end": 1711532993026,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711532993027,
+      "end": 1711532993027,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711532993027,
+      "end": 1711532993030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711532993030,
+      "end": 1711532993030,
+      "order": "normal"
+    }
+  ]
+}

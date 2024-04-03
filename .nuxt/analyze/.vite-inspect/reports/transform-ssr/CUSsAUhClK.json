@@ -4,8 +4,8 @@
     {
       "name": "vite:vue",
       "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderSlot as _renderSlot } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot } from \"vue/server-renderer\"\n\nimport Layout from \"~/dashboard/Layout.vue\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'default',\n  __ssrInlineRender: true,\n  setup(__props) {\n\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  const _component_Head = _resolveComponent(\"Head\")!\n\n  _push(`<!--[-->`)\n  _push(_ssrRenderComponent(_component_Head, null, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<title${_scopeId}>Salvia-kit Dashboard v3</title>`)\n      } else {\n        return [\n          _createVNode(\"title\", null, \"Salvia-kit Dashboard v3\")\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(Layout, null, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push, _parent, _scopeId)\n      } else {\n        return [\n          _renderSlot(_ctx.$slots, \"default\")\n        ]\n      }\n    }),\n    _: 3\n  }, _parent))\n  _push(`<!--]-->`)\n}\n}\n\n})",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039023,
+      "end": 1711533039024,
       "sourcemaps": {
         "version": 3,
         "sources": [
@@ -20,45 +20,45 @@
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039024,
+      "end": 1711533039024,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039024,
+      "end": 1711533039024,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039024,
+      "end": 1711533039025,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039024,
+      "end": 1711533039025,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039025,
+      "end": 1711533039025,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1709290883157,
-      "end": 1709290883157,
+      "start": 1711533039025,
+      "end": 1711533039025,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
       "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderSlot as _renderSlot } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot } from \"vue/server-renderer\";\nimport Layout from \"~/dashboard/Layout.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Head = _resolveComponent(\"Head\");\n      _push(`<!--[-->`);\n      _push(_ssrRenderComponent(_component_Head, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<title${_scopeId}>Salvia-kit Dashboard v3</title>`);\n          } else {\n            return [\n              _createVNode(\"title\", null, \"Salvia-kit Dashboard v3\")\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(Layout, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push2, _parent2, _scopeId);\n          } else {\n            return [\n              _renderSlot(_ctx.$slots, \"default\")\n            ];\n          }\n        }),\n        _: 3\n      }, _parent));\n      _push(`<!--]-->`);\n    };\n  }\n});\n",
-      "start": 1709290883157,
-      "end": 1709290883165,
+      "start": 1711533039025,
+      "end": 1711533039160,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -77,177 +77,177 @@
     },
     {
       "name": "vite:json",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039161,
+      "end": 1711533039161,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039161,
+      "end": 1711533039161,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039161,
+      "end": 1711533039162,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039162,
+      "end": 1711533039162,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039162,
+      "end": 1711533039162,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039162,
+      "end": 1711533039162,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039163,
+      "end": 1711533039163,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039163,
+      "end": 1711533039163,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039163,
+      "end": 1711533039163,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039164,
+      "end": 1711533039164,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039166,
+      "end": 1711533039170,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039173,
+      "end": 1711533039173,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039173,
+      "end": 1711533039173,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039174,
+      "end": 1711533039174,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039174,
+      "end": 1711533039174,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039174,
+      "end": 1711533039174,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039174,
+      "end": 1711533039174,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039175,
+      "end": 1711533039175,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1709290883165,
-      "end": 1709290883165,
+      "start": 1711533039176,
+      "end": 1711533039176,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1709290883165,
-      "end": 1709290883166,
+      "start": 1711533039177,
+      "end": 1711533039178,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1709290883165,
-      "end": 1709290883166,
+      "start": 1711533039177,
+      "end": 1711533039178,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1709290883166,
-      "end": 1709290883167,
+      "start": 1711533039180,
+      "end": 1711533039191,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1709290883166,
-      "end": 1709290883167,
+      "start": 1711533039180,
+      "end": 1711533039191,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039191,
+      "end": 1711533039192,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039191,
+      "end": 1711533039192,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039192,
+      "end": 1711533039192,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039192,
+      "end": 1711533039192,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039192,
+      "end": 1711533039193,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
       "result": "import { Head as __nuxt_component_0 } from \"/home/bichwaa/Desktop/work/skystar/node_modules/nuxt/dist/head/runtime/components\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderSlot as _renderSlot } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot } from \"vue/server-renderer\";\nimport Layout from \"~/dashboard/Layout.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      const _component_Head = __nuxt_component_0;\n      _push(`<!--[-->`);\n      _push(_ssrRenderComponent(_component_Head, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<title${_scopeId}>Salvia-kit Dashboard v3</title>`);\n          } else {\n            return [\n              _createVNode(\"title\", null, \"Salvia-kit Dashboard v3\")\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(Layout, null, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push2, _parent2, _scopeId);\n          } else {\n            return [\n              _renderSlot(_ctx.$slots, \"default\")\n            ];\n          }\n        }),\n        _: 3\n      }, _parent));\n      _push(`<!--]-->`);\n    };\n  }\n});\n",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039193,
+      "end": 1711533039197,
       "order": "post",
       "sourcemaps": {
         "version": 3,
@@ -260,20 +260,20 @@
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039197,
+      "end": 1711533039198,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039198,
+      "end": 1711533039199,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1709290883167,
-      "end": 1709290883167,
+      "start": 1711533039199,
+      "end": 1711533039199,
       "order": "normal"
     }
   ]

@@ -1,0 +1,215 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/CustomerDetailsModal.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <Modal @close-modal=\"close\">\n        <div class=\"flex flex-col p-5 lg:mx-24 lg:mb-24\">\n            <h1 class=\"font-semibold text-lg Lg:text-xl my-5\">Customer Deails</h1>\n\n            <div class=\"role flex flex-col items-start mb-4\">\n                <h2 class=\"font-medium capitalize text-lg lg:text-xl\">Name: {{customer.fullName}}</h2>\n\n                <div class=\"flex gap-4\">\n                    <span class=\"font-medium\">Email: </span>\n                    <span class=\"font-medium capitalize\"> {{customer.email}} </span>\n                </div>\n\n                <div class=\"flex gap-4\">\n                    <span class=\"font-medium\">Filed by: </span>\n                    <span class=\"font-medium capitalize\"> Jason Mraz </span>\n                </div>\n\n                \n            </div>\n\n            <div class=\"role flex flex-col items-start\">\n                <span class=\"text-[#292a5e] text-sm mt-3 my-2 uppercase\"> Customer history  </span>\n\n                <div class=\"perms flex flex-col items-start\">\n                    <table class=\"w-full divide-y divide-gray-200\">\n                        <thead class=\"bg-gray-100\">\n                            <tr class=\"\">\n                                <th class=\"px-4 py-2 text-left\">Full Name</th>\n                                <th class=\"px-4 py-2 text-left\">Email</th>\n                                <th class=\"px-4 py-2 text-left\">Consignments</th>\n                                <th class=\"px-4 py-2 text-left\">File Manager</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr v-for=\"item in 10\" :key=\"item\">\n                                <td class=\"px-4 py-2\">Detail {{ item }}</td>\n                                <td class=\"px-4 py-2\">Detail {{ item }}</td>\n                                <td class=\"px-4 py-2\">Detail {{ item }}</td>\n                                <td class=\"px-4 py-2\">Detail {{ item }}</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n\n            </div>\n        </div>\n    </Modal>\n</template>\n\n<script setup>\n\nconst props = defineProps({\n    customer:{\n        type:Object,\n        default:{\n            fullName:\"John Doent\",\n            consignments:10,\n            email:\"john@doe.com\",\n        }\n    }\n})\n\nconst emit = defineEmits([\"close\"])\n\nfunction close(){\n    emit(\"close\")\n}\n\n</script>",
+      "start": 1711532989576,
+      "end": 1711532990823,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711532990823,
+      "end": 1711532990823,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711532990824,
+      "end": 1711532990824,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711532990824,
+      "end": 1711532990824,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711532990824,
+      "end": 1711532990824,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711532990824,
+      "end": 1711532990824,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711532990824,
+      "end": 1711532990825,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711532990825,
+      "end": 1711532990825,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col p-5 lg:mx-24 lg:mb-24\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"font-semibold text-lg Lg:text-xl my-5\" }, \"Customer Deails\", -1)\nconst _hoisted_3 = { class: \"role flex flex-col items-start mb-4\" }\nconst _hoisted_4 = { class: \"font-medium capitalize text-lg lg:text-xl\" }\nconst _hoisted_5 = { class: \"flex gap-4\" }\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium\" }, \"Email: \", -1)\nconst _hoisted_7 = { class: \"font-medium capitalize\" }\nconst _hoisted_8 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex gap-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium\" }, \"Filed by: \"),\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium capitalize\" }, \" Jason Mraz \")\n], -1)\nconst _hoisted_9 = { class: \"role flex flex-col items-start\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"text-[#292a5e] text-sm mt-3 my-2 uppercase\" }, \" Customer history \", -1)\nconst _hoisted_11 = { class: \"perms flex flex-col items-start\" }\nconst _hoisted_12 = { class: \"w-full divide-y divide-gray-200\" }\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"thead\", { class: \"bg-gray-100\" }, [\n  /*#__PURE__*/_createElementVNode(\"tr\", { class: \"\" }, [\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Full Name\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Email\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Consignments\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"File Manager\")\n  ])\n], -1)\nconst _hoisted_14 = { class: \"px-4 py-2\" }\nconst _hoisted_15 = { class: \"px-4 py-2\" }\nconst _hoisted_16 = { class: \"px-4 py-2\" }\nconst _hoisted_17 = { class: \"px-4 py-2\" }\n\n\nconst _sfc_main = {\n  __name: 'CustomerDetailsModal',\n  props: {\n    customer:{\n        type:Object,\n        default:{\n            fullName:\"John Doent\",\n            consignments:10,\n            email:\"john@doe.com\",\n        }\n    }\n},\n  emits: [\"close\"],\n  setup(__props, { emit: __emit }) {\n\n\nconst props = __props\n\nconst emit = __emit\n\nfunction close(){\n    emit(\"close\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Modal = _resolveComponent(\"Modal\")\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"div\", _hoisted_3, [\n          _createElementVNode(\"h2\", _hoisted_4, \"Name: \" + _toDisplayString(__props.customer.fullName), 1),\n          _createElementVNode(\"div\", _hoisted_5, [\n            _hoisted_6,\n            _createElementVNode(\"span\", _hoisted_7, _toDisplayString(__props.customer.email), 1)\n          ]),\n          _hoisted_8\n        ]),\n        _createElementVNode(\"div\", _hoisted_9, [\n          _hoisted_10,\n          _createElementVNode(\"div\", _hoisted_11, [\n            _createElementVNode(\"table\", _hoisted_12, [\n              _hoisted_13,\n              _createElementVNode(\"tbody\", null, [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(10, (item) => {\n                  return _createElementVNode(\"tr\", { key: item }, [\n                    _createElementVNode(\"td\", _hoisted_14, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_15, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_16, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_17, \"Detail \" + _toDisplayString(item), 1)\n                  ])\n                }), 64))\n              ])\n            ])\n          ])\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532990825,
+      "end": 1711532990920,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711532990920,
+      "end": 1711532990920,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532990920,
+      "end": 1711532990921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711532990921,
+      "end": 1711532990921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711532990922,
+      "end": 1711532990922,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711532990922,
+      "end": 1711532990922,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532990922,
+      "end": 1711532990923,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711532990923,
+      "end": 1711532990923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711532990923,
+      "end": 1711532990923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711532990923,
+      "end": 1711532990923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711532990923,
+      "end": 1711532990923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711532990924,
+      "end": 1711532990924,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711532990924,
+      "end": 1711532990941,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711532990941,
+      "end": 1711532990942,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711532990942,
+      "end": 1711532990942,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711532990942,
+      "end": 1711532990942,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711532990942,
+      "end": 1711532990942,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/bichwaa/Desktop/work/skystar/components/Modal.vue\";\nimport { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, withCtx as _withCtx, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-col p-5 lg:mx-24 lg:mb-24\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"h1\", { class: \"font-semibold text-lg Lg:text-xl my-5\" }, \"Customer Deails\", -1)\nconst _hoisted_3 = { class: \"role flex flex-col items-start mb-4\" }\nconst _hoisted_4 = { class: \"font-medium capitalize text-lg lg:text-xl\" }\nconst _hoisted_5 = { class: \"flex gap-4\" }\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium\" }, \"Email: \", -1)\nconst _hoisted_7 = { class: \"font-medium capitalize\" }\nconst _hoisted_8 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex gap-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium\" }, \"Filed by: \"),\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"font-medium capitalize\" }, \" Jason Mraz \")\n], -1)\nconst _hoisted_9 = { class: \"role flex flex-col items-start\" }\nconst _hoisted_10 = /*#__PURE__*/_createElementVNode(\"span\", { class: \"text-[#292a5e] text-sm mt-3 my-2 uppercase\" }, \" Customer history \", -1)\nconst _hoisted_11 = { class: \"perms flex flex-col items-start\" }\nconst _hoisted_12 = { class: \"w-full divide-y divide-gray-200\" }\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"thead\", { class: \"bg-gray-100\" }, [\n  /*#__PURE__*/_createElementVNode(\"tr\", { class: \"\" }, [\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Full Name\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Email\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Consignments\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"File Manager\")\n  ])\n], -1)\nconst _hoisted_14 = { class: \"px-4 py-2\" }\nconst _hoisted_15 = { class: \"px-4 py-2\" }\nconst _hoisted_16 = { class: \"px-4 py-2\" }\nconst _hoisted_17 = { class: \"px-4 py-2\" }\n\n\nconst _sfc_main = {\n  __name: 'CustomerDetailsModal',\n  props: {\n    customer:{\n        type:Object,\n        default:{\n            fullName:\"John Doent\",\n            consignments:10,\n            email:\"john@doe.com\",\n        }\n    }\n},\n  emits: [\"close\"],\n  setup(__props, { emit: __emit }) {\n\n\nconst props = __props\n\nconst emit = __emit\n\nfunction close(){\n    emit(\"close\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Modal = __nuxt_component_0\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"div\", _hoisted_3, [\n          _createElementVNode(\"h2\", _hoisted_4, \"Name: \" + _toDisplayString(__props.customer.fullName), 1),\n          _createElementVNode(\"div\", _hoisted_5, [\n            _hoisted_6,\n            _createElementVNode(\"span\", _hoisted_7, _toDisplayString(__props.customer.email), 1)\n          ]),\n          _hoisted_8\n        ]),\n        _createElementVNode(\"div\", _hoisted_9, [\n          _hoisted_10,\n          _createElementVNode(\"div\", _hoisted_11, [\n            _createElementVNode(\"table\", _hoisted_12, [\n              _hoisted_13,\n              _createElementVNode(\"tbody\", null, [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(10, (item) => {\n                  return _createElementVNode(\"tr\", { key: item }, [\n                    _createElementVNode(\"td\", _hoisted_14, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_15, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_16, \"Detail \" + _toDisplayString(item), 1),\n                    _createElementVNode(\"td\", _hoisted_17, \"Detail \" + _toDisplayString(item), 1)\n                  ])\n                }), 64))\n              ])\n            ])\n          ])\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532990942,
+      "end": 1711532990944,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711532990944,
+      "end": 1711532990944,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711532990944,
+      "end": 1711532990945,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711532990945,
+      "end": 1711532990945,
+      "order": "normal"
+    }
+  ]
+}

@@ -24,6 +24,7 @@ import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/radix3/dist/index
 import 'node:fs';
 import 'node:url';
 import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/pathe/dist/index.mjs';
+import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/ipx/dist/index.mjs';
 
 const appConfig = useRuntimeConfig$1().app;
 const baseURL = () => appConfig.baseURL;
@@ -541,12 +542,12 @@ function toArray(value) {
 }
 const _routes = [
   {
-    name: "admin-calendar",
-    path: "/admin/calendar",
+    name: "admin-consignments",
+    path: "/admin/consignments",
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/calendar-BBNRTZ0U.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/consignments-B-0gmkN0.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-customers",
@@ -554,15 +555,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/customers-Docwrxr3.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "admin-documentation",
-    path: "/admin/documentation",
-    meta: {},
-    alias: [],
-    redirect: void 0 ,
-    component: () => import('./_nuxt/documentation-BYKO9tOz.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/customers-D5DIRR2_.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-employees",
@@ -570,7 +563,15 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0 ,
-    component: () => import('./_nuxt/employees-C8UE3h5_.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/employees-BTeiJ3G6.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "admin-petty-cash",
+    path: "/admin/petty-cash",
+    meta: {},
+    alias: [],
+    redirect: void 0 ,
+    component: () => import('./_nuxt/petty-cash-BrQ3x8U9.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-reports",
@@ -930,7 +931,7 @@ const plugins = [
   components_plugin_KR1HBZs4kY
 ];
 const layouts = {
-  default: () => import('./_nuxt/default-CKSjK5MK.mjs').then((m) => m.default || m)
+  default: () => import('./_nuxt/default-C-AEAArS.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = defineComponent({
   name: "LayoutLoader",
@@ -1307,5 +1308,5 @@ let entry;
 }
 const entry$1 = (ssrContext) => entry(ssrContext);
 
-export { _export_sfc as _, useRuntimeConfig as a, navigateTo as b, createError as c, entry$1 as default, injectHead as i, nuxtLinkDefaults as n, resolveUnrefHeadInput as r, useRouter as u };
+export { _export_sfc as _, useRuntimeConfig as a, navigateTo as b, createError as c, useNuxtApp as d, entry$1 as default, injectHead as i, nuxtLinkDefaults as n, resolveUnrefHeadInput as r, useRouter as u };
 //# sourceMappingURL=server.mjs.map

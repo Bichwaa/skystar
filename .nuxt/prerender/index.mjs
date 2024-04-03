@@ -18,4 +18,5 @@ import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/radix3/dist/index
 import 'node:fs';
 import 'node:url';
 import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/pathe/dist/index.mjs';
+import 'file:///home/bichwaa/Desktop/work/skystar/node_modules/ipx/dist/index.mjs';
 //# sourceMappingURL=index.mjs.map

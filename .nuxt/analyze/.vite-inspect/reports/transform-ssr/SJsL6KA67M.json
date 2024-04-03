@@ -1,0 +1,288 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/Loader.vue?vue&type=style&index=0&scoped=7cbeb5d3&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@keyframes rotate {\n  0% {\n    transform: rotate(0deg);\n  }\n  20% {\n    transform: rotate(50deg);\n  }\n  80% {\n    transform: rotate(310deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\nsvg {\n  animation: rotate 1.8s linear infinite;\n}\n",
+      "start": 1711533038468,
+      "end": 1711533038468,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/components/Loader.vue"
+        ],
+        "names": [],
+        "mappings": ";AAyCA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAChB,CAAC,EAAE;IACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACzB;EACA,CAAC,CAAC,EAAE;IACF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC1B;EACA,CAAC,CAAC,EAAE;IACF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC3B;EACA,CAAC,CAAC,CAAC,EAAE;IACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC3B;AACF;;AAEA,CAAC,CAAC,EAAE;EACF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC",
+        "file": "/home/bichwaa/Desktop/work/skystar/components/Loader.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\n  <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\">\n    <path\n      :stroke=\"color\"\n      stroke-linecap=\"round\"\n      :stroke-width=\"border\"\n      :d=\"path\"\n    />\n  </svg>\n</template>\n\n<script>\nexport default {\n  name: \"Loader\",\n\n  props: {\n    border: {\n      type: Number,\n      default: 2,\n    },\n    color: {\n      type: String,\n      default: \"#d4af37\",\n    }\n  },\n\n  computed: {\n    path() {\n      const delta = this.border / 2;\n\n      const radius = 12 - delta;\n      const startX = 24 - delta;\n      const endX = delta;\n\n      return `M${startX} 12A${radius} ${radius} 0 1 1 12 ${endX}`;\n    },\n  },\n};\n</script>\n\n<style scoped>\n@keyframes rotate {\n  0% {\n    transform: rotate(0deg);\n  }\n  20% {\n    transform: rotate(50deg);\n  }\n  80% {\n    transform: rotate(310deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\nsvg {\n  animation: rotate 1.8s linear infinite;\n}\n</style>\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711533038468,
+      "end": 1711533038468,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711533038468,
+      "end": 1711533038468,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711533038468,
+      "end": 1711533038469,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711533038468,
+      "end": 1711533038469,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711533038469,
+      "end": 1711533038469,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "@keyframes rotate{0%{transform:rotate(0deg)}20%{transform:rotate(50deg)}80%{transform:rotate(310deg)}to{transform:rotate(1turn)}}svg{animation:rotate 1.8s linear infinite}",
+      "start": 1711533038469,
+      "end": 1711533038716,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/bichwaa/Desktop/work/skystar/components/Loader.vue",
+        "mappings": "AACA,kBACE,GACE,sBACF,CACA,IACE,uBACF,CACA,IACE,wBACF,CACA,GACE,uBACF,CACF,CAEA,IACE,qCACF",
+        "names": [],
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/components/Loader.vue"
+        ],
+        "sourcesContent": [
+          "\n@keyframes rotate {\n  0% {\n    transform: rotate(0deg);\n  }\n  20% {\n    transform: rotate(50deg);\n  }\n  80% {\n    transform: rotate(310deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\nsvg {\n  animation: rotate 1.8s linear infinite;\n}\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711533038716,
+      "end": 1711533038716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711533038716,
+      "end": 1711533038716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711533038717,
+      "end": 1711533038717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "@keyframes rotate-7cbeb5d3{0%{transform:rotate(0deg)}20%{transform:rotate(50deg)}80%{transform:rotate(310deg)}to{transform:rotate(1turn)}}svg[data-v-7cbeb5d3]{animation:rotate-7cbeb5d3 1.8s linear infinite}",
+      "start": 1711533038717,
+      "end": 1711533038722,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "/home/bichwaa/Desktop/work/skystar/components/Loader.vue",
+        "mappings": "AAAA,2BAAkB,GAAG,sBAAsB,CAAC,IAAI,uBAAuB,CAAC,IAAI,wBAAwB,CAAC,GAAG,uBAAuB,CAAC,CAAC,qBAAI,8CAAqC",
+        "names": [],
+        "sources": [
+          "/home/bichwaa/Desktop/work/skystar/components/Loader.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711533038723,
+      "end": 1711533038723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711533038723,
+      "end": 1711533038723,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711533038723,
+      "end": 1711533038723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711533038723,
+      "end": 1711533038723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711533038723,
+      "end": 1711533038723,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711533038723,
+      "end": 1711533038724,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711533038724,
+      "end": 1711533038724,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711533038724,
+      "end": 1711533038729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711533038729,
+      "end": 1711533038729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1711533038729,
+      "end": 1711533038729,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711533038729,
+      "end": 1711533038729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711533038729,
+      "end": 1711533038729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711533038730,
+      "end": 1711533038730,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711533038730,
+      "end": 1711533038730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711533038730,
+      "end": 1711533038730,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711533038730,
+      "end": 1711533038730,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711533038730,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711533038730,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711533038731,
+      "end": 1711533038731,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711533038732,
+      "end": 1711533038732,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711533038732,
+      "end": 1711533038732,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711533038732,
+      "end": 1711533038732,
+      "order": "normal"
+    }
+  ]
+}

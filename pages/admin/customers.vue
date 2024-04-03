@@ -1,81 +1,20 @@
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-
-defineProps({
-  title: {
-    type: String,
-    default: "",
-  },
-});
-const staff = ref([]);
-// const roles = ref([]);
-
-const currentDate = new Date();
-const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);
-
-onMounted(async () => {
-  try {
-    const response = await axios.get('http://localhost:3006/api/customers');
-    staff.value = response.data;
-    // const roleResponse = await axios.get('http://localhost:3006/api/roles');
-    // roles.value = roleResponse.data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    staff.value = null; // Set items to an empty array or handle error as needed
-  }
-});
-
-</script>
-
 <template>
   <div class="flex flex-wrap sm:flex-row gap-8">
-    <div class="w-full sm:w-1/2 xl:w-1/3">
-      <div class="mb-4 hidden">
-        <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
-          <div class="mb-6 flex items-center justify-between">
-            <div class="flex items-center">
-              <span class="relative rounded-xl bg-blue-100 p-2">
-              </span>
-              <div class="flex flex-col">
-                <span class="ml-2 font-bold text-black">
-                  {{ title || "Employee roles" }}
-                </span>
-                <span class="ml-2 text-sm text-gray-500">Available roles</span>
-              </div>
-            </div>
-            <div class="flex items-center">
-              <button class="rounded-full border border-gray-200 p-1">
-                <IconsAddIcon class="h-7 w-7"/>
-              </button>
-            </div>
-          </div>
-          <div class="m-auto block">
-            <div class="flex flex-col gap-2">
-              <div class="flex justify-between py-3 h-14 bg-gray-100"  v-for="role, i in roles">
-                <p class="p-3 text-md capitalize flex items-center"> {{ role.name }}</p>
-                <div class="flex gap-4 p-3 items-center">
-                  <IconsPencilIcon class="w-6 h-6 cursor-pointer" :current-color="'#fbbf24'"/>
-                <IconsDeleteIcon class="w-6 h-6 cursor-pointer"/>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="w-full">
       <div class="mb-4">
         <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
           <div class="mb-6 flex items-center justify-between">
-            <div class="flex items-center">
-              <span class="relative rounded-xl bg-blue-100 p-2">
-              </span>
+            <div class="flex items-center justify-between w-full">
               <div class="flex flex-col">
-                <span class="ml-2 font-bold text-black">High Volume</span>
-                <span class="ml-2 text-sm text-gray-500">
-                  Top Regulars
+                <span class="ml-2 font-bold text-black">Customer List</span>
+                <span class="ml-2 text-xs text-gray-500">
+                  as of
                 </span>
               </div>
+
+              <button class="rounded-full border border-gray-200 p-1">
+                <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateCustomerForm=true" />
+              </button>
             </div>
             
           </div>
@@ -87,60 +26,158 @@ onMounted(async () => {
             </span>
           </div>
           <div class="m-auto block">
-            <ul>
-            <li class="my-6 flex items-center space-x-2" v-for="st,i in staff.slice(0,2)" :key="i">
-              <a href="#" class="relative block">
-                <img
-                  alt="Maurice Lokumba"
-                  src="/images/2.jpg"
-                  class="mx-auto h-10 w-10 rounded-full object-cover"
-                />
-              </a>
-              <div class="flex flex-col">
-                <span class="ml-2 text-sm font-semibold text-gray-900">
-                  {{ st.firstName }}
-                </span>
-                <span class="ml-2 text-sm text-gray-400">
-                  {{ st.email }}
-                </span>
-              </div>
-            </li>
-            
-          </ul>
+            <table class="w-full divide-y divide-gray-200">
+              <thead class="bg-gray-100">
+                <tr class="">
+                  <th class="px-4 py-2 text-left">Full Name</th>
+                  <th class="px-4 py-2 text-left">Email</th>
+                  <th class="px-4 py-2 text-left">Consignments</th>
+                  <th class="px-4 py-2 text-left">File Manager</th>
+                  <th class="px-4 py-2 text-left">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in items" :key="item.id">
+                  <td class="px-4 py-2">{{ item.fullName }}</td>
+                  <td class="px-4 py-2">{{ item.email }}</td>
+                  <td class="px-4 py-2">{{ item.consignments }}</td>
+                  <td class="px-4 py-2">{{ item.fileManager }}</td>
+                  <td class="flex items-center gap-6 px-4 py-2">
+                    <span 
+                      class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                      @click="viewCustomerClicked(item)"
+                      >View</span>
+
+                    <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                      @click="loadEditCustomerForm(item)">
+                      Edit
+                    </span>
+
+                    <span class="text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer" 
+                      @click="loadDeleteCustomerDialog(item)"
+                      >Delete</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <div class="w-full sm:w-1/2 xl:w-1/3">
-      <div class="mb-4">
-        <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
-          <p class="font-bold text-black">Staff</p>
-          <ul>
-            <li class="my-6 flex items-center space-x-2" v-for="st,i in staff" :key="i">
-              <a href="#" class="relative block">
-                <img
-                  alt="Maurice Lokumba"
-                  src="/images/2.jpg"
-                  class="mx-auto h-10 w-10 rounded-full object-cover"
-                />
-              </a>
-              <div class="flex flex-col">
-                <span class="ml-2 text-sm font-semibold text-gray-900 my-2">
-                  {{ st.fullName }}
-                </span>
-                <span class="ml-2 text-sm text-gray-400 my-2">
-                  {{ st.email }}
-                </span>
-                <span class="ml-2 text-sm text-gray-700 my-2">
-                  Account Overseer: 
-                  <span class="capitalize text-medium">{{ st.accountManager }}</span>
-                </span>
-              </div>
-            </li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
+    <CustomerDetailsModal v-if="showCustomerDetails" :customer="currentCustomer" @close="showCustomerDetails=false"/>
+    <FormsCreateCustomerForm v-if="showCreateCustomerForm"  @close="handleCreateCustomerformClosed"/>
+    <FormsEditCustomerForm v-if="showEditCustomerForm" :customerdata="customerToEdit" @close="handleEditCustomerformClosed"/>
+    <DeleteDialog v-if="showDeleteCustomerDialog" entity="customer" :loading="deleteInProgress" @proceed="deleteCustomer" @close="showDeleteCustomerDialog=false"/>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+const items = [
+        {
+          id: 1,
+          fullName: 'John Doe',
+          email: 'john.doe@example.com',
+          consignments: 10,
+          fileManager: 'Manager Name 1',
+        },
+        {
+          id: 2,
+          fullName: 'Jane Doe',
+          email: 'jane.doe@example.com',
+          consignments: 5,
+          fileManager: 'Manager Name 2',
+        },
+      ]
+
+
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+});
+const customers = ref([]);
+// const roles = ref([]);
+
+const currentDate = new Date();
+const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);
+
+//CRUD SHIT
+const showCustomerDetails = ref(false)
+const showCreateCustomerForm = ref(false)
+const showEditCustomerForm = ref(false)
+const showDeleteCustomerDialog = ref(false)
+const currentCustomer = ref({});
+const customerToEdit = ref({});
+const customerToDelete = ref({});
+const deleteInProgress = ref(false)
+
+function viewCustomerClicked(customer){
+  currentCustomer.value = customer;
+  showCustomerDetails.value = true;
+}
+
+function loadEditCustomerForm(customer){
+  customerToEdit.value = customer;
+  showEditCustomerForm.value = true
+}
+
+function handleCreateCustomerformClosed(){
+  showCreateCustomerForm.value=false;
+  if(payload!=undefined){
+  console.log("the payload",payload)
+  customers.value.push(payload)
+  }
+}
+
+function handleEditCustomerformClosed(){
+  showEditCustomerForm.value=false;
+  if(payload!=undefined){
+  console.log("the payload",payload)
+  customers.value = customers.value.map(x=>{
+    if(x.ID==payload.ID){
+      return payload
+    }else{
+      return x
+    }
+  })
+  }
+}
+
+function loadDeleteCustomerDialog(customer){
+  customerToDelete.value = customer;
+  showDeleteCustomerDialog.value = true
+}
+
+async function deleteCustomer(){
+  deleteInProgress.value = true
+  const res = await axios.delete(`http://localhost:3006/api/customer/delete/${customerToDelete.value.ID}`);
+  console.log(res)
+  if(res.status==200 || 201){
+      deleteInProgress.value = false
+      //remove employee from client state
+      customers.value  = customers.value.filter(x=>{
+        return x.ID!==employeeToDelete.value
+      })
+      showEmployeeDeleteDialog.value = false;
+  }else{
+      console.log(res.statusText)
+  }
+}
+
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3006/api/customers');
+    customers.value = response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    customers.value = null; // Set items to an empty array or handle error as needed
+  }
+});
+
+</script>

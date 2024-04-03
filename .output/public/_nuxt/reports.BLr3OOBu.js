@@ -1,1 +1,0 @@
-import{_ as t}from"./Content.vue.YqWraZXg.js";import{_ as e,y as r,o as c}from"./entry.CZlNlqWW.js";import"./2.f9XqJx11.js";const n={};function s(_,a){const o=t;return c(),r(o,{title:"Reports"})}const i=e(n,[["render",s]]);export{i as default};

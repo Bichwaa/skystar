@@ -3,62 +3,62 @@
   "transforms": [
     {
       "name": "vite:vue",
-      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'SidebarItems',\n  __ssrInlineRender: true,\n  setup(__props) {\n\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<ul${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Dashboard\",\n    to: \"/\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DashboardIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DashboardIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Employees\",\n    to: \"/admin/employees\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(ProjectsIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(ProjectsIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Customers\",\n    to: \"/admin/customers\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TasksIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TasksIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Petty Cash\",\n    to: \"/admin/calendar\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(CalendarIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(CalendarIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"login\",\n    to: \"/login\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Register\",\n    to: \"/register\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</ul>`)\n}\n}\n\n})",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'SidebarItems',\n  __ssrInlineRender: true,\n  setup(__props) {\n\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<ul${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Dashboard\",\n    to: \"/\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DashboardIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DashboardIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Employees\",\n    to: \"/admin/employees\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(ProjectsIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(ProjectsIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Customers\",\n    to: \"/admin/customers\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TasksIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TasksIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Consignments\",\n    to: \"/admin/consignments\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Petty Cash\",\n    to: \"/admin/petty-cash\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(CalendarIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(CalendarIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"login\",\n    to: \"/login\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Register\",\n    to: \"/register\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</ul>`)\n}\n}\n\n})",
+      "start": 1711533041117,
+      "end": 1711533041117,
       "sourcemaps": {
         "version": 3,
         "sources": [
           "/home/bichwaa/Desktop/work/skystar/dashboard/sidebar/SidebarItems.vue"
         ],
         "sourcesContent": [
-          "<script setup lang=\"ts\">\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n</script>\n\n<template>\n  <ul>\n    <SidebarItem title=\"Dashboard\" to=\"/\">\n      <DashboardIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Employees\" to=\"/admin/employees\">\n      <ProjectsIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Customers\" to=\"/admin/customers\">\n      <TasksIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Petty Cash\" to=\"/admin/calendar\">\n      <CalendarIcon />\n    </SidebarItem>\n\n    <!-- <SidebarItem title=\"Time Manage\" to=\"/admin/time-manage\">\n      <TimeManageIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Reports\" to=\"/admin/reports\">\n      <ReportsIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Settings\" to=\"/admin/settings\">\n      <SettingsIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Documentation\" to=\"/admin/documentation\">\n      <DocIcon />\n    </SidebarItem>-->\n\n    <SidebarItem title=\"login\" to=\"/login\">\n      <DocIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Register\" to=\"/register\">\n      <DocIcon />\n    </SidebarItem> \n  </ul>\n</template>\n"
+          "<script setup lang=\"ts\">\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n</script>\n\n<template>\n  <ul>\n    <SidebarItem title=\"Dashboard\" to=\"/\">\n      <DashboardIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Employees\" to=\"/admin/employees\">\n      <ProjectsIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Customers\" to=\"/admin/customers\">\n      <TasksIcon />\n    </SidebarItem>\n\n    <!-- <SidebarItem title=\"Time Manage\" to=\"/admin/time-manage\">\n      <TimeManageIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Reports\" to=\"/admin/reports\">\n      <ReportsIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Settings\" to=\"/admin/settings\">\n      <SettingsIcon />\n    </SidebarItem>-->\n\n    <SidebarItem title=\"Consignments\" to=\"/admin/consignments\">\n      <DocIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Petty Cash\" to=\"/admin/petty-cash\">\n      <CalendarIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"login\" to=\"/login\">\n      <DocIcon />\n    </SidebarItem>\n\n    <SidebarItem title=\"Register\" to=\"/register\">\n      <DocIcon />\n    </SidebarItem> \n  </ul>\n</template>\n"
         ],
         "names": [],
-        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;AAThC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+        "mappings": ";;;;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;AAThC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
       }
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041117,
+      "end": 1711533041117,
       "order": "pre"
     },
     {
       "name": "nuxt:layer-aliasing",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041117,
+      "end": 1711533041117,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041118,
+      "end": 1711533041118,
       "order": "pre"
     },
     {
       "name": "nuxt:server-devonly:transform",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041117,
+      "end": 1711533041118,
       "order": "pre"
     },
     {
       "name": "nuxt:client-fallback-auto-id",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041118,
+      "end": 1711533041119,
       "order": "pre"
     },
     {
       "name": "vite:css",
-      "start": 1709290883442,
-      "end": 1709290883442,
+      "start": 1711533041119,
+      "end": 1711533041119,
       "order": "normal"
     },
     {
       "name": "vite:esbuild",
-      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"SidebarItems\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<ul${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Dashboard\",\n        to: \"/\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DashboardIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DashboardIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Employees\",\n        to: \"/admin/employees\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(ProjectsIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(ProjectsIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Customers\",\n        to: \"/admin/customers\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TasksIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TasksIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Petty Cash\",\n        to: \"/admin/calendar\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(CalendarIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(CalendarIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"login\",\n        to: \"/login\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DocIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DocIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Register\",\n        to: \"/register\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DocIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DocIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</ul>`);\n    };\n  }\n});\n",
-      "start": 1709290883442,
-      "end": 1709290883446,
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\";\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"SidebarItems\",\n  __ssrInlineRender: true,\n  setup(__props) {\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<ul${_ssrRenderAttrs(_attrs)}>`);\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Dashboard\",\n        to: \"/\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DashboardIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DashboardIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Employees\",\n        to: \"/admin/employees\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(ProjectsIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(ProjectsIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Customers\",\n        to: \"/admin/customers\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(TasksIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(TasksIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Consignments\",\n        to: \"/admin/consignments\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DocIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DocIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Petty Cash\",\n        to: \"/admin/petty-cash\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(CalendarIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(CalendarIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"login\",\n        to: \"/login\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DocIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DocIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(_ssrRenderComponent(SidebarItem, {\n        title: \"Register\",\n        to: \"/register\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(_ssrRenderComponent(DocIcon, null, null, _parent2, _scopeId));\n          } else {\n            return [\n              _createVNode(DocIcon)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</ul>`);\n    };\n  }\n});\n",
+      "start": 1711533041119,
+      "end": 1711533041161,
       "order": "normal",
       "sourcemaps": {
         "version": 3,
@@ -66,9 +66,9 @@
           "/home/bichwaa/Desktop/work/skystar/dashboard/sidebar/SidebarItems.vue?vue&type=script&setup=true&lang.ts"
         ],
         "sourcesContent": [
-          "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'SidebarItems',\n  __ssrInlineRender: true,\n  setup(__props) {\n\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<ul${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Dashboard\",\n    to: \"/\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DashboardIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DashboardIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Employees\",\n    to: \"/admin/employees\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(ProjectsIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(ProjectsIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Customers\",\n    to: \"/admin/customers\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TasksIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TasksIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Petty Cash\",\n    to: \"/admin/calendar\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(CalendarIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(CalendarIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"login\",\n    to: \"/login\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Register\",\n    to: \"/register\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</ul>`)\n}\n}\n\n})"
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { withCtx as _withCtx, createVNode as _createVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs } from \"vue/server-renderer\"\n\nimport DocIcon from \"./icons/DocIcon.vue\";\nimport SidebarItem from \"./SidebarItem.vue\";\nimport TasksIcon from \"./icons/TaskIcon.vue\";\nimport ReportsIcon from \"./icons/ReportIcon.vue\";\nimport ProjectsIcon from \"./icons/ProjectIcon.vue\";\nimport SettingsIcon from \"./icons/SettingsIcon.vue\";\nimport CalendarIcon from \"./icons/CalendarIcon.vue\";\nimport DashboardIcon from \"./icons/DashboardIcon.vue\";\nimport TimeManageIcon from \"./icons/TimeManageIcon.vue\";\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'SidebarItems',\n  __ssrInlineRender: true,\n  setup(__props) {\n\n\nreturn (_ctx: any,_push: any,_parent: any,_attrs: any) => {\n  _push(`<ul${_ssrRenderAttrs(_attrs)}>`)\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Dashboard\",\n    to: \"/\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DashboardIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DashboardIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Employees\",\n    to: \"/admin/employees\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(ProjectsIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(ProjectsIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Customers\",\n    to: \"/admin/customers\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(TasksIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(TasksIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Consignments\",\n    to: \"/admin/consignments\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Petty Cash\",\n    to: \"/admin/petty-cash\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(CalendarIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(CalendarIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"login\",\n    to: \"/login\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(_ssrRenderComponent(SidebarItem, {\n    title: \"Register\",\n    to: \"/register\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(DocIcon, null, null, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(DocIcon)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</ul>`)\n}\n}\n\n})"
         ],
-        "mappings": "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",
+        "mappings": "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",
         "names": [
           "_push",
           "_parent"
@@ -77,194 +77,194 @@
     },
     {
       "name": "vite:json",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041161,
+      "end": 1711533041161,
       "order": "normal"
     },
     {
       "name": "vite:worker",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041161,
+      "end": 1711533041162,
       "order": "normal"
     },
     {
       "name": "vite:vue",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041162,
+      "end": 1711533041162,
       "order": "normal"
     },
     {
       "name": "vite:vue-jsx",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041162,
+      "end": 1711533041162,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041162,
+      "end": 1711533041163,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041162,
+      "end": 1711533041163,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041163,
+      "end": 1711533041164,
       "order": "normal"
     },
     {
       "name": "nuxt:remove-plugin-metadata",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041163,
+      "end": 1711533041164,
       "order": "normal"
     },
     {
       "name": "nuxt:components:imports",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041164,
+      "end": 1711533041164,
       "order": "normal"
     },
     {
       "name": "replace",
-      "start": 1709290883446,
-      "end": 1709290883446,
+      "start": 1711533041164,
+      "end": 1711533041164,
       "order": "normal"
     },
     {
       "name": "ssr-styles",
-      "start": 1709290883446,
-      "end": 1709290883447,
+      "start": 1711533041164,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "vite:define",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041168,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "vite:css-post",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041168,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "vite:build-html",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041168,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "vite:worker-import-meta-url",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041168,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "vite:asset-import-meta-url",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041168,
+      "end": 1711533041168,
       "order": "normal"
     },
     {
       "name": "commonjs",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041169,
+      "end": 1711533041169,
       "order": "normal"
     },
     {
       "name": "vite:dynamic-import-vars",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041169,
+      "end": 1711533041169,
       "order": "normal"
     },
     {
       "name": "vite:import-glob",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041169,
+      "end": 1711533041169,
       "order": "normal"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041169,
+      "end": 1711533041169,
       "order": "post"
     },
     {
       "name": "nuxt:composable-keys",
-      "start": 1709290883447,
-      "end": 1709290883447,
+      "start": 1711533041169,
+      "end": 1711533041169,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1709290883447,
-      "end": 1709290883449,
+      "start": 1711533041169,
+      "end": 1711533041217,
       "order": "post"
     },
     {
       "name": "nuxt:imports-transform",
-      "start": 1709290883447,
-      "end": 1709290883449,
+      "start": 1711533041169,
+      "end": 1711533041217,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041220,
+      "end": 1711533041221,
       "order": "post"
     },
     {
       "name": "unctx:transform",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041220,
+      "end": 1711533041221,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041221,
+      "end": 1711533041221,
       "order": "post"
     },
     {
       "name": "nuxt:pages-macros-transform",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041221,
+      "end": 1711533041221,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-template",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041221,
+      "end": 1711533041222,
       "order": "post"
     },
     {
       "name": "nuxt:components-loader",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041222,
+      "end": 1711533041223,
       "order": "post"
     },
     {
       "name": "nuxt:tree-shake-composables:transform",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041223,
+      "end": 1711533041224,
       "order": "post"
     },
     {
       "name": "vite:build-import-analysis",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041224,
+      "end": 1711533041230,
       "order": "normal"
     },
     {
       "name": "vite:reporter",
-      "start": 1709290883449,
-      "end": 1709290883449,
+      "start": 1711533041230,
+      "end": 1711533041230,
       "order": "normal"
     }
   ]

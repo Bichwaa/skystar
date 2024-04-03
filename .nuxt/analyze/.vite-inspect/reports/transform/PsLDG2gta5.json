@@ -1,0 +1,215 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/components/forms/CreateCustomerForm.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <Modal @close-modal=\"close\">\n        \n        <form class=\"lg:m-24\">\n            <p class=\"font-medium flex items-center mb-3\">Add new customer</p>\n            <div class=\"flex flex-col my-2\">\n                <label for=\"firstName\" class=\"text-xs font-medium my-1\">Full Name</label>\n                <input v-model=\"payload.fullName\" type=\"text\" name=\"fullName\" placeholder=\"Jane Kimweli\" class=\"border border-gray-300 p-2 rounded-lg text-sm\">\n            </div>\n\n            <div class=\"flex flex-col my-2\">\n                <label for=\"email\" class=\"text-xs font-medium my-1\">Email</label>\n                <input v-model=\"payload.email\" type=\"email\" name=\"email\" placeholder=\"John@doe.dot\" class=\"border border-gray-300 p-2 rounded-lg text-sm\">\n            </div>\n\n            <div class=\"flex flex-col my-4\">\n                <label for=\"email\" class=\"text-xs font-medium my-1\">Filed by</label>\n                <select>\n                    <option value=\"John\">John</option>\n                    <option value=\"Jane\">Jane</option>\n                    <option value=\"Bob\">Bob</option>\n                    <option value=\"Alice\">Alice</option>\n                    <option value=\"Mike\">Mike</option>\n                    <option value=\"Sarah\">Sarah</option>\n                    <option value=\"Tom\">Tom</option>\n                    <option value=\"Emily\">Emily</option>\n                    <option value=\"David\">David</option>\n                    <option value=\"Samantha\">Samantha</option>\n                </select>\n            </div>\n\n\n            <button  type=\"submit\" @click.prevent=\"submitForm\" \n                class=\"flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\">\n                <span v-if=\"!formLoading\">Create Customer</span>\n                <Loader v-else size=\"small\" class=\"h-4 w-4\"/>\n            </button>\n        </form>\n    </Modal>\n</template>\n\n<script setup>\nimport {ref, onMounted} from 'vue';\nimport axios from 'axios';\n\n\nconst emit = defineEmits(['close'])\n\nconst formLoading = ref(false)\n\nconst payload  = ref({\n    fullName:\"\",\n    accountmanager:\"\",\n    email:\"\"\n})\n\nasync function submitForm(){\n    console.log(\"calling submit\")\n    formLoading.value = true\n    const res = await axios.patch(\"http://localhost:3006/api/customers\",{...payload.value})\n    formLoading.value = false\n    console.log(res)\n    if(res.status==200 || 201){\n        emit(\"close\", res.data)\n    }else{\n        console.log(res.statusText)\n    }\n}\n\nfunction close(){\n    emit(\"close\")\n}\n\n</script>",
+      "start": 1711532989582,
+      "end": 1711532990946,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711532990946,
+      "end": 1711532990946,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711532990947,
+      "end": 1711532990947,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711532990947,
+      "end": 1711532990947,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711532990948,
+      "end": 1711532990948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711532990948,
+      "end": 1711532990948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711532990948,
+      "end": 1711532990949,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711532990950,
+      "end": 1711532990950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, vModelText as _vModelText, withDirectives as _withDirectives, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, createBlock as _createBlock, withModifiers as _withModifiers, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = { class: \"lg:m-24\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"font-medium flex items-center mb-3\" }, \"Add new customer\", -1)\nconst _hoisted_3 = { class: \"flex flex-col my-2\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"label\", {\n  for: \"firstName\",\n  class: \"text-xs font-medium my-1\"\n}, \"Full Name\", -1)\nconst _hoisted_5 = { class: \"flex flex-col my-2\" }\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"label\", {\n  for: \"email\",\n  class: \"text-xs font-medium my-1\"\n}, \"Email\", -1)\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex flex-col my-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"label\", {\n    for: \"email\",\n    class: \"text-xs font-medium my-1\"\n  }, \"Filed by\"),\n  /*#__PURE__*/_createElementVNode(\"select\", null, [\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"John\" }, \"John\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Jane\" }, \"Jane\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Bob\" }, \"Bob\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Alice\" }, \"Alice\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Mike\" }, \"Mike\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Sarah\" }, \"Sarah\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Tom\" }, \"Tom\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Emily\" }, \"Emily\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"David\" }, \"David\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Samantha\" }, \"Samantha\")\n  ])\n], -1)\nconst _hoisted_8 = { key: 0 }\n\nimport {ref, onMounted} from 'vue';\nimport axios from 'axios';\n\n\n\nconst _sfc_main = {\n  __name: 'CreateCustomerForm',\n  emits: ['close'],\n  setup(__props, { emit: __emit }) {\n\nconst emit = __emit\n\nconst formLoading = ref(false)\n\nconst payload  = ref({\n    fullName:\"\",\n    accountmanager:\"\",\n    email:\"\"\n})\n\nasync function submitForm(){\n    console.log(\"calling submit\")\n    formLoading.value = true\n    const res = await axios.patch(\"http://localhost:3006/api/customers\",{...payload.value})\n    formLoading.value = false\n    console.log(res)\n    if(res.status==200 || 201){\n        emit(\"close\", res.data)\n    }else{\n        console.log(res.statusText)\n    }\n}\n\nfunction close(){\n    emit(\"close\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Loader = _resolveComponent(\"Loader\")\n  const _component_Modal = _resolveComponent(\"Modal\")\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"form\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"div\", _hoisted_3, [\n          _hoisted_4,\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => ((payload.value.fullName) = $event)),\n            type: \"text\",\n            name: \"fullName\",\n            placeholder: \"Jane Kimweli\",\n            class: \"border border-gray-300 p-2 rounded-lg text-sm\"\n          }, null, 512), [\n            [_vModelText, payload.value.fullName]\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _hoisted_6,\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => ((payload.value.email) = $event)),\n            type: \"email\",\n            name: \"email\",\n            placeholder: \"John@doe.dot\",\n            class: \"border border-gray-300 p-2 rounded-lg text-sm\"\n          }, null, 512), [\n            [_vModelText, payload.value.email]\n          ])\n        ]),\n        _hoisted_7,\n        _createElementVNode(\"button\", {\n          type: \"submit\",\n          onClick: _withModifiers(submitForm, [\"prevent\"]),\n          class: \"flex items-center justify-center py-2 px-3 mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\"\n        }, [\n          (!formLoading.value)\n            ? (_openBlock(), _createElementBlock(\"span\", _hoisted_8, \"Create Customer\"))\n            : (_openBlock(), _createBlock(_component_Loader, {\n                key: 1,\n                size: \"small\",\n                class: \"h-4 w-4\"\n              }))\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532990950,
+      "end": 1711532991014,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711532991014,
+      "end": 1711532991015,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532991015,
+      "end": 1711532991017,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711532991488,
+      "end": 1711532991491,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711532991511,
+      "end": 1711532991515,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711532991542,
+      "end": 1711532991543,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532991604,
+      "end": 1711532991615,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711532991643,
+      "end": 1711532991644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711532991645,
+      "end": 1711532991645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711532991981,
+      "end": 1711532991985,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711532992012,
+      "end": 1711532992012,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711532992042,
+      "end": 1711532992044,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711532992161,
+      "end": 1711532992164,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711532992190,
+      "end": 1711532992191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711532992193,
+      "end": 1711532992193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711532992194,
+      "end": 1711532992194,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711532992547,
+      "end": 1711532992548,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711532992562,
+      "end": 1711532992656,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711532992714,
+      "end": 1711532992716,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1711532992719,
+      "end": 1711532992719,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711532992720,
+      "end": 1711532992720,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711532992720,
+      "end": 1711532992721,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"/home/bichwaa/Desktop/work/skystar/components/Loader.vue\";\nimport { default as __nuxt_component_1 } from \"/home/bichwaa/Desktop/work/skystar/components/Modal.vue\";\nimport { createElementVNode as _createElementVNode, vModelText as _vModelText, withDirectives as _withDirectives, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, createBlock as _createBlock, withModifiers as _withModifiers, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = { class: \"lg:m-24\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"p\", { class: \"font-medium flex items-center mb-3\" }, \"Add new customer\", -1)\nconst _hoisted_3 = { class: \"flex flex-col my-2\" }\nconst _hoisted_4 = /*#__PURE__*/_createElementVNode(\"label\", {\n  for: \"firstName\",\n  class: \"text-xs font-medium my-1\"\n}, \"Full Name\", -1)\nconst _hoisted_5 = { class: \"flex flex-col my-2\" }\nconst _hoisted_6 = /*#__PURE__*/_createElementVNode(\"label\", {\n  for: \"email\",\n  class: \"text-xs font-medium my-1\"\n}, \"Email\", -1)\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex flex-col my-4\" }, [\n  /*#__PURE__*/_createElementVNode(\"label\", {\n    for: \"email\",\n    class: \"text-xs font-medium my-1\"\n  }, \"Filed by\"),\n  /*#__PURE__*/_createElementVNode(\"select\", null, [\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"John\" }, \"John\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Jane\" }, \"Jane\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Bob\" }, \"Bob\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Alice\" }, \"Alice\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Mike\" }, \"Mike\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Sarah\" }, \"Sarah\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Tom\" }, \"Tom\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Emily\" }, \"Emily\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"David\" }, \"David\"),\n    /*#__PURE__*/_createElementVNode(\"option\", { value: \"Samantha\" }, \"Samantha\")\n  ])\n], -1)\nconst _hoisted_8 = { key: 0 }\n\nimport {ref, onMounted} from 'vue';\nimport axios from 'axios';\n\n\n\nconst _sfc_main = {\n  __name: 'CreateCustomerForm',\n  emits: ['close'],\n  setup(__props, { emit: __emit }) {\n\nconst emit = __emit\n\nconst formLoading = ref(false)\n\nconst payload  = ref({\n    fullName:\"\",\n    accountmanager:\"\",\n    email:\"\"\n})\n\nasync function submitForm(){\n    console.log(\"calling submit\")\n    formLoading.value = true\n    const res = await axios.patch(\"http://localhost:3006/api/customers\",{...payload.value})\n    formLoading.value = false\n    console.log(res)\n    if(res.status==200 || 201){\n        emit(\"close\", res.data)\n    }else{\n        console.log(res.statusText)\n    }\n}\n\nfunction close(){\n    emit(\"close\")\n}\n\n\nreturn (_ctx, _cache) => {\n  const _component_Loader = __nuxt_component_0\n  const _component_Modal = __nuxt_component_1\n\n  return (_openBlock(), _createBlock(_component_Modal, { onCloseModal: close }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"form\", _hoisted_1, [\n        _hoisted_2,\n        _createElementVNode(\"div\", _hoisted_3, [\n          _hoisted_4,\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => ((payload.value.fullName) = $event)),\n            type: \"text\",\n            name: \"fullName\",\n            placeholder: \"Jane Kimweli\",\n            class: \"border border-gray-300 p-2 rounded-lg text-sm\"\n          }, null, 512), [\n            [_vModelText, payload.value.fullName]\n          ])\n        ]),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _hoisted_6,\n          _withDirectives(_createElementVNode(\"input\", {\n            \"onUpdate:modelValue\": _cache[1] || (_cache[1] = $event => ((payload.value.email) = $event)),\n            type: \"email\",\n            name: \"email\",\n            placeholder: \"John@doe.dot\",\n            class: \"border border-gray-300 p-2 rounded-lg text-sm\"\n          }, null, 512), [\n            [_vModelText, payload.value.email]\n          ])\n        ]),\n        _hoisted_7,\n        _createElementVNode(\"button\", {\n          type: \"submit\",\n          onClick: _withModifiers(submitForm, [\"prevent\"]),\n          class: \"flex items-center justify-center py-2 px-3 mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300\"\n        }, [\n          (!formLoading.value)\n            ? (_openBlock(), _createElementBlock(\"span\", _hoisted_8, \"Create Customer\"))\n            : (_openBlock(), _createBlock(_component_Loader, {\n                key: 1,\n                size: \"small\",\n                class: \"h-4 w-4\"\n              }))\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532992722,
+      "end": 1711532992724,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711532992776,
+      "end": 1711532992777,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711532992777,
+      "end": 1711532992780,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711532992780,
+      "end": 1711532992780,
+      "order": "normal"
+    }
+  ]
+}

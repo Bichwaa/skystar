@@ -1,37 +1,59 @@
-<script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-
-defineProps({
-  title: {
-    type: String,
-    default: "",
-  },
-});
-const staff = ref([]);
-const roles = ref([]);
-
-const currentDate = new Date();
-const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);
-
-onMounted(async () => {
-  try {
-    const response = await axios.get('http://localhost:3006/api/users');
-    staff.value = response.data;
-    const roleResponse = await axios.get('http://localhost:3006/api/roles');
-    roles.value = roleResponse.data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    staff.value = null; // Set items to an empty array or handle error as needed
-  }
-});
-
-</script>
-
 <template>
-  <div class="flex flex-wrap sm:flex-row gap-8">
-    <div class="w-full sm:w-1/2 xl:w-1/3">
+  <div class="flex flex-wrap sm:flex-row gap-4">
+    <div class="w-full lg:w-3/5">
+      <div class="mb-4">
+        <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
+          <div class="flex items-center justify-between">
+            <p class="font-bold text-black">Staff</p>
+            <button class="rounded-full block border border-gray-200 p-1">
+                <IconsAddIcon class="h-7 w-7" @click="loadDeleteRoleDialog(st.name)"/>
+              </button>
+          </div>
+          
+          <ul>
+            <li class="my-6 flex items-center justify-between space-x-2" v-for="st,i in staff" :key="i">
+              <a href="#" class="relative flex gap-8">
+                <img
+                  alt="Maurice Lokumba"
+                  src="/images/2.jpg"
+                  class="mx-auto h-10 w-10 rounded-full object-cover"
+                />
+
+                <div class="flex flex-col">
+                <span class="ml-2 text-sm font-semibold text-gray-900">
+                  {{ st.firstName }}
+                </span>
+                <span class="ml-2 text-sm text-gray-400">
+                  {{ st.email }}
+                </span>
+              </div>
+
+
+              </a>
+              
+
+              <div class="flex gap-4 items-center justify-self-end">
+                <span 
+                    class="text-[#292a5e] text-sm font-medium hover:font-semibold duration-300 cursor-pointer"
+                    @click="viewEmployeeClicked(st)"
+                    >View</span>
+
+                <span class="text-[#d4af37] text-sm font-medium hover:font-semibold duration-300 cursor-pointer"
+                  @click="loadEditEmployeeForm(st)">
+                  Edit
+                </span>
+
+                <span class="text-red-600 text-sm font-medium hover:font-semibold duration-300 cursor-pointer" 
+                  @click="loadDeleteEmployeeDialog(st.ID)"
+                  >Delete</span>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/3">
       <div class="mb-4">
         <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
           <div class="mb-6 flex items-center justify-between">
@@ -47,7 +69,7 @@ onMounted(async () => {
             </div>
             <div class="flex items-center">
               <button class="rounded-full border border-gray-200 p-1">
-                <IconsAddIcon class="h-7 w-7"/>
+                <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateRoleForm=true" />
               </button>
             </div>
           </div>
@@ -56,8 +78,19 @@ onMounted(async () => {
               <div class="flex justify-between py-3 h-14 bg-gray-100"  v-for="role, i in roles">
                 <p class="p-3 text-md capitalize flex items-center"> {{ role.name }}</p>
                 <div class="flex gap-4 p-3 items-center">
-                  <IconsPencilIcon class="w-6 h-6 cursor-pointer" :current-color="'#fbbf24'"/>
-                <IconsDeleteIcon class="w-6 h-6 cursor-pointer"/>
+                  <span 
+                    class="text-[#292a5e] text-sm font-medium hover:font-semibold duration-300 cursor-pointer"
+                    @click="viewRoleClicked(role)"
+                    >View</span>
+
+                  <span 
+                    class="text-[#d4af37] text-sm font-medium hover:font-semibold duration-300 cursor-pointer"
+                    @click="loadEditRoleForm(role)"
+                    >Edit</span>
+                  <span 
+                    class="text-red-600 text-sm font-medium hover:font-semibold duration-300 cursor-pointer" 
+                    @click="loadDeleteRoleDialog(role.name)"
+                    >Delete</span>
               </div>
               </div>
             </div>
@@ -111,32 +144,170 @@ onMounted(async () => {
         </div>
       </div>
     </div>
-    <div class="w-full sm:w-1/2 xl:w-1/3">
-      <div class="mb-4">
-        <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
-          <p class="font-bold text-black">Staff</p>
-          <ul>
-            <li class="my-6 flex items-center space-x-2" v-for="st,i in staff" :key="i">
-              <a href="#" class="relative block">
-                <img
-                  alt="Maurice Lokumba"
-                  src="/images/2.jpg"
-                  class="mx-auto h-10 w-10 rounded-full object-cover"
-                />
-              </a>
-              <div class="flex flex-col">
-                <span class="ml-2 text-sm font-semibold text-gray-900">
-                  {{ st.firstName }}
-                </span>
-                <span class="ml-2 text-sm text-gray-400">
-                  {{ st.email }}
-                </span>
-              </div>
-            </li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
+    
+    <CreateEmployeeForm v-if="showCreateEmployeeForm" @close="handleformClosed"/>
+    <FormsEditEmployeeForm v-if="showEditEmployeeForm" :userdata="employeeToEdit" @close="handleEditformClosed"/>
+    <FormsCreateRoleForm v-if="showCreateRoleForm" @close="handleCreateRoleFormClosed" />
+    <FormsEditRoleForm v-if="showEditRoleForm" :roledata="roleToEdit" @close="handleEditRoleformClosed" />
+    <DeleteDialog v-if="showEmployeeDeleteDialog" entity="employee" :loading="deleteInProgress" @proceed="deleteEmployee" @close="showEmployeeDeleteDialog=false"/>
+    <DeleteDialog v-if="showRoleDeleteDialog" entity="role" :loading="deleteInProgress" @proceed="deleteRole" @close="showRoleDeleteDialog=false"/>
+
+    <RoleDetailsModal v-if="showRoleDetails" :role="currentRole" @close="showRoleDetails=false"/>
+    <EmployeeDetailsModal v-if="showEmployeeDetails" :staff="currentEmployee" @close="showEmployeeDetails=false"/>
   </div>
 </template>
+h
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+});
+const staff = ref([]);
+const roles = ref([]);
+
+//form & crud related
+const showCreateEmployeeForm = ref(false)
+const showEditEmployeeForm = ref(false)
+const employeeToEdit = ref({})
+const showEmployeeDeleteDialog = ref(false)
+const employeeToDelete = ref(0)
+const deleteInProgress = ref(false)
+const showCreateRoleForm = ref(false)
+const showEditRoleForm = ref(false)
+const roleToEdit = ref({})
+const showRoleDeleteDialog = ref(false)
+const roleToDelete = ref("")
+const showRoleDetails = ref(false)
+const currentRole = ref({})
+const showEmployeeDetails = ref(false)
+const currentEmployee = ref({})
+
+const currentDate = new Date();
+const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);
+
+function handleformClosed(payload){
+  showCreateEmployeeForm.value=false;
+  if(payload!=undefined){
+  console.log("the payload",payload)
+  staff.value.push(payload)
+  }
+}
+
+function loadEditEmployeeForm(employeedata){
+  employeeToEdit.value = employeedata
+  showEditEmployeeForm.value=true
+}
+
+function handleEditformClosed(payload){
+  showEditEmployeeForm.value=false;
+  if(payload!=undefined){
+  console.log("the payload",payload)
+  staff.value = staff.value.map(x=>{
+    if(x.ID==payload.ID){
+      return payload
+    }else{
+      return x
+    }
+  })
+  }
+}
+
+
+function loadDeleteEmployeeDialog(employeeID){
+  employeeToDelete.value = employeeID
+  showEmployeeDeleteDialog.value = true
+}
+
+async function deleteEmployee(){
+  deleteInProgress.value = true
+  const res = await axios.delete(`http://localhost:3006/api/users/delete/${employeeToDelete.value}`);
+  console.log(res)
+  if(res.status==200 || 201){
+      deleteInProgress.value = false
+      //remove employee from client state
+      staff.value  = staff.value.filter(x=>{
+        return x.ID!==employeeToDelete.value
+      })
+      showEmployeeDeleteDialog.value = false;
+  }else{
+      console.log(res.statusText)
+  }
+}
+
+async function deleteRole(){
+  deleteInProgress.value = true
+  const res = await axios.delete(`http://localhost:3006/api/roles/delete/${roleToDelete.value}`);
+  console.log(res)
+  if(res.status==200 || 201){
+      deleteInProgress.value = false
+      //remove employee from client state
+      roles.value  = roles.value.filter(x=>{
+        return x.name !== roleToDelete.value
+      })
+      showRoleDeleteDialog.value = false;
+  }else{
+      console.log(res.statusText)
+  }
+}
+
+
+function handleCreateRoleFormClosed(){
+  showCreateRoleForm.value = false
+}
+
+function loadEditRoleForm(roledata){
+  roleToEdit.value = roledata
+  showEditRoleForm.value=true
+}
+
+function loadDeleteRoleDialog(rolename){
+  roleToDelete.value = rolename
+  showRoleDeleteDialog.value = true
+}
+
+
+function handleEditRoleformClosed(payload){
+  showEditRoleForm.value=false
+  if(payload!=undefined){
+  console.log("the payload",payload)
+  roles.value = roles.value.map(x=>{
+    if(x.name==payload.name){
+      return payload
+    }else{
+      return x
+    }
+  })
+  }
+}
+
+function viewRoleClicked(role){
+  currentRole.value = role;
+  showRoleDetails.value = true
+}
+
+function viewEmployeeClicked(employee){
+  currentEmployee.value = employee;
+  showEmployeeDetails.value = true
+}
+
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3006/api/users');
+    staff.value = response.data;
+    const roleResponse = await axios.get('http://localhost:3006/api/roles');
+    roles.value = roleResponse.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    staff.value = null; // Set items to an empty array or handle error as needed
+  }
+});
+
+</script>

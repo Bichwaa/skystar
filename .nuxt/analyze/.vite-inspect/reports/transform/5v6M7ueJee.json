@@ -1,0 +1,223 @@
+{
+  "resolvedId": "/home/bichwaa/Desktop/work/skystar/pages/admin/consignments.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n    <div class=\"flex flex-wrap sm:flex-row gap-8\">\n      <div class=\"w-full\">\n        <div class=\"mb-4\">\n          <div class=\"w-full rounded-2xl bg-white p-4 shadow-lg\">\n            <div class=\"mb-6 flex items-center justify-between\">\n              <div class=\"flex items-center justify-between w-full\">\n                <div class=\"flex flex-col\">\n                  <span class=\"ml-2 font-bold text-black\">Consignment List</span>\n                  <span class=\"ml-2 text-xs text-gray-500\">\n                    as of\n                  </span>\n                </div>\n  \n                <button class=\"rounded-full border border-gray-200 p-1\">\n                  <IconsAddIcon class=\"h-7 w-7 cursor-pointer\" @click=\"showCreateCustomerForm=true\" />\n                </button>\n              </div>\n              \n            </div>\n            <div class=\"mb-4 flex items-center justify-between space-x-12\">\n              <span\n                class=\"flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-semibold text-green-700\"\n              >\n                {{ formattedDate }}\n              </span>\n            </div>\n            <div class=\"m-auto block\">\n              <table class=\"w-full divide-y divide-gray-200\">\n                <thead class=\"bg-gray-100\">\n                  <tr class=\"\">\n                    <th class=\"px-4 py-2 text-left\">Consignee</th>\n                    <th class=\"px-4 py-2 text-left\">No. Containers</th>\n                    <th class=\"px-4 py-2 text-left\">Cont. Size</th>\n                    <th class=\"px-4 py-2 text-left\">Transport</th>\n                    <th class=\"px-4 py-2 text-left\">Destination</th>\n                    <th class=\"px-4 py-2 text-left\">Overseer</th>\n                    <th class=\"px-4 py-2 text-left\">Actions</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr v-for=\"item in items\" :key=\"item.id\">\n                    <td class=\"px-4 py-2\">{{ item.consignee }}</td>\n                    <td class=\"px-4 py-2\">{{ item.containers}}</td>\n                    <td class=\"px-4 py-2\">{{ item.containerSize }}</td>\n                    <td class=\"px-4 py-2\">{{ item.transport}}</td>\n                    <td class=\"px-4 py-2\">{{ item.destination }}</td>\n                    <td class=\"px-4 py-2\">{{ item.overseer }}</td>\n                    <td class=\"flex items-center gap-6 px-4 py-2\">\n                      <span \n                        class=\"text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer\"\n                        @click=\"viewCustomerClicked(item)\"\n                        >View</span>\n  \n                      <span class=\"text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer\"\n                        @click=\"loadEditCustomerForm(item)\">\n                        Edit\n                      </span>\n  \n                      <span class=\"text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer\" \n                        @click=\"loadDeleteCustomerDialog(item)\"\n                        >Delete</span>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </div>\n        </div>\n      </div>\n      <CustomerDetailsModal v-if=\"showCustomerDetails\" :customer=\"currentCustomer\" @close=\"showCustomerDetails=false\"/>\n      <FormsCreateCustomerForm v-if=\"showCreateCustomerForm\"  @close=\"handleCreateCustomerformClosed\"/>\n      <FormsEditCustomerForm v-if=\"showEditCustomerForm\" :customerdata=\"customerToEdit\" @close=\"handleEditCustomerformClosed\"/>\n      <DeleteDialog v-if=\"showDeleteCustomerDialog\" entity=\"customer\" :loading=\"deleteInProgress\" @proceed=\"deleteCustomer\" @close=\"showDeleteCustomerDialog=false\"/>\n    </div>\n  </template>\n  \n  <script setup>\n  import { ref, onMounted } from 'vue';\n  import axios from 'axios';\n  \n  const items = [\n          {\n            id: 1,\n            consignee: 'John Doe',\n            containers:7,\n            containerSize: '40\" FL',\n            destination: 'Dar-es-salaam',\n            transport: \"Maersk\",\n            overseer: 'Chambi Chachambe',\n          },\n          {\n            id: 2,\n            consignee: 'Jane Deer',\n            containers:3,\n            containerSize: '20\" DRY',\n            destination: 'Dar-es-salaam',\n            transport: \"Maersk\",\n            overseer: 'John Kisomo',\n          },\n        ]\n  \n  \n  defineProps({\n    title: {\n      type: String,\n      default: \"\",\n    },\n  });\n  const customers = ref([]);\n  // const roles = ref([]);\n  \n  const currentDate = new Date();\n  const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\n  const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);\n  \n  //CRUD SHIT\n  const showCustomerDetails = ref(false)\n  const showCreateCustomerForm = ref(false)\n  const showEditCustomerForm = ref(false)\n  const showDeleteCustomerDialog = ref(false)\n  const currentCustomer = ref({});\n  const customerToEdit = ref({});\n  const customerToDelete = ref({});\n  const deleteInProgress = ref(false)\n  \n  function viewCustomerClicked(customer){\n    currentCustomer.value = customer;\n    showCustomerDetails.value = true;\n  }\n  \n  function loadEditCustomerForm(customer){\n    customerToEdit.value = customer;\n    showEditCustomerForm.value = true\n  }\n  \n  function handleCreateCustomerformClosed(){\n    showCreateCustomerForm.value=false;\n    if(payload!=undefined){\n    console.log(\"the payload\",payload)\n    customers.value.push(payload)\n    }\n  }\n  \n  function handleEditCustomerformClosed(){\n    showEditCustomerForm.value=false;\n    if(payload!=undefined){\n    console.log(\"the payload\",payload)\n    customers.value = customers.value.map(x=>{\n      if(x.ID==payload.ID){\n        return payload\n      }else{\n        return x\n      }\n    })\n    }\n  }\n  \n  function loadDeleteCustomerDialog(customer){\n    customerToDelete.value = customer;\n    showDeleteCustomerDialog.value = true\n  }\n  \n  async function deleteCustomer(){\n    deleteInProgress.value = true\n    const res = await axios.delete(`http://localhost:3006/api/customer/delete/${customerToDelete.value.ID}`);\n    console.log(res)\n    if(res.status==200 || 201){\n        deleteInProgress.value = false\n        //remove employee from client state\n        customers.value  = customers.value.filter(x=>{\n          return x.ID!==employeeToDelete.value\n        })\n        showEmployeeDeleteDialog.value = false;\n    }else{\n        console.log(res.statusText)\n    }\n  }\n  \n  \n  onMounted(async () => {\n    try {\n      const response = await axios.get('http://localhost:3006/api/customers');\n      customers.value = response.data;\n    } catch (error) {\n      console.error('Error fetching data:', error);\n      customers.value = null; // Set items to an empty array or handle error as needed\n    }\n  });\n  \n  </script>",
+      "start": 1711532979412,
+      "end": 1711532982091,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1711532982091,
+      "end": 1711532982091,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1711532982091,
+      "end": 1711532982093,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1711532982093,
+      "end": 1711532982093,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1711532982093,
+      "end": 1711532982093,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1711532982093,
+      "end": 1711532982093,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1711532982093,
+      "end": 1711532982093,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1711532982093,
+      "end": 1711532982093,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, unref as _unref, toDisplayString as _toDisplayString, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nconst _hoisted_1 = { class: \"flex flex-wrap sm:flex-row gap-8\" }\nconst _hoisted_2 = { class: \"w-full\" }\nconst _hoisted_3 = { class: \"mb-4\" }\nconst _hoisted_4 = { class: \"w-full rounded-2xl bg-white p-4 shadow-lg\" }\nconst _hoisted_5 = { class: \"mb-6 flex items-center justify-between\" }\nconst _hoisted_6 = { class: \"flex items-center justify-between w-full\" }\nconst _hoisted_7 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"flex flex-col\" }, [\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"ml-2 font-bold text-black\" }, \"Consignment List\"),\n  /*#__PURE__*/_createElementVNode(\"span\", { class: \"ml-2 text-xs text-gray-500\" }, \" as of \")\n], -1)\nconst _hoisted_8 = { class: \"rounded-full border border-gray-200 p-1\" }\nconst _hoisted_9 = { class: \"mb-4 flex items-center justify-between space-x-12\" }\nconst _hoisted_10 = { class: \"flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-semibold text-green-700\" }\nconst _hoisted_11 = { class: \"m-auto block\" }\nconst _hoisted_12 = { class: \"w-full divide-y divide-gray-200\" }\nconst _hoisted_13 = /*#__PURE__*/_createElementVNode(\"thead\", { class: \"bg-gray-100\" }, [\n  /*#__PURE__*/_createElementVNode(\"tr\", { class: \"\" }, [\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Consignee\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"No. Containers\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Cont. Size\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Transport\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Destination\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Overseer\"),\n    /*#__PURE__*/_createElementVNode(\"th\", { class: \"px-4 py-2 text-left\" }, \"Actions\")\n  ])\n], -1)\nconst _hoisted_14 = { class: \"px-4 py-2\" }\nconst _hoisted_15 = { class: \"px-4 py-2\" }\nconst _hoisted_16 = { class: \"px-4 py-2\" }\nconst _hoisted_17 = { class: \"px-4 py-2\" }\nconst _hoisted_18 = { class: \"px-4 py-2\" }\nconst _hoisted_19 = { class: \"px-4 py-2\" }\nconst _hoisted_20 = { class: \"flex items-center gap-6 px-4 py-2\" }\nconst _hoisted_21 = [\"onClick\"]\nconst _hoisted_22 = [\"onClick\"]\nconst _hoisted_23 = [\"onClick\"]\n\nimport { ref, onMounted } from 'vue';\n  import axios from 'axios';\n  \n  \nconst _sfc_main = {\n  __name: 'consignments',\n  props: {\n    title: {\n      type: String,\n      default: \"\",\n    },\n  },\n  setup(__props) {\n\n  const items = [\n          {\n            id: 1,\n            consignee: 'John Doe',\n            containers:7,\n            containerSize: '40\" FL',\n            destination: 'Dar-es-salaam',\n            transport: \"Maersk\",\n            overseer: 'Chambi Chachambe',\n          },\n          {\n            id: 2,\n            consignee: 'Jane Deer',\n            containers:3,\n            containerSize: '20\" DRY',\n            destination: 'Dar-es-salaam',\n            transport: \"Maersk\",\n            overseer: 'John Kisomo',\n          },\n        ]\n  \n  \n  \n  const customers = ref([]);\n  // const roles = ref([]);\n  \n  const currentDate = new Date();\n  const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };\n  const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);\n  \n  //CRUD SHIT\n  const showCustomerDetails = ref(false)\n  const showCreateCustomerForm = ref(false)\n  const showEditCustomerForm = ref(false)\n  const showDeleteCustomerDialog = ref(false)\n  const currentCustomer = ref({});\n  const customerToEdit = ref({});\n  const customerToDelete = ref({});\n  const deleteInProgress = ref(false)\n  \n  function viewCustomerClicked(customer){\n    currentCustomer.value = customer;\n    showCustomerDetails.value = true;\n  }\n  \n  function loadEditCustomerForm(customer){\n    customerToEdit.value = customer;\n    showEditCustomerForm.value = true\n  }\n  \n  function handleCreateCustomerformClosed(){\n    showCreateCustomerForm.value=false;\n    if(payload!=undefined){\n    console.log(\"the payload\",payload)\n    customers.value.push(payload)\n    }\n  }\n  \n  function handleEditCustomerformClosed(){\n    showEditCustomerForm.value=false;\n    if(payload!=undefined){\n    console.log(\"the payload\",payload)\n    customers.value = customers.value.map(x=>{\n      if(x.ID==payload.ID){\n        return payload\n      }else{\n        return x\n      }\n    })\n    }\n  }\n  \n  function loadDeleteCustomerDialog(customer){\n    customerToDelete.value = customer;\n    showDeleteCustomerDialog.value = true\n  }\n  \n  async function deleteCustomer(){\n    deleteInProgress.value = true\n    const res = await axios.delete(`http://localhost:3006/api/customer/delete/${customerToDelete.value.ID}`);\n    console.log(res)\n    if(res.status==200 || 201){\n        deleteInProgress.value = false\n        //remove employee from client state\n        customers.value  = customers.value.filter(x=>{\n          return x.ID!==employeeToDelete.value\n        })\n        showEmployeeDeleteDialog.value = false;\n    }else{\n        console.log(res.statusText)\n    }\n  }\n  \n  \n  onMounted(async () => {\n    try {\n      const response = await axios.get('http://localhost:3006/api/customers');\n      customers.value = response.data;\n    } catch (error) {\n      console.error('Error fetching data:', error);\n      customers.value = null; // Set items to an empty array or handle error as needed\n    }\n  });\n  \n  \nreturn (_ctx, _cache) => {\n  const _component_IconsAddIcon = _resolveComponent(\"IconsAddIcon\")\n  const _component_CustomerDetailsModal = _resolveComponent(\"CustomerDetailsModal\")\n  const _component_FormsCreateCustomerForm = _resolveComponent(\"FormsCreateCustomerForm\")\n  const _component_FormsEditCustomerForm = _resolveComponent(\"FormsEditCustomerForm\")\n  const _component_DeleteDialog = _resolveComponent(\"DeleteDialog\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", _hoisted_2, [\n      _createElementVNode(\"div\", _hoisted_3, [\n        _createElementVNode(\"div\", _hoisted_4, [\n          _createElementVNode(\"div\", _hoisted_5, [\n            _createElementVNode(\"div\", _hoisted_6, [\n              _hoisted_7,\n              _createElementVNode(\"button\", _hoisted_8, [\n                _createVNode(_component_IconsAddIcon, {\n                  class: \"h-7 w-7 cursor-pointer\",\n                  onClick: _cache[0] || (_cache[0] = $event => (showCreateCustomerForm.value=true))\n                })\n              ])\n            ])\n          ]),\n          _createElementVNode(\"div\", _hoisted_9, [\n            _createElementVNode(\"span\", _hoisted_10, _toDisplayString(_unref(formattedDate)), 1)\n          ]),\n          _createElementVNode(\"div\", _hoisted_11, [\n            _createElementVNode(\"table\", _hoisted_12, [\n              _hoisted_13,\n              _createElementVNode(\"tbody\", null, [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(items, (item) => {\n                  return _createElementVNode(\"tr\", {\n                    key: item.id\n                  }, [\n                    _createElementVNode(\"td\", _hoisted_14, _toDisplayString(item.consignee), 1),\n                    _createElementVNode(\"td\", _hoisted_15, _toDisplayString(item.containers), 1),\n                    _createElementVNode(\"td\", _hoisted_16, _toDisplayString(item.containerSize), 1),\n                    _createElementVNode(\"td\", _hoisted_17, _toDisplayString(item.transport), 1),\n                    _createElementVNode(\"td\", _hoisted_18, _toDisplayString(item.destination), 1),\n                    _createElementVNode(\"td\", _hoisted_19, _toDisplayString(item.overseer), 1),\n                    _createElementVNode(\"td\", _hoisted_20, [\n                      _createElementVNode(\"span\", {\n                        class: \"text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer\",\n                        onClick: $event => (viewCustomerClicked(item))\n                      }, \"View\", 8, _hoisted_21),\n                      _createElementVNode(\"span\", {\n                        class: \"text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer\",\n                        onClick: $event => (loadEditCustomerForm(item))\n                      }, \" Edit \", 8, _hoisted_22),\n                      _createElementVNode(\"span\", {\n                        class: \"text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer\",\n                        onClick: $event => (loadDeleteCustomerDialog(item))\n                      }, \"Delete\", 8, _hoisted_23)\n                    ])\n                  ])\n                }), 64))\n              ])\n            ])\n          ])\n        ])\n      ])\n    ]),\n    (showCustomerDetails.value)\n      ? (_openBlock(), _createBlock(_component_CustomerDetailsModal, {\n          key: 0,\n          customer: currentCustomer.value,\n          onClose: _cache[1] || (_cache[1] = $event => (showCustomerDetails.value=false))\n        }, null, 8, [\"customer\"]))\n      : _createCommentVNode(\"\", true),\n    (showCreateCustomerForm.value)\n      ? (_openBlock(), _createBlock(_component_FormsCreateCustomerForm, {\n          key: 1,\n          onClose: handleCreateCustomerformClosed\n        }))\n      : _createCommentVNode(\"\", true),\n    (showEditCustomerForm.value)\n      ? (_openBlock(), _createBlock(_component_FormsEditCustomerForm, {\n          key: 2,\n          customerdata: customerToEdit.value,\n          onClose: handleEditCustomerformClosed\n        }, null, 8, [\"customerdata\"]))\n      : _createCommentVNode(\"\", true),\n    (showDeleteCustomerDialog.value)\n      ? (_openBlock(), _createBlock(_component_DeleteDialog, {\n          key: 3,\n          entity: \"customer\",\n          loading: deleteInProgress.value,\n          onProceed: deleteCustomer,\n          onClose: _cache[2] || (_cache[2] = $event => (showDeleteCustomerDialog.value=false))\n        }, null, 8, [\"loading\"]))\n      : _createCommentVNode(\"\", true)\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1711532982094,
+      "end": 1711532982308,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1711532982309,
+      "end": 1711532982309,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532982309,
+      "end": 1711532982309,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1711532982309,
+      "end": 1711532982310,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1711532982310,
+      "end": 1711532982310,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1711532982310,
+      "end": 1711532982311,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1711532982311,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1711532982312,
+      "end": 1711532982312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1711532982312,
+      "end": 1711532982313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1711532982313,
+      "end": 1711532982313,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1711532982313,
+      "end": 1711532982314,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1711532982314,
+      "end": 1711532982379,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1711532982379,
+      "end": 1711532982380,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1711532982380,
+      "end": 1711532982410,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1711532982410,
+      "end": 1711532982411,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1711532982411,
+      "end": 1711532982412,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1711532982412,
+      "end": 1711532982413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1711532982413,
+      "end": 1711532982413,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1711532982413,
+      "end": 1711532982413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1711532982413,
+      "end": 1711532982413,
+      "order": "normal"
+    }
+  ]
+}

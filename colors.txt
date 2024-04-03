@@ -1,0 +1,5 @@
+blue : #292a5e
+
+gold : #d4af37
+
+and the greys and the blacks and the whites and a red.

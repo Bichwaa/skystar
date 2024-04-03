@@ -1,4 +1,4 @@
-globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, getRequestHeaders, removeResponseHeader, createError, getResponseHeader, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent, lazyEventHandler } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/h3/dist/index.mjs';
+globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, getRequestHeaders, removeResponseHeader, createError, getResponseHeader, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, fetchWithEvent } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/h3/dist/index.mjs';
 import { createFetch as createFetch$1, Headers as Headers$1 } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/ofetch/dist/node.mjs';
 import destr from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/destr/dist/index.mjs';
 import { createCall, createFetch } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/unenv/runtime/fetch/index.mjs';
@@ -16,11 +16,12 @@ import unstorage_47drivers_47fs_45lite from 'file:///home/bichwaa/Desktop/work/s
 import { toRouteMatcher, createRouter } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/radix3/dist/index.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/pathe/dist/index.mjs';
+import { dirname, resolve, isAbsolute } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/pathe/dist/index.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///home/bichwaa/Desktop/work/skystar/node_modules/ipx/dist/index.mjs';
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "f1ec447c-16ac-4e59-a057-d8c89e5d66d6"
+    "buildId": "e2167077-aac7-4027-873b-139e05682765"
   }
 };
 
@@ -57,7 +58,19 @@ const _inlineRuntimeConfig = {
       }
     }
   },
-  "public": {}
+  "public": {},
+  "ipx": {
+    "baseURL": "/_ipx",
+    "alias": {},
+    "fs": {
+      "dir": [
+        "/home/bichwaa/Desktop/work/skystar/public"
+      ]
+    },
+    "http": {
+      "domains": []
+    }
+  }
 };
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _inlineRuntimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
@@ -712,10 +725,29 @@ const _f4b49z = eventHandler((event) => {
   return readAsset(id);
 });
 
+const _UtKvLI = lazyEventHandler(() => {
+  const opts = useRuntimeConfig().ipx || {};
+  const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
+  const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
+  const httpStorage = opts.http?.domains ? ipxHttpStorage({ ...opts.http }) : void 0;
+  if (!fsStorage && !httpStorage) {
+    throw new Error("IPX storage is not configured!");
+  }
+  const ipxOptions = {
+    ...opts,
+    storage: fsStorage || httpStorage,
+    httpStorage
+  };
+  const ipx = createIPX(ipxOptions);
+  const ipxHandler = createIPXH3Handler(ipx);
+  return useBase(opts.baseURL, ipxHandler);
+});
+
 const _lazy_kSVkp6 = () => import('../renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
   { route: '', handler: _f4b49z, lazy: false, middleware: true, method: undefined },
+  { route: '/_ipx/**', handler: _UtKvLI, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_kSVkp6, lazy: true, middleware: false, method: undefined }
 ];
 
