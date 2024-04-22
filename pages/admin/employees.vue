@@ -6,7 +6,7 @@
           <div class="flex items-center justify-between">
             <p class="font-bold text-black">Staff</p>
             <button class="rounded-full block border border-gray-200 p-1">
-                <IconsAddIcon class="h-7 w-7" @click="loadDeleteRoleDialog(st.name)"/>
+                <IconsAddIcon class="h-7 w-7" @click="showCreateEmployeeForm=true"/>
               </button>
           </div>
           
@@ -21,7 +21,7 @@
 
                 <div class="flex flex-col">
                 <span class="ml-2 text-sm font-semibold text-gray-900">
-                  {{ st.firstName }}
+                  {{ st.firstName }} {{ st.lastName }}
                 </span>
                 <span class="ml-2 text-sm text-gray-400">
                   {{ st.email }}
@@ -152,15 +152,17 @@
     <DeleteDialog v-if="showEmployeeDeleteDialog" entity="employee" :loading="deleteInProgress" @proceed="deleteEmployee" @close="showEmployeeDeleteDialog=false"/>
     <DeleteDialog v-if="showRoleDeleteDialog" entity="role" :loading="deleteInProgress" @proceed="deleteRole" @close="showRoleDeleteDialog=false"/>
 
-    <RoleDetailsModal v-if="showRoleDetails" :role="currentRole" @close="showRoleDetails=false"/>
+    <RoleDetailsModal v-if="showRoleDetails" :role="currentRole" @close="showRoleDetails=false" @reload-roles="loadRoles" :key="fakeKey"/>
     <EmployeeDetailsModal v-if="showEmployeeDetails" :staff="currentEmployee" @close="showEmployeeDetails=false"/>
   </div>
 </template>
 h
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
+import { ref, onMounted, watch, onUpdated } from 'vue';
+
+
+const { $axios } = useNuxtApp()
 
 defineProps({
   title: {
@@ -187,6 +189,7 @@ const showRoleDetails = ref(false)
 const currentRole = ref({})
 const showEmployeeDetails = ref(false)
 const currentEmployee = ref({})
+const fakeKey = ref(1)
 
 const currentDate = new Date();
 const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -225,9 +228,25 @@ function loadDeleteEmployeeDialog(employeeID){
   showEmployeeDeleteDialog.value = true
 }
 
+async function loadRoles(){
+  const roleResponse = await $axios.get('/api/roles');
+    if(roleResponse.status==200 || 201){
+    roles.value = roleResponse.data;
+    }
+    try{
+      if(currentRole.value.name!=""){
+      currentRole.value = roles.value.find(x=>x.name==currentRole.value.name)
+      // fakeKey.value += 1
+      console.log("changed Current role")
+    }
+    }catch(err){
+      console.log(err.message)
+    }
+}
+
 async function deleteEmployee(){
   deleteInProgress.value = true
-  const res = await axios.delete(`http://localhost:3006/api/users/delete/${employeeToDelete.value}`);
+  const res = await $axios.delete(`/api/users/delete/${employeeToDelete.value}`);
   console.log(res)
   if(res.status==200 || 201){
       deleteInProgress.value = false
@@ -243,7 +262,7 @@ async function deleteEmployee(){
 
 async function deleteRole(){
   deleteInProgress.value = true
-  const res = await axios.delete(`http://localhost:3006/api/roles/delete/${roleToDelete.value}`);
+  const res = await $axios.delete(`/api/roles/delete/${roleToDelete.value}`);
   console.log(res)
   if(res.status==200 || 201){
       deleteInProgress.value = false
@@ -300,14 +319,31 @@ function viewEmployeeClicked(employee){
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3006/api/users');
-    staff.value = response.data;
-    const roleResponse = await axios.get('http://localhost:3006/api/roles');
+    const response = await $axios.get('/api/users');
+    if(response.status==200 || 201){
+      staff.value = response.data;
+    }
+    const roleResponse = await $axios.get('/api/roles');
+    if(roleResponse.status==200 || 201){
     roles.value = roleResponse.data;
+    }
+    console.log("=================successsssssss========")
   } catch (error) {
     console.error('Error fetching data:', error);
     staff.value = null; // Set items to an empty array or handle error as needed
   }
 });
 
+
+onUpdated( async function(){
+  // await loadRoles()
+  // try{
+  //       if(currentRole.value.name!=""){
+  //       currentRole.value = roles.value.find(x=>x.name==currentRole.value.name)
+  //       console.log("changed Current role")
+  //     }
+  //     }catch(err){
+  //       console.log(err.message)
+  //     }
+})
 </script>

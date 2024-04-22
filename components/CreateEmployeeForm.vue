@@ -33,8 +33,8 @@
 
 <script setup>
 import {ref} from 'vue';
-import axios from 'axios';
 
+const { $axios } = useNuxtApp()
 const emit = defineEmits(['close'])
 
 const formLoading = ref(false)
@@ -49,7 +49,7 @@ const payload  = ref({
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    const res = await axios.post('http://localhost:3006/api/users',{...payload.value})
+    const res = await $axios.post('/api/users',{...payload.value})
     formLoading.value = false
     console.log(res)
     if(res.status==200 || 201){

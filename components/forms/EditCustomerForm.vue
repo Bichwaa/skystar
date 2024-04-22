@@ -41,7 +41,8 @@
 
 <script setup>
 import {ref, onMounted} from 'vue';
-import axios from 'axios';
+
+const { $axios } = useNuxtApp()
 
 const props = defineProps({
     customerdata:{
@@ -68,9 +69,9 @@ const payload  = ref({
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    const res = await axios.patch(`http://localhost:3006/api/users/update/${props.customerdata.ID}`,{...payload.value})
+    const res = await $axios.patch(`/api/customers/update/${props.customerdata.ID}`,{...payload.value})
     formLoading.value = false
-    console.log(res)
+    console.log(res.data)
     if(res.status==200 || 201){
         emit("close", res.data)
     }else{

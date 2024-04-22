@@ -40,9 +40,10 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
-import axios from 'axios';
+import {ref} from 'vue';
 
+
+const { $axios } = useNuxtApp()
 
 const emit = defineEmits(['close'])
 
@@ -50,14 +51,14 @@ const formLoading = ref(false)
 
 const payload  = ref({
     fullName:"",
-    accountmanager:"",
+    accountmanager:"1",
     email:""
 })
 
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    const res = await axios.patch("http://localhost:3006/api/customers",{...payload.value})
+    const res = await $axios.post("/api/customers",{...payload.value})
     formLoading.value = false
     console.log(res)
     if(res.status==200 || 201){

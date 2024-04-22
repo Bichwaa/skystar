@@ -1,13 +1,20 @@
-<script setup lang="ts">
+<script setup>
+// import { computed } from 'vue';
 import DocIcon from "./icons/DocIcon.vue";
 import SidebarItem from "./SidebarItem.vue";
 import TasksIcon from "./icons/TaskIcon.vue";
-import ReportsIcon from "./icons/ReportIcon.vue";
 import ProjectsIcon from "./icons/ProjectIcon.vue";
-import SettingsIcon from "./icons/SettingsIcon.vue";
 import CalendarIcon from "./icons/CalendarIcon.vue";
 import DashboardIcon from "./icons/DashboardIcon.vue";
-import TimeManageIcon from "./icons/TimeManageIcon.vue";
+import {userStore} from "../../store"
+
+
+const store = userStore()
+
+function logout(){
+  store.resetState() 
+}
+
 </script>
 
 <template>
@@ -44,12 +51,16 @@ import TimeManageIcon from "./icons/TimeManageIcon.vue";
       <CalendarIcon />
     </SidebarItem>
 
-    <SidebarItem title="login" to="/login">
+    <SidebarItem v-if="!store.is_authenticated" title="login" to="/login">
       <DocIcon />
     </SidebarItem>
 
-    <SidebarItem title="Register" to="/register">
+    <SidebarItem v-if="!store.is_authenticated" title="Register" to="/register">
       <DocIcon />
     </SidebarItem> 
+
+    <SidebarItem v-if="store.is_authenticated" @click.prevent="logout" title="Logout" to="/login">
+      <IconsBoltIcon />
+    </SidebarItem>
   </ul>
 </template>

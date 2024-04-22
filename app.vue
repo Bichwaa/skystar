@@ -7,6 +7,17 @@
 </template>
 
 
+<script setup>
+import {onMounted} from 'vue';
+import {userStore} from "./store";
+
+const store = userStore()
+
+onMounted(()=>store.checkPersistedState())
+
+
+</script>
+
 
 <style >
 .page-enter-from,

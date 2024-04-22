@@ -37,11 +37,12 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in items" :key="item.id">
+                <tr v-for="item in customers
+                 " :key="item.id">
                   <td class="px-4 py-2">{{ item.fullName }}</td>
                   <td class="px-4 py-2">{{ item.email }}</td>
                   <td class="px-4 py-2">{{ item.consignments }}</td>
-                  <td class="px-4 py-2">{{ item.fileManager }}</td>
+                  <td class="px-4 py-2">{{ item.accountManager }}</td>
                   <td class="flex items-center gap-6 px-4 py-2">
                     <span 
                       class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
@@ -73,7 +74,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
+
+const { $axios } = useNuxtApp()
 
 const items = [
         {
@@ -126,7 +128,7 @@ function loadEditCustomerForm(customer){
   showEditCustomerForm.value = true
 }
 
-function handleCreateCustomerformClosed(){
+function handleCreateCustomerformClosed(payload){
   showCreateCustomerForm.value=false;
   if(payload!=undefined){
   console.log("the payload",payload)
@@ -134,7 +136,7 @@ function handleCreateCustomerformClosed(){
   }
 }
 
-function handleEditCustomerformClosed(){
+function handleEditCustomerformClosed(payload){
   showEditCustomerForm.value=false;
   if(payload!=undefined){
   console.log("the payload",payload)
@@ -155,15 +157,15 @@ function loadDeleteCustomerDialog(customer){
 
 async function deleteCustomer(){
   deleteInProgress.value = true
-  const res = await axios.delete(`http://localhost:3006/api/customer/delete/${customerToDelete.value.ID}`);
+  const res = await $axios.delete(`/api/customers/delete/${customerToDelete.value.ID}`);
   console.log(res)
   if(res.status==200 || 201){
       deleteInProgress.value = false
       //remove employee from client state
-      customers.value  = customers.value.filter(x=>{
-        return x.ID!==employeeToDelete.value
+      customers.value  = customers.value.filter((x)=>{
+        return x.ID!=customerToDelete.value.ID
       })
-      showEmployeeDeleteDialog.value = false;
+      showDeleteCustomerDialog.value = false;
   }else{
       console.log(res.statusText)
   }
@@ -172,8 +174,10 @@ async function deleteCustomer(){
 
 onMounted(async () => {
   try {
-    const response = await axios.get('http://localhost:3006/api/customers');
+    const response = await $axios.get('/api/customers');
+    if(response.status==200 || 201){
     customers.value = response.data;
+    }
   } catch (error) {
     console.error('Error fetching data:', error);
     customers.value = null; // Set items to an empty array or handle error as needed

@@ -1,0 +1,110 @@
+import { defineStore } from 'pinia';
+// import axios from 'axios';
+
+
+function SafeStorage(){
+  return {
+      getItem(item) {
+          if (process.client) {
+              return localStorage.getItem(item)    
+          } else {
+              return undefined
+          }
+      },
+
+      setItem(item, value) {
+          if (process.client) {
+              return localStorage.setItem(item, JSON.stringify(value))
+          }
+      },
+      
+      clearStorage(){
+        if (process.client) {
+          return localStorage.clear()
+      }
+      }
+  }
+}
+
+const safestorage = SafeStorage()
+
+
+
+const userTemplate = {ID: 1,
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  accessToken:"",
+  refreshToken:"",
+  authenticated:false,
+  Roles: [
+    {
+      ID: 0,
+      name: "employee",
+      // Permissions: []
+    }
+  ]}
+
+export const userStore = defineStore('userStore', {
+    state:()=>({
+      user:userTemplate
+    }),
+
+     getters: {
+      access_token: (state) => state.user.accessToken,
+      refresh_token: (state) => state.user.refreshToken,
+      is_authenticated: (state) => state.user.authenticated,
+    },
+
+    actions: {
+      storeTokens({Access, Refresh}={}) {
+        this.user.accessToken = Access;
+        this.user.refreshToken = Refresh;
+      },
+
+      storeEmail(email) {
+        this.user.email = email
+      },
+
+      persistState(){
+        safestorage.setItem("user", this.user)
+      },
+
+      resetState(){
+        this.$reset()
+        safestorage.clearStorage()
+      },
+
+      checkPersistedState(){
+        let user = safestorage.getItem("user");
+        user = JSON.parse(user)
+        if(user!=null){
+          this.user = user
+        }
+      },
+
+      async getme(){
+        const { $axios } = useNuxtApp()
+        const res = await $axios.post("/api/users/me",{email:this.user.email})
+        if(res.status==200 || 201){
+        this.user = {...this.user, ...res.data}
+        this.user.authenticated = true
+        }
+      },
+
+      async refreshTokens(){
+        const { $axios } = useNuxtApp()
+        const res = await $axios.post("/api/token-refresh",{user:this.user})
+        if(res.status==200 || 201){
+        this.storeTokens(res.data)
+        }
+      }
+
+
+    },
+
+
+    })
+
+

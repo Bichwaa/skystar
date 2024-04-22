@@ -31,7 +31,7 @@
                   <tr class="">
                     <th class="px-4 py-2 text-left">Consignee</th>
                     <th class="px-4 py-2 text-left">No. Containers</th>
-                    <th class="px-4 py-2 text-left">Cont. Size</th>
+                    <th class="px-4 py-2 text-left">Luggage</th>
                     <th class="px-4 py-2 text-left">Transport</th>
                     <th class="px-4 py-2 text-left">Destination</th>
                     <th class="px-4 py-2 text-left">Overseer</th>
@@ -77,14 +77,14 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
-  import axios from 'axios';
+  const { $axios } = useNuxtApp()
   
   const items = [
           {
             id: 1,
             consignee: 'John Doe',
             containers:7,
-            containerSize: '40" FL',
+            containerSize: 'Farm implements',
             destination: 'Dar-es-salaam',
             transport: "Maersk",
             overseer: 'Chambi Chachambe',
@@ -93,7 +93,7 @@
             id: 2,
             consignee: 'Jane Deer',
             containers:3,
-            containerSize: '20" DRY',
+            containerSize: 'Electronics',
             destination: 'Dar-es-salaam',
             transport: "Maersk",
             overseer: 'John Kisomo',
@@ -163,7 +163,7 @@
   
   async function deleteCustomer(){
     deleteInProgress.value = true
-    const res = await axios.delete(`http://localhost:3006/api/customer/delete/${customerToDelete.value.ID}`);
+    const res = await $axios.delete(`/api/consignments/delete/${customerToDelete.value.ID}`);
     console.log(res)
     if(res.status==200 || 201){
         deleteInProgress.value = false
@@ -180,8 +180,10 @@
   
   onMounted(async () => {
     try {
-      const response = await axios.get('http://localhost:3006/api/customers');
+      const response = await $axios.get('/api/consignments');
+      if(response.status==200 || 201){
       customers.value = response.data;
+      }
     } catch (error) {
       console.error('Error fetching data:', error);
       customers.value = null; // Set items to an empty array or handle error as needed
