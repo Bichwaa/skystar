@@ -13,20 +13,9 @@
                 <input v-model="payload.email" type="email" name="email" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
-            <div class="flex flex-col my-4">
-                <label for="email" class="text-xs font-medium my-1">Filed by</label>
-                <select>
-                    <option value="John">John</option>
-                    <option value="Jane">Jane</option>
-                    <option value="Bob">Bob</option>
-                    <option value="Alice">Alice</option>
-                    <option value="Mike">Mike</option>
-                    <option value="Sarah">Sarah</option>
-                    <option value="Tom">Tom</option>
-                    <option value="Emily">Emily</option>
-                    <option value="David">David</option>
-                    <option value="Samantha">Samantha</option>
-                </select>
+            <div class="flex flex-col my-2">
+                <label for="phone" class="text-xs font-medium my-1">Phone Number</label>
+                <input v-model="payload.phone" type="phone" name="phone" placeholder="+111000223344" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
 
@@ -51,7 +40,8 @@ const props = defineProps({
             ID:"",
             fullName:"",
             accountmanager:"",
-            email:""
+            email:"",
+            phone:""
         }
     }
 })
@@ -63,7 +53,8 @@ const formLoading = ref(false)
 const payload  = ref({
     fullName:"",
     accountmanager:"",
-    email:""
+    email:"",
+    phone:""
 })
 
 async function submitForm(){

@@ -13,7 +13,7 @@
                 </div>
   
                 <button class="rounded-full border border-gray-200 p-1">
-                  <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateCustomerForm=true" />
+                  <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateconsignmentForm=true" />
                 </button>
               </div>
               
@@ -39,26 +39,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in items" :key="item.id">
-                    <td class="px-4 py-2">{{ item.consignee }}</td>
-                    <td class="px-4 py-2">{{ item.containers}}</td>
-                    <td class="px-4 py-2">{{ item.containerSize }}</td>
+                  <tr v-for="item in consignments" :key="item.id">
+                    <td class="px-4 py-2">{{ item.Consignee.fullName }}</td>
+                    <td class="px-4 py-2">{{ item.cont10 + item.cont20 + item.cont40 }}</td>
+                    <td class="px-4 py-2">{{ item.luggage }}</td>
                     <td class="px-4 py-2">{{ item.transport}}</td>
                     <td class="px-4 py-2">{{ item.destination }}</td>
-                    <td class="px-4 py-2">{{ item.overseer }}</td>
+                    <td class="px-4 py-2">
+                      <span v-if="item.Overseer">{{ item.Overseer.firstName + " " + item.Overseer.lastName }}</span>
+                    </td>
                     <td class="flex items-center gap-6 px-4 py-2">
                       <span 
                         class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
-                        @click="viewCustomerClicked(item)"
+                        @click="viewconsignmentClicked(item.ID)"
                         >View</span>
   
                       <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
-                        @click="loadEditCustomerForm(item)">
+                        @click="loadEditconsignmentForm(item)">
                         Edit
                       </span>
   
                       <span class="text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer" 
-                        @click="loadDeleteCustomerDialog(item)"
+                        @click="loadDeleteconsignmentDialog(item)"
                         >Delete</span>
                     </td>
                   </tr>
@@ -68,15 +70,16 @@
           </div>
         </div>
       </div>
-      <CustomerDetailsModal v-if="showCustomerDetails" :customer="currentCustomer" @close="showCustomerDetails=false"/>
-      <FormsCreateCustomerForm v-if="showCreateCustomerForm"  @close="handleCreateCustomerformClosed"/>
-      <FormsEditCustomerForm v-if="showEditCustomerForm" :customerdata="customerToEdit" @close="handleEditCustomerformClosed"/>
-      <DeleteDialog v-if="showDeleteCustomerDialog" entity="customer" :loading="deleteInProgress" @proceed="deleteCustomer" @close="showDeleteCustomerDialog=false"/>
+      <ConsignmentDetailsModal v-if="showconsignmentDetails" :consignment="currentconsignment" @close="showconsignmentDetails=false"/>
+      <FormsCreateConsignmentForm v-if="showCreateconsignmentForm"  @close="handleCreateconsignmentformClosed"/>
+      <FormsEditConsignmentForm v-if="showEditconsignmentForm" :consignmentdata="consignmentToEdit" @close="handleEditconsignmentformClosed"/>
+      <DeleteDialog v-if="showDeleteconsignmentDialog" entity="consignment" :loading="deleteInProgress" @proceed="deleteconsignment" @close="showDeleteconsignmentDialog=false"/>
     </div>
   </template>
   
   <script setup>
   import { ref, onMounted } from 'vue';
+  
   const { $axios } = useNuxtApp()
   
   const items = [
@@ -107,71 +110,75 @@
       default: "",
     },
   });
-  const customers = ref([]);
-  // const roles = ref([]);
+  const consignments = ref([]);
   
   const currentDate = new Date();
   const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = currentDate.toLocaleDateString('en-US',OPTIONS);
   
   //CRUD SHIT
-  const showCustomerDetails = ref(false)
-  const showCreateCustomerForm = ref(false)
-  const showEditCustomerForm = ref(false)
-  const showDeleteCustomerDialog = ref(false)
-  const currentCustomer = ref({});
-  const customerToEdit = ref({});
-  const customerToDelete = ref({});
+  const showconsignmentDetails = ref(false)
+  const showCreateconsignmentForm = ref(false)
+  const showEditconsignmentForm = ref(false)
+  const showDeleteconsignmentDialog = ref(false)
+  const currentconsignment = ref({});
+  const consignmentToEdit = ref({});
+  const consignmentToDelete = ref({});
   const deleteInProgress = ref(false)
   
-  function viewCustomerClicked(customer){
-    currentCustomer.value = customer;
-    showCustomerDetails.value = true;
+  function viewconsignmentClicked(consignmentId){
+    navigateTo(`/admin/consignments/${consignmentId}`)
   }
   
-  function loadEditCustomerForm(customer){
-    customerToEdit.value = customer;
-    showEditCustomerForm.value = true
+  function loadEditconsignmentForm(consignment){
+    consignmentToEdit.value = consignment;
+    showEditconsignmentForm.value = true
   }
   
-  function handleCreateCustomerformClosed(){
-    showCreateCustomerForm.value=false;
+  async function handleCreateconsignmentformClosed(payload){
+    showCreateconsignmentForm.value=false;
     if(payload!=undefined){
     console.log("the payload",payload)
-    customers.value.push(payload)
+    await getConsignments()
     }
   }
   
-  function handleEditCustomerformClosed(){
-    showEditCustomerForm.value=false;
+  async function handleEditconsignmentformClosed(payload){
+    showEditconsignmentForm.value=false;
     if(payload!=undefined){
     console.log("the payload",payload)
-    customers.value = customers.value.map(x=>{
-      if(x.ID==payload.ID){
-        return payload
-      }else{
-        return x
+    await getConsignments()
+    }
+  }
+  
+  function loadDeleteconsignmentDialog(consignment){
+    consignmentToDelete.value = consignment;
+    showDeleteconsignmentDialog.value = true
+  }
+
+
+  async function getConsignments(){
+    try {
+      const response = await $axios.get('/api/consignments');
+      if(response.status==200 || 201){
+      consignments.value = response.data;
       }
-    })
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      consignments.value = null; // Set items to an empty array or handle error as needed
     }
   }
   
-  function loadDeleteCustomerDialog(customer){
-    customerToDelete.value = customer;
-    showDeleteCustomerDialog.value = true
-  }
-  
-  async function deleteCustomer(){
+
+  async function deleteconsignment(){
     deleteInProgress.value = true
-    const res = await $axios.delete(`/api/consignments/delete/${customerToDelete.value.ID}`);
+    const res = await $axios.delete(`/api/consignments/delete/${consignmentToDelete.value.ID}`);
     console.log(res)
     if(res.status==200 || 201){
         deleteInProgress.value = false
         //remove employee from client state
-        customers.value  = customers.value.filter(x=>{
-          return x.ID!==employeeToDelete.value
-        })
-        showEmployeeDeleteDialog.value = false;
+        await getConsignments()
+        showDeleteconsignmentDialog.value = false;
     }else{
         console.log(res.statusText)
     }
@@ -179,15 +186,7 @@
   
   
   onMounted(async () => {
-    try {
-      const response = await $axios.get('/api/consignments');
-      if(response.status==200 || 201){
-      customers.value = response.data;
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      customers.value = null; // Set items to an empty array or handle error as needed
-    }
+    await getConsignments()
   });
   
   </script>
