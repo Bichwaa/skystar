@@ -55,9 +55,9 @@ function logout(){
       <DocIcon />
     </SidebarItem>
 
-    <SidebarItem v-if="!store.is_authenticated" title="Register" to="/register">
+    <!-- <SidebarItem v-if="!store.is_authenticated" title="Register" to="/register">
       <DocIcon />
-    </SidebarItem> 
+    </SidebarItem>  -->
 
     <SidebarItem v-if="store.is_authenticated" @click.prevent="logout" title="Logout" to="/login">
       <IconsBoltIcon />
