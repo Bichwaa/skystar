@@ -4,7 +4,7 @@
         <form class="lg:m-12">
             <p class="font-semibold flex items-center mb-3">Add consignment</p>
              <div class="flex flex-col my-4">
-                <label for="email" class="text-sm font-medium my-1">Filed by</label>
+                <label for="email" class="text-sm font-medium my-1">Consignee</label>
                 <select v-model="payload.consigneeId">
                     <option v-for="cus in customers" :value="cus.ID">{{ cus.fullName }}</option>
                 </select>
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="flex flex-col my-2">
-                    <label for="consigneeName" class="text-sm font-medium my-1">Transport</label>
+                    <label for="consigneeName" class="text-sm font-medium my-1">Shipper</label>
                     <input v-model="payload.transport" type="text" name="transport" placeholder="Maersk" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
                 

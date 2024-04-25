@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="flex flex-col my-2">
-                    <label for="consigneeName" class="text-sm font-medium my-1">Transport</label>
+                    <label for="consigneeName" class="text-sm font-medium my-1">Shipper</label>
                     <input v-model="payload.transport" type="text" name="transport" placeholder="Maersk" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
                 

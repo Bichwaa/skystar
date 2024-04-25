@@ -42,7 +42,7 @@
                   <td class="px-4 py-2">{{ item.fullName }}</td>
                   <td class="px-4 py-2">{{ item.email }}</td>
                   <td class="px-4 py-2">{{ item.phone }}</td>
-                  <td class="px-4 py-2">{{ item.AccountManager.firstName + " " + item.AccountManager.lastName }}</td>
+                  <td class="px-4 py-2"><span v-if="item.AccountManager">{{ item.AccountManager.firstName + " " + item.AccountManager.lastName }}</span></td>
                   <td class="flex items-center gap-6 px-4 py-2">
                     <span 
                       class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
