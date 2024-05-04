@@ -51,6 +51,10 @@ function logout(){
       <CalendarIcon />
     </SidebarItem>
 
+    <SidebarItem title="Invoices" to="/admin/invoices">
+      <CalendarIcon />
+    </SidebarItem>
+
     <SidebarItem v-if="!store.is_authenticated" title="login" to="/login">
       <DocIcon />
     </SidebarItem>
