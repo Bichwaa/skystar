@@ -4,11 +4,11 @@
                 <h1 class="font-semibold text-lg Lg:text-xl my-5">Consignment Details</h1>
 
             <div class="role flex flex-col items-start mb-4">
-                <h2 class="font-medium capitalize text-lg lg:text-xl">Customer Name: {{consignment.Consignee.fullName}}</h2>
+                <h2 class="font-medium capitalize text-lg lg:text-xl">Customer Name: {{consignment.Customer.fullName}}</h2>
 
                 <div class="flex gap-4">
                     <span class="font-medium">Customer Email: </span>
-                    <span class="font-medium capitalize"> {{consignment.Consignee.email}} </span>
+                    <span class="font-medium capitalize"> {{consignment.Customer.email}} </span>
                 </div>
 
                 <div class="flex gap-4">
@@ -26,9 +26,9 @@
                     <div class="flex justify-between  w-full items-center my-2">
                         <div class="flex gap-4 items-center">
                             <IconsUserIcon class="w-5 h-5"/>
-                            <span class="text-sm font-medium">Consignee:</span>
+                            <span class="text-sm font-medium">Customer:</span>
                         </div>
-                        <p>{{ consignment.Consignee.fullName }}</p>
+                        <p>{{ consignment.Customer.fullName }}</p>
                     </div>
 
                     <div class="flex justify-between  w-full items-center my-2">
@@ -80,7 +80,7 @@ const route = useRoute()
 const consignment = ref({
     ID:0,
     luggage: "",
-    Consignee: {},
+    Customer: {},
     transport: "",
     destination: "",
     cont10: 0,

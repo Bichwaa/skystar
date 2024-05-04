@@ -5,7 +5,7 @@
             <p class="font-semibold flex items-center mb-3">Add consignment</p>
              <div class="flex flex-col my-4">
                 <label for="email" class="text-sm font-medium my-1">Consignee</label>
-                <select v-model="payload.consigneeId">
+                <select v-model="payload.customerId">
                     <option v-for="cus in customers" :value="cus.ID">{{ cus.fullName }}</option>
                 </select>
             </div>
@@ -76,7 +76,7 @@ const customers = ref([])
 const payload  = ref({
     ID:0,
     luggage: "",
-    consigneeId: "",
+    customerId: "",
     transport: "",
     destination: "",
     cont10: 0,

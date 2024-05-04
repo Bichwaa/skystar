@@ -4,7 +4,7 @@ import Layout from "~/dashboard/Layout.vue";
 
 <template>
   <Head>
-    <title>Salvia-kit Dashboard v3</title>
+    <title>SKYSTAR FREIGHT LTD</title>
   </Head>
   <Layout>
     <slot />

@@ -2,7 +2,7 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Update New Transporter</p>
+            <p class="font-medium flex items-center mb-3">Add new consignee</p>
             <div class="flex flex-col my-2">
                 <label for="firstName" class="text-xs font-medium my-1">Full Name</label>
                 <input v-model="payload.fullName" type="text" name="fullName" placeholder="Jane Kimweli" class="border border-gray-300 p-2 rounded-lg text-sm">
@@ -21,7 +21,7 @@
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Create Transporter</span>
+                <span v-if="!formLoading">Create Customer</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>
@@ -29,39 +29,33 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue';
+import {ref} from 'vue';
 
 const { $axios } = useNuxtApp()
 
+const emit = defineEmits(['close'])
+
 const props = defineProps({
-    customerdata:{
-        type:Object,
-        default:{
-            ID:"",
-            fullName:"",
-            email:"",
-            phone:""
-        }
+    customerID:{
+        default:0
     }
 })
-
-const emit = defineEmits(['close'])
 
 const formLoading = ref(false)
 
 const payload  = ref({
-    fullName:"",
-    accountmanager:"",
-    email:"",
-    phone:""
+  fullName:"",
+  email:"",
+  customerId:props.customerID,
+  phone:""
 })
 
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    const res = await $axios.patch(`/api/customers/update/${props.customerdata.ID}`,{...payload.value})
+    const res = await $axios.post("/api/customers/consignee",{...payload.value})
     formLoading.value = false
-    console.log(res.data)
+    console.log(res)
     if(res.status==200 || 201){
         emit("close", res.data)
     }else{
@@ -73,9 +67,4 @@ function close(){
     emit("close")
 }
 
-onMounted(function(){
-    if (props.customerdata.firstName!=""){
-        payload.value = {...props.customerdata}
-    }
-})
 </script>

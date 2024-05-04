@@ -5,7 +5,7 @@
             <p class="font-semibold flex items-center mb-3">Update consignment data</p>
             <div class="flex flex-col my-4">
                 <label for="email" class="text-sm font-medium my-1">Filed by</label>
-                <select v-model="payload.consigneeId">
+                <select v-model="payload.customerId">
                     <option v-for="cus in customers" :value="cus.ID">{{ cus.fullName }}</option>
                 </select>
             </div>
@@ -73,7 +73,7 @@ const props = defineProps({
         default:{
     ID:0,
     luggage: "a lot",
-    consignee: {},
+    customer: {},
     transport: "some vehicle",
     destination: "Somewhere",
     cont10: 3,
@@ -93,7 +93,7 @@ const customers = ref([])
 const payload  = ref({
     ID:props.consignmentdata.ID,
     luggage: props.consignmentdata.luggage,
-    consigneeId: props.consignmentdata.consigneeId,
+    customerId: props.consignmentdata.customerId,
     transport: props.consignmentdata.transport,
     destination: props.consignmentdata.destination,
     cont10: props.consignmentdata.cont10,

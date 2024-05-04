@@ -29,3 +29,5 @@ coverage
 
 
 .nuxt/
+.output/
+dist/

@@ -3,10 +3,13 @@
     <div class="w-full lg:w-3/5">
       <div class="mb-4">
         <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between group">
             <p class="font-bold text-black">Staff</p>
-            <button class="rounded-full block border border-gray-200 p-1">
-                <IconsAddIcon class="h-7 w-7" @click="showCreateEmployeeForm=true"/>
+            <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateEmployeeForm=true">
+                <IconsAddIcon class="h-6 w-6" />
+                <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
+                  Employee
+                </span>
               </button>
           </div>
           
@@ -67,9 +70,12 @@
                 <span class="ml-2 text-sm text-gray-500">Available roles</span>
               </div>
             </div>
-            <div class="flex items-center">
-              <button class="rounded-full border border-gray-200 p-1">
-                <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateRoleForm=true" />
+            <div class="flex items-center group">
+              <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300"  @click="showCreateRoleForm=true">
+                <IconsAddIcon class="h-7 w-7 cursor-pointer" />
+                <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
+                  New Role
+                </span>
               </button>
             </div>
           </div>

@@ -4,13 +4,16 @@
         <div class="mb-4">
           <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
             <div class="mb-6 flex items-center justify-between">
-              <div class="flex items-center justify-between w-full">
+              <div class="flex items-center justify-between w-full group">
                 <div class="flex flex-col">
                   <span class="ml-2 font-bold text-black">Petty Cashbook List</span>
                 </div>
   
-                <button class="rounded-full border border-gray-200 p-1">
-                  <IconsAddIcon class="h-7 w-7 cursor-pointer" @click="showCreateCashbookForm=true" />
+                <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateCashbookForm=true">
+                  <IconsAddIcon class="h-7 w-7 cursor-pointer"/>
+                  <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
+                  New Petty Cashbook
+                </span>
                 </button>
               </div>
               

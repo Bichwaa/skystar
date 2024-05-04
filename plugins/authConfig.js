@@ -4,6 +4,7 @@ import { userStore } from '../store';
 
 
 const axiosInstance = axios.create( {
+  // baseURL: "http://192.168.100.101:3006",
   baseURL: "http://localhost:3006",
 } );
 

@@ -1,1 +1,0 @@
-import{_ as o}from"./Content.vue.BLo2_jIh.js";import{_ as e,h as n,o as c}from"./entry.B6jrM4sW.js";import"./2.Cat9qr6O.js";const s={};function r(_,a){const t=o;return c(),n(t,{title:"Settings"})}const p=e(s,[["render",r]]);export{p as default};
