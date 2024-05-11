@@ -34,9 +34,12 @@
                   <tr class="">
                     <th class="px-4 py-2 text-left">Consignee</th>
                     <th class="px-4 py-2 text-left">No. Containers</th>
-                    <th class="px-4 py-2 text-left">Luggage</th>
-                    <th class="px-4 py-2 text-left">Transporter</th>
-                    <th class="px-4 py-2 text-left">Destination</th>
+                    <th class="px-4 py-2 text-left">Loose Cargo (Ton)</th>
+                    <th class="px-4 py-2 text-left">Cargo Description</th>
+                    <th class="px-4 py-2 text-left">Shipper</th>
+                    <th class="px-4 py-2 text-left">Mode of transport</th>
+                    <th class="px-4 py-2 text-left">Port of Loading</th>
+                    <th class="px-4 py-2 text-left">Port of Discharge</th>
                     <th class="px-4 py-2 text-left">Overseer</th>
                     <th class="px-4 py-2 text-left">Actions</th>
                   </tr>
@@ -44,9 +47,12 @@
                 <tbody>
                   <tr v-for="item in consignments" :key="item.id">
                     <td class="px-4 py-2">{{ item.customer.fullName }}</td>
-                    <td class="px-4 py-2">{{ item.cont10 + item.cont20 + item.cont40 }}</td>
+                    <td class="px-4 py-2">{{ item.cont20 + item.cont40 }}</td>
+                    <td class="px-4 py-2">{{ item.looseCargo }}</td>
                     <td class="px-4 py-2">{{ item.luggage }}</td>
                     <td class="px-4 py-2">{{ item.transporter.name}}</td>
+                    <td class="px-4 py-2">{{ item.modeOfTransport }}</td>
+                    <td class="px-4 py-2">{{ item.portOfLoading }}</td>
                     <td class="px-4 py-2">{{ item.destination }}</td>
                     <td class="px-4 py-2">
                       <span v-if="item.Overseer">{{ item.Overseer.firstName + " " + item.Overseer.lastName }}</span>

@@ -28,7 +28,7 @@
                             <IconsUserIcon class="w-5 h-5"/>
                             <span class="text-sm font-medium">Customer:</span>
                         </div>
-                        <p>{{ consignment.Customer.fullName }}</p>
+                        <p>{{ consignment.customer.fullName }}</p>
                     </div>
 
                     <div class="flex justify-between  w-full items-center my-2">
