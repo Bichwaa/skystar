@@ -3,9 +3,10 @@
 </template>
 
 <script lang="ts" setup>
-defineProps(['currentColor'])
+defineProps({
+  currentColor:{
+    default:"#d4af37",
+    type: String
+  }
+})
 </script>
-
-<style>
-
-</style>

@@ -1,9 +1,9 @@
 <template>
     <Modal @close-modal="close">
-        <p class="font-medium flex items-center mb-3">Add New Transporter</p>
+        <p class="font-medium flex items-center mb-3">Add New Shipper</p>
         <div class="lg:mx-24 flex flex-col" v-if="!newMode">
             <div class="flex flex-col">
-                <label for="email" class="text-sm font-medium my-1">Add from list of available transporters</label>
+                <label for="email" class="text-sm font-medium my-1">Add from list of available shippers</label>
                 <select v-model="attachPayload.transporterId">
                     <option v-for="item in transporters" :value="item.ID">{{ item.name }}</option>
                 </select>
@@ -39,7 +39,7 @@
 
             <button type="submit" @click.prevent="submitForm" 
                 class="w-full flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Create New Transporter</span>
+                <span v-if="!formLoading">Create New Shipper</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
 

@@ -123,14 +123,14 @@
            
             <div class="role flex flex-col items-start my-3">
               <div class="w-full flex justify-between group mb-4">
-                <span class="text-[#292a5e] text-sm mt-3 my-2 uppercase font-semibold"> Customer's Transporters:  </span>
+                <span class="text-[#292a5e] text-sm mt-3 my-2 uppercase font-semibold"> Customer's Shippers:  </span>
                 <button 
                   class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300"
                   @click="()=>showCreateTransporterForm=true"
                 >
                     <IconsAddIcon class="h-5 w-5 cursor-pointer"  />
                     <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                    Add Transporter
+                    Add Shipper
                     </span>
                 </button>
               </div>

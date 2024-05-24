@@ -80,7 +80,7 @@
         </div>
       </div>
       <ConsignmentDetailsModal v-if="showconsignmentDetails" :consignment="currentconsignment" @close="showconsignmentDetails=false"/>
-      <FormsCreateConsignmentForm v-if="showCreateconsignmentForm"  @close="handleCreateconsignmentformClosed"/>
+      <FormsConsignmentStepForm v-if="showCreateconsignmentForm"  @close="handleCreateconsignmentformClosed"/>
       <FormsEditConsignmentForm v-if="showEditconsignmentForm" :consignmentdata="consignmentToEdit" @close="handleEditconsignmentformClosed"/>
       <DeleteDialog v-if="showDeleteconsignmentDialog" entity="consignment" :loading="deleteInProgress" @proceed="deleteconsignment" @close="showDeleteconsignmentDialog=false"/>
     </div>

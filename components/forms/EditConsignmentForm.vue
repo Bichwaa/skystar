@@ -1,39 +1,64 @@
 <template>
     <Modal @close-modal="close">
         
-        <form class="lg:m-12">
-            <p class="font-semibold flex items-center mb-3">Update consignment data</p>
-            <div class="flex flex-col my-4">
-                <label for="email" class="text-sm font-medium my-1">Filed by</label>
-                <select v-model="payload.customerId">
-                    <option v-for="cus in customers" :value="cus.ID">{{ cus.fullName }}</option>
-                </select>
-            </div>
-            
-            <div class="flex items-center gap-4">
-                <div class="flex flex-col my-2">
-                    <label for="luggage" class="text-sm font-medium my-1">Luggage</label>
-                    <input v-model="payload.luggage" type="text" name="luggage" placeholder="Cargo pants" class="border border-gray-300 p-2 rounded-lg text-sm">
+        <form class="lg:mx-12 my-6">
+            <p class="font-semibold flex items-center mb-3">Update consignment</p>
+                <div class="flex flex-col my-4">
+                    <label for="email" class="text-sm font-medium my-1">Customer</label>
+                    <select v-model="payload.customerId" @change="getCustomerConsignees">
+                        <option v-for="cus in customers" :value="cus.ID">{{ cus.fullName }}</option>
+                    </select>
                 </div>
 
-                <div class="flex flex-col my-2">
+                <div class="flex flex-col my-4">
+                    <label for="email" class="text-sm font-medium my-1">Consignee</label>
+                    <select v-model="payload.consigneeId" >
+                        <option v-for="con in consignees" :value="con.ID">{{ con.fullName }}</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col my-4">
+                    <label for="email" class="text-sm font-medium my-1">Shipper</label>
+                    <select v-model="payload.transporterId" >
+                        <option v-for="tran in transporters" :value="tran.ID">{{ tran.name }}</option>
+                    </select>
+                </div>
+            
+            <div class="flex items-center w-full">
+                <div class="flex flex-col my-2 w-full">
+                    <label for="luggage" class="text-sm font-medium my-1">Cargo Description</label>
+                    <textarea v-model="payload.luggage" type="text" name="luggage" placeholder="Cargo pants" class="border border-gray-300 p-2 rounded-lg text-sm w-full"></textarea>
+                </div>
+
+                <!-- <div class="flex flex-col my-2">
                     <label for="consigneeName" class="text-sm font-medium my-1">Shipper</label>
                     <input v-model="payload.transport" type="text" name="transport" placeholder="Maersk" class="border border-gray-300 p-2 rounded-lg text-sm">
-                </div>
+                </div> -->
                 
             </div>
 
             
             <div class="flex items-center gap-4">
                 <div class="flex flex-col my-2">
-                    <label for="consigneeName" class="text-sm font-medium my-1">Destination</label>
+                    <label for="consigneeName" class="text-sm font-medium my-1">Port of Loading</label>
+                    <input v-model="payload.portOfLoading" type="text" name="portofLoading" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
+                </div>
+                <div class="flex flex-col my-2">
+                    <label for="consigneeName" class="text-sm font-medium my-1">Port of Discharge</label>
                     <input v-model="payload.destination" type="text" name="destination" placeholder="Mombasa" class="border border-gray-300 p-2 rounded-lg text-sm">
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col my-2">
+                    <label for="consigneeName" class="text-sm font-medium my-1">Mode of Transport</label>
+                    <input v-model="payload.modeOfTransport" type="text" name="destination" placeholder="Mombasa" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
 
                 <div class="flex flex-col my-2">
-                <label for="consigneeName" class="text-sm font-medium my-1">10FT Containers</label>
-                <input v-model="payload.cont10" type="number" name="cont10" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
-            </div>
+                    <label for="consigneeName" class="text-sm font-medium my-1">Loose Cargo (Ton)</label>
+                    <input v-model="payload.looseCargo" type="number" name="cont10" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
+                </div>
 
             </div>
             
@@ -50,9 +75,21 @@
                 </div>
             </div>
 
+            <div class="flex items-center gap-4">
+                <!-- <div class="flex flex-col my-2">
+                    <label for="consigneeName" class="text-sm font-medium my-1">Cost</label>
+                    <input v-model="payload.cost" type="number" name="cont20" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
+                </div> -->
+
+                <div class="flex flex-col my-2">
+                    <label for="consigneeName" class="text-sm font-medium my-1">Revenue</label>
+                    <input v-model="payload.revenue" type="number" name="cont40" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
+                </div>
+            </div>
+
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-whiem font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading" class="text-white font-medium">Update Consignment</span>
+                <span v-if="!formLoading" class="text-white font-medium">Add Consignment</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>
@@ -72,14 +109,19 @@ const props = defineProps({
         type:Object,
         default:{
     ID:0,
-    luggage: "a lot",
-    customer: {},
-    transport: "some vehicle",
-    destination: "Somewhere",
-    cont10: 3,
-    cont20: 2,
-    cont40: 0,
-    overseerId: 0
+    customerId:0,
+    luggage:"",
+    modeOfTransport:"Ship",
+    destination:"",
+    portOfLoading:"",
+    looseCargo:0,
+    cont20:0,
+    cont40:0,
+    overseerId:0,
+    transporterId:0,
+    consigneeId:0,
+    cost:0,
+    revenue:0
   }
     }
 })
@@ -94,12 +136,17 @@ const payload  = ref({
     ID:props.consignmentdata.ID,
     luggage: props.consignmentdata.luggage,
     customerId: props.consignmentdata.customerId,
-    transport: props.consignmentdata.transport,
+    modeOfTransport: props.consignmentdata.transport,
+    portOfLoading:"",
     destination: props.consignmentdata.destination,
-    cont10: props.consignmentdata.cont10,
+    looseCargo: props.consignmentdata.looseCargo,
     cont20: props.consignmentdata.cont20,
     cont40: props.consignmentdata.cont40,
-    overseerId: store.user.ID
+    overseerId: store.user.ID,
+    transporterId: props.consignmentdata.tranporterId,
+    consigneeId:0,
+    cost:0,
+    revenue:0
   })
 
 async function submitForm(){

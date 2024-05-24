@@ -25,7 +25,7 @@
                     <button class="p-2 flex gap-4 items-center group-hover:bg-[#292a5e] duration-300" @click="showCreateTransporterForm=true">
                       <IconsAddIcon class="h-5 w-5 cursor-pointer"  />
                       <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                        Add Transporter
+                        Add Shipper
                       </span>
                     </button>
                   </div>
