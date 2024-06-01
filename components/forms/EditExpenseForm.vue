@@ -2,7 +2,7 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Add Expense</p>
+            <p class="font-medium flex items-center mb-3">Update Expense</p>
             
             <div class="flex flex-col my-4">
                 <label for="email" class="text-xs font-medium my-1">Requested by</label>
@@ -24,7 +24,7 @@
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Create Customer</span>
+                <span v-if="!formLoading">Update Expense</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>
@@ -60,7 +60,7 @@ const employees = ref([])
 const formLoading = ref(false)
 
 const payload  = ref({
-    pettyCashId:Number(props.cashbookId),
+    pettyCashId:Number(props.pettyCashId),
     requestedId:0,
     approvedId:store.user.ID,
     amount:0,
@@ -81,7 +81,6 @@ async function getEmployees(){
 }
 
 async function submitForm(){
-    console.log("calling submit")
     formLoading.value = true
     const res = await $axios.patch(`/api/expenses/update/${props.expensedata.ID}`,{...payload.value})
     formLoading.value = false
@@ -99,7 +98,13 @@ function close(){
 
 onMounted(async()=>{
     if (props.expensedata.pettyCashId !=""){
-        payload.value = {...props.expensedata}
+        payload.value = {
+            pettyCashId:Number(props.expensedata.pettyCashId),
+            requestedId:Number(props.expensedata.requestedId),
+            approvedId:store.user.ID,
+            amount:props.expensedata.amount,
+            purpose:props.expensedata.purpose
+        }
     }
     await getEmployees()
 })

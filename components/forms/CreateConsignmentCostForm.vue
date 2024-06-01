@@ -24,7 +24,7 @@
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Create Customer</span>
+                <span v-if="!formLoading">Add Cost</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>

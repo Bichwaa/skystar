@@ -1,6 +1,6 @@
 <template>
     <Modal @close-modal="close">
-        <div class="flex flex-col transition-all duration-300" :class="currentStepNo==0?'h-[450px]': currentStepNo==1?'h-[380px]':'h-[400px]'">
+        <div class="flex flex-col transition-all duration-300" :class="currentStepNo==0?'h-[480px]': currentStepNo==1?'h-[380px]':'h-[400px]'">
             <div class="legend grid grid-cols-3 p-4 gap-8 w-full">
                 <div class="prev flex items-center">
                     <button v-if="currentStepNo>0" @click="previousClicked" class="group p-2 rounded-lg w-32 flex gap-3 items-center justify-start">
@@ -51,10 +51,21 @@
                                 <input v-model="payload.bookingNumber" type="text" name="portofLoading" placeholder="k165WAOBQ74" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                         </div>
+
+                        <div class="flex flex-col  items-center w-full">
+                            <div class="flex flex-col my-2 w-full">
+                                <label for="consigneeName" class="text-sm font-medium my-1">BL Number</label>
+                                <input v-model="payload.blNumber" type="text" name="portofLoading" placeholder="k165WAOBQ74" class="border border-gray-300 p-2 rounded-lg text-sm">
+                            </div>
+                        </div>
                     </div>
                     
 
                     <div class="step2" v-show="currentStepNo==1">
+                        <div class="flex flex-col my-2 w-full">
+                                <label for="consigneeName" class="text-sm font-medium my-1">Cargo Weight(Ton)</label>
+                                <input v-model="payload.totalWeight" type="number" name="portofLoading" placeholder="10" class="border border-gray-300 p-2 rounded-lg text-sm">
+                            </div>
                         <div class="flex flex-col my-2 w-full">
                             <label for="luggage" class="text-sm font-medium my-1">Cargo Description</label>
                             <textarea v-model="payload.luggage" type="text" name="luggage" placeholder="Cargo pants" class="border border-gray-300 p-2 rounded-lg text-sm w-full"></textarea>
@@ -87,7 +98,7 @@
 
                             <div class="flex flex-col my-4 w-full">
                                 <label for="email" class="text-sm font-medium my-1">Type of Cargo</label>
-                                <select v-model="cargoType"  class="w-full" @change="resetDynamicInputState">
+                                <select v-model="cargoType"  class="w-full">
                                     <option value="loose">Loose Cargo</option>
                                     <option value="containers" selected> Containers</option>
                                 </select>
@@ -97,21 +108,21 @@
 
                         </div>
                         <div class="flex items-center gap-4">
-                            
+<!--                             
                             <div class="flex flex-col my-2" v-if="cargoType=='loose'">
                                 <label for="consigneeName" class="text-sm font-medium my-1">Loose Cargo Weight (Ton)</label>
                                 <input v-model="payload.looseCargo" type="number" name="cont10" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
-                            </div>
+                            </div> -->
 
-                            <div class="flex flex-col my-2" v-if="cargoType!='loose'">
+                            <div class="flex flex-col my-2" v-if="!isLoose">
                                 <label for="consigneeName" class="text-sm font-medium my-1">20FT Containers</label>
                                 <input v-model="payload.cont20" type="number" name="cont20" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
-                            <div class="flex-col my-2 cursor-pointer justify-center items-center" v-if="!fortyFooters" @click="()=>fortyFooters = true">
+                            <div class="flex-col my-2 cursor-pointer justify-center items-center" v-if="!isLoose && !showFortyFooters" @click="()=>showFortyFooters =true">
                                 <span class="text-blue-400 text-sm cursor-ponter"> + Add 40ft Containers</span>
                             </div>
                             
-                            <div class="flex flex-col my-2" v-if="fortyFooters && cargoType!='loose'">
+                            <div class="flex flex-col my-2" v-if="!isLoose && showFortyFooters">
                                 <label for="consigneeName" class="text-sm font-medium my-1">40FT Containers</label>
                                 <input v-model="payload.cont40" type="number" name="cont40" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
@@ -147,7 +158,7 @@ const consignees : Ref<any> = ref([])
 const transporters : Ref<any> = ref([])
 
 const cargoType = ref("loose")
-const fortyFooters = ref(true)
+const showFortyFooters = ref(false)
 
 
 const emit = defineEmits(['close'])
@@ -261,12 +272,20 @@ function previousClicked(){
     }
 }
 
-function resetDynamicInputState(){
-    if(cargoType.value!='loose' && fortyFooters.value){
-        fortyFooters.value = false
-    }
-}
+// function resetDynamicInputState(){
+//     if(cargoType.value!='loose'){
+//         fortyFooters.value = false
+//     }
+// }
 
+const isLoose = computed(()=>{
+    if(cargoType.value =='loose'){
+        showFortyFooters.value =false
+        return true
+    }else{
+        return false
+    }
+})
 
 const sorted:ComputedRef<{half:Input[], full:Input[]}> = computed(()=>{
     return inputsByRowStyle(currentStep.value.inputs)
@@ -286,7 +305,9 @@ const payload  = ref({
    overseerId:store.user.ID,
    transporterId:0,
    consigneeId:0,
-   bookingNumber:""
+   bookingNumber:"",
+   blNumber:"",
+   totalWeight:0
 //    cost:0,
 //    revenue:0
 })
