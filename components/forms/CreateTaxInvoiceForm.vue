@@ -7,7 +7,7 @@
             <div class="flex flex-col mb-3 w-full">
                 <label for="email" class="text-sm font-medium my-1">Consignment Booking Number</label>
                 <select v-model="payload.consignmentId" class="p-2">
-                    <option :value="`january`">January</option>
+                    <!-- <option :value="`january`" selected><span class="text-xs">select booking number</span></option> -->
                     <option v-for="con in consignments" :value="con.ID" >{{ con.bookingNumber }}</option>
                     
                 </select>

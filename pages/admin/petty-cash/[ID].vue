@@ -8,7 +8,7 @@
               <div class="flex flex-col">
                 <span class="ml-2 font-bold text-black">Petty Cashbook</span>
                 <span class="ml-2 text-xs text-gray-500">
-                  For the month of
+                  Starting the month of
                 </span>
               </div>
 
@@ -22,11 +22,16 @@
             
           </div>
          
-          <div class="mb-4 flex items-center justify-between space-x-12">
+          <div class="mb-4 flex flex-col items-start justify-start gap-3">
             <span
-              class="flex items-center rounded-md bg-green-50 px-2 py-1 text-xl font-semibold text-green-700 capitalize"
+              class="flex items-center rounded-md bg-green-50 px-2 py-1 text-xl font-semibold text-green-600 capitalize"
             >
               {{ cashbook.period }}
+            </span>
+            <span
+              class="flex items-center rounded-md bg-green-50 px-2 py-1 text-sm font-semibold text-green-700 capitalize"
+            >
+              Consignment: {{ cashbook.consignment.bookingNumber }}
             </span>
           </div>
 

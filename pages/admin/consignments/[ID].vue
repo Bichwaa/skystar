@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-7 gap-2 rounded-2xl bg-white p-4 shadow-lg overflow-y-scroll">
+    <div class="grid grid-cols-12 gap-2 rounded-2xl bg-white p-4 shadow-lg overflow-y-scroll">
             <div class="col-span-1 h-[88vh]">
                 <div class="w-full flex flex-col overflow-y-scroll" @click="()=>activeSub='details'">
                     <p 
@@ -20,7 +20,7 @@
                     > REVENUE</p>
                 </div>
             </div>
-            <div class="col-span-6">
+            <div class="col-span-11">
                 <div class="flex flex-col gap-2  items-start" v-if="activeSub=='cost'">
                             <span class="text-lg font-semibold text-[#292a5e]">
                                 TOTAL REVENUE: {{ revenue}} Tsh
@@ -42,7 +42,7 @@
                     <div class="flex flex-col" v-if="activeSub=='details'">
                         <!-- <h1 class="font-semibold text-lg Lg:text-xl my-5">Consignment Details</h1> -->
 
-                            <div class="grid grid-cols-3">
+                            <div class="grid grid-cols-4">
 
                                 <div class="col-span-1 flex flex-col items-start mb-4 w-full">
                                     <span class="text-[#292a5e]  mt-3 my-2 uppercase font-semibold"> Customer Details  </span>
@@ -83,10 +83,10 @@
                                     
                                 </div>
 
-                                <div class="col-span-2 flex flex-col items-start">
+                                <div class="col-span-3 flex flex-col items-start jus">
                                     <span class="text-[#292a5e]  mt-3 my-2 uppercase font-semibold"> Consignment Details  </span>
 
-                                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-2 w-full">
+                                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 w-full">
                                         <div class="col-span-1 flex flex-col items-start  px-4">
 
                                             <div class="flex gap-3  w-full items-center my-2">
@@ -105,6 +105,7 @@
                                                 <p>{{  consignment.blNumber }}</p>
                                             </div>
 
+
                                             <div class="flex gap-3  w-full items-center my-2">
                                                 <div class="flex gap-4 items-center">
                                                     <IconsShipIcon class="w-5 h-5" />
@@ -121,18 +122,18 @@
                                                 <p>{{  consignment.cont20 + consignment.cont40 }}</p>
                                             </div>
 
-                                            <div class="flex gap-3  w-full items-center my-2" v-else>
+                                            <!-- <div class="flex gap-3  w-full items-center my-2" v-else>
                                                 <div class="flex gap-4 items-center">
                                                     <IconsContainerIcon class="w-5 h-5" />
-                                                    <span class=" font-medium">Number of Packages:</span>
+                                                    <span class=" font-medium">No. Packages:</span>
                                                 </div>
                                                 <p>{{  consignment.looseCargo }}</p>
-                                            </div>
+                                            </div> -->
 
                                             <div class="flex gap-3  w-full items-center my-2">
                                                 <div class="flex gap-4 items-center">
                                                     <IconsDestinationIcon class="w-5 h-5" />
-                                                    <span class=" font-medium">Port of Loading:</span>
+                                                    <span class=" font-medium">Loading Port:</span>
                                                 </div>
                                                 <p>{{ consignment.portOfLoading }}</p>
                                             </div>
@@ -140,7 +141,7 @@
                                             <div class="flex gap-3  w-full items-center my-2">
                                                 <div class="flex gap-4 items-center">
                                                     <IconsDestinationIcon class="w-5 h-5" />
-                                                    <span class=" font-medium">Port of Discharge:</span>
+                                                    <span class=" font-medium">Discharge Port:</span>
                                                 </div>
                                                 <p>{{ consignment.destination }}</p>
                                             </div>
@@ -148,6 +149,23 @@
                                         </div>
 
                                         <div class="col-span-1 flex flex-col items-start  px-4">
+                                            
+                                            <!-- <div class="flex gap-3  w-full items-center my-2">
+                                                <div class="flex gap-4 items-center">
+                                                    <IconsBookingIcon class="w-5 h-5" />
+                                                    <span class=" font-medium">BL No:</span>
+                                                </div>
+                                                <p>{{  consignment.blNumber }}</p>
+                                            </div> -->
+                                            
+                                            <div class="flex gap-3  w-full items-center my-2">
+                                                <div class="flex gap-4 items-center">
+                                                    <IconsLuggageIcon class="w-5 h-5" />
+                                                    <span class=" font-medium">Total Weight:</span>
+                                                </div>
+                                                <p>{{ consignment.totalWeight }} T</p>
+                                            </div>
+
                                             <div class="flex gap-3  w-full items-center my-2">
                                                 <div class="flex gap-4 items-center">
                                                     <IconsLuggageIcon class="w-5 h-5" />

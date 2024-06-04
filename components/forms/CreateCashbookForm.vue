@@ -3,6 +3,16 @@
         
         <form class="lg:m-24">
             <p class="font-medium flex items-center mb-3">Add new cashbook</p>
+
+            <div class="flex flex-col my-2 w-full">
+                <label for="email" class="text-sm font-medium my-1">Consignment:</label>
+                <select v-model="payload.consignmentId" class="p-2"> 
+                    <option v-for="con in consignments" :value="con.ID" >{{ con.bookingNumber }}</option>
+                    
+                </select>
+            </div>
+
+
             <div class="flex flex-col my-2">
                 <label for="limit" class="text-xs font-medium my-1">Limit </label>
                 <input v-model="payload.limit" type="number" name="limit" placeholder="Jane Kimweli" class="border border-gray-300 p-2 rounded-lg text-sm">
@@ -36,7 +46,7 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted                                      } from 'vue';
 
 
 
@@ -47,11 +57,23 @@ const { $axios } = useNuxtApp()
 const emit = defineEmits(['close'])
 
 const formLoading = ref(false)
+const consignments = ref([])
 
 const payload  = ref({
     limit: 1,
     period: "june",
+    consignmentId:0
 })
+
+async function getConsignments(){
+    try {
+      const response = await $axios.get('/api/consignments');
+      consignments.value = response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      consignments.value = null; // Set items to an empty array or handle error as needed
+    }
+  }
 
 async function submitForm(){
     console.log("calling submit")
@@ -69,5 +91,10 @@ async function submitForm(){
 function close(){
     emit("close")
 }
+
+onMounted(async()=>{
+    await getConsignments()
+})
+
 
 </script>
