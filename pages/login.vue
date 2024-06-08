@@ -59,6 +59,6 @@ async function submitForm(){
     store.storeTokens(res.data)
     await store.getme()
     store.persistState()
-    navigateTo("/admin/customers")
+    navigateTo("/profile")
 }
 </script>

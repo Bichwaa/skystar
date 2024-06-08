@@ -49,11 +49,13 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const employees = ref([])
+const cashbook = ref({})
 
 const formLoading = ref(false)
 
 const payload  = ref({
     consignmentId:Number(props.consignmentId),
+    pettyCashId:0,
     requestedId:0,
     approvedId:store.user.ID,
     amount:0,
@@ -73,9 +75,25 @@ async function getEmployees(){
     }
 }
 
+async function getCashbook(){
+    try{
+        const res = await $axios.get(`/api/petty-cashbooks?consignment=${props.consignmentId}`)
+        if(res.status==200 || 201){
+            cashbook.value = res.data[0]
+        }else{
+            console.log(res.statusText)
+        }
+    }catch(e){
+        throw e
+    }
+}
+
+
+
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
+    payload.value.pettyCashId = cashbook.value.ID
     const res = await $axios.post("/api/expenses",{...payload.value})
     formLoading.value = false
     console.log(res)
@@ -93,5 +111,6 @@ function close(){
 
 onMounted(async()=>{
     await getEmployees()
+    await getCashbook()
 })
 </script>

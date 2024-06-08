@@ -43,6 +43,10 @@ const props = defineProps({
     cashbookId:{
         type:Number,
         default:0
+    },
+    consignmentId:{
+        type:Number,
+        default:0
     }
 })
 
@@ -54,6 +58,7 @@ const formLoading = ref(false)
 
 const payload  = ref({
     pettyCashId:Number(props.cashbookId),
+    consignmentId:Number(props.consignmentId),
     requestedId:0,
     approvedId:store.user.ID,
     amount:0,

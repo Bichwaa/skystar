@@ -19,6 +19,10 @@ function logout(){
 
 <template>
   <ul>
+    <SidebarItem title="Profile" to="/profile">
+      <IconsAvatarIcon class="h-6 w-6" :currentColor="'#292a5e'" />
+    </SidebarItem>
+    
     <SidebarItem title="Dashboard" to="/">
       <DashboardIcon />
     </SidebarItem>
@@ -37,11 +41,9 @@ function logout(){
 
     <SidebarItem title="Reports" to="/admin/reports">
       <ReportsIcon />
-    </SidebarItem>
+    </SidebarItem> -->
 
-    <SidebarItem title="Settings" to="/admin/settings">
-      <SettingsIcon />
-    </SidebarItem>-->
+    
 
     <SidebarItem title="Consignments" to="/admin/consignments">
       <DocIcon />

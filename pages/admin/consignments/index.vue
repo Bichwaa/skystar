@@ -35,7 +35,7 @@
                     <th class="px-4 py-2 text-left">Consignee</th>
                     <th class="px-4 py-2 text-left">No. Containers</th>
                     <th class="px-4 py-2 text-left">Loose Cargo (Ton)</th>
-                    <th class="px-4 py-2 text-left">Cargo Description</th>
+                    <th class="px-4 py-2 text-left">Booking No</th>
                     <th class="px-4 py-2 text-left">Shipper</th>
                     <th class="px-4 py-2 text-left">Mode of transport</th>
                     <th class="px-4 py-2 text-left">Port of Loading</th>
@@ -49,7 +49,7 @@
                     <td class="px-4 py-2">{{ item.customer.fullName }}</td>
                     <td class="px-4 py-2">{{ item.cont20 + item.cont40 }}</td>
                     <td class="px-4 py-2">{{ item.looseCargo }}</td>
-                    <td class="px-4 py-2">{{ item.luggage }}</td>
+                    <td class="px-4 py-2">{{ item.bookingNumber }}</td>
                     <td class="px-4 py-2">{{ item.transporter.name}}</td>
                     <td class="px-4 py-2">{{ item.modeOfTransport }}</td>
                     <td class="px-4 py-2">{{ item.portOfLoading }}</td>

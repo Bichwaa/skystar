@@ -5,9 +5,9 @@
         <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
           <div class="flex items-center justify-between group">
             <p class="font-bold text-black">Staff</p>
-            <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateEmployeeForm=true">
+            <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 grouphover:bg-[#292a5e] duration-300" @click="showCreateEmployeeForm=true">
                 <IconsAddIcon class="h-6 w-6" />
-                <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
+                <span class="text-sm text-[#292a5e] hover:text-white duration-700">
                   Employee
                 </span>
               </button>
@@ -71,12 +71,27 @@
               </div>
             </div>
             <div class="flex items-center group">
-              <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300"  @click="showCreateRoleForm=true">
-                <IconsAddIcon class="h-7 w-7 cursor-pointer" />
-                <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                  New Role
-                </span>
-              </button>
+              <DropDowner class="inline-flex flex-col gap-3">
+                  <div class="flex flex-col gap-3">
+                    <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 hover:bg-[#292a5e] duration-300 w-full"  @click="showCreateRoleForm=true">
+                      <IconsAddIcon class="h-7 w-7 cursor-pointer" />
+                      <span class="text-sm text-[#292a5e] hover:text-white duration-700">
+                        New Role
+                      </span>
+                    </button>
+
+                    <button 
+                      class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 hover:bg-[#292a5e] duration-300"
+                      @click="()=>showAssignRoleForm=true"
+                      >
+                        <IconsAddIcon class="h-5 w-5 cursor-pointer"  />
+                        <span class="text-sm text-[#292a5e] hover:text-white duration-700">
+                        Assign Employee Role
+                        </span>
+                    </button>
+                  </div>
+                </DropDowner>
+              
             </div>
           </div>
           <div class="m-auto block">
@@ -157,7 +172,7 @@
     <FormsEditRoleForm v-if="showEditRoleForm" :roledata="roleToEdit" @close="handleEditRoleformClosed" />
     <DeleteDialog v-if="showEmployeeDeleteDialog" entity="employee" :loading="deleteInProgress" @proceed="deleteEmployee" @close="showEmployeeDeleteDialog=false"/>
     <DeleteDialog v-if="showRoleDeleteDialog" entity="role" :loading="deleteInProgress" @proceed="deleteRole" @close="showRoleDeleteDialog=false"/>
-
+    <FormsAssignRoleForm v-if="showAssignRoleForm"  @close="handleAssignRoleFormClosed"/>
     <RoleDetailsModal v-if="showRoleDetails" :role="currentRole" @close="showRoleDetails=false" @reload-roles="loadRoles" :key="fakeKey"/>
     <EmployeeDetailsModal v-if="showEmployeeDetails" :staff="currentEmployee" @close="showEmployeeDetails=false"/>
   </div>
@@ -181,6 +196,7 @@ const roles = ref([]);
 
 //form & crud related
 const showCreateEmployeeForm = ref(false)
+const showAssignRoleForm = ref(false)
 const showEditEmployeeForm = ref(false)
 const employeeToEdit = ref({})
 const showEmployeeDeleteDialog = ref(false)
@@ -228,6 +244,12 @@ function handleEditformClosed(payload){
   }
 }
 
+async function handleAssignRoleFormClosed(){
+  showAssignRoleForm.value = false
+    if(payload){
+      await getEmployees()
+    }
+}
 
 function loadDeleteEmployeeDialog(employeeID){
   employeeToDelete.value = employeeID
@@ -318,25 +340,37 @@ function viewRoleClicked(role){
 }
 
 function viewEmployeeClicked(employee){
-  currentEmployee.value = employee;
-  showEmployeeDetails.value = true
+  navigateTo(`/admin/employees/${employee.ID}`)
 }
 
-
-onMounted(async () => {
+async function getEmployees(){
   try {
     const response = await $axios.get('/api/users');
     if(response.status==200 || 201){
       staff.value = response.data;
     }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    staff.value = []; 
+  }
+}
+
+async function getRoles(){
+  try {
     const roleResponse = await $axios.get('/api/roles');
     if(roleResponse.status==200 || 201){
     roles.value = roleResponse.data;
     }
   } catch (error) {
     console.error('Error fetching data:', error);
-    staff.value = null; // Set items to an empty array or handle error as needed
+    roles.value = []; 
   }
+}
+
+
+onMounted(async () => {
+  await getEmployees()
+  await getRoles()
 });
 
 

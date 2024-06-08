@@ -5,6 +5,9 @@
             <IconsMenuDotsIcon class="w-7 h-7"/>
         </div>
         <div v-if="isDropdownOpen" class="dropdown-menu absolute right-9  rounded-lg p-3 bg-white border border-slate-200">
+          <div class="flex w-full  justify-end" @click="toggleDropdown">
+            <IconsMenuDotsIcon class="w-7 h-7"/>
+          </div>
         <slot></slot>
         </div>
     </div>

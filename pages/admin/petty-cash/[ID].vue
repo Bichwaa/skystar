@@ -92,7 +92,7 @@
       </div>
     </div>
     <!-- <ExpenseDetailsModal v-if="showExpenseDetails" :expense="currentExpense" @close="showExpenseDetails=false"/> -->
-    <FormsCreateExpenseForm v-if="showCreateExpenseForm" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
+    <FormsCreateExpenseForm v-if="showCreateExpenseForm" :consignmentId="cashbook.consignment.ID" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
     <FormsEditExpenseForm v-if="showEditExpenseForm" :expensedata="expenseToEdit" @close="handleEditExpenseformClosed"/>
     <DeleteDialog v-if="showDeleteExpenseDialog" entity="expense" :loading="deleteInProgress" @proceed="deleteExpense" @close="showDeleteExpenseDialog=false"/>
   </div>
@@ -105,7 +105,7 @@ const { $axios } = useNuxtApp()
 
 const route = useRoute()
 
-const cashbook = ref({});
+const cashbook = ref({consignment:{bookingNumber:0}});
 
 
 const currentDate = new Date();

@@ -34,30 +34,27 @@
                     <span class="text-[#292a5e] text-sm mt-3 my-2 uppercase font-semibold"> Customer's Consignment History  </span>
 
                     <div class="perms flex flex-col items-start">
-                        <table class="w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-100">
-                            <tr class="">
-                                <th class="px-4 py-2 text-left">Consignee</th>
-                                <th class="px-4 py-2 text-left">No. Containers</th>
-                                <th class="px-4 py-2 text-left">Luggage</th>
-                                <th class="px-4 py-2 text-left">Transporter</th>
-                                <th class="px-4 py-2 text-left">Destination</th>
-                                <th class="px-4 py-2 text-left">Overseer</th>
-                            </tr>
-                            </thead>
-                            <tbody v-if="consignments.length>0">
-                            <tr v-for="item in consignments" :key="item.ID" @click="openConsignment(item.ID)" class="cursor-pointer hover:bg-yellow-100 duration-300">
-                                <td class="px-4 py-2"> <span v-if="item.customer">{{ item.customer.fullName }}</span> </td>
-                                <td class="px-4 py-2">{{ item.cont10 + item.cont20 + item.cont40 }}</td>
-                                <td class="px-4 py-2">{{ item.luggage }}</td>
-                                <td class="px-4 py-2">{{ item.transporter.name}}</td>
-                                <td class="px-4 py-2">{{ item.destination }}</td>
-                                <td class="px-4 py-2">
-                                <span v-if="item.Overseer">{{ item.Overseer.firstName + " " + item.Overseer.lastName }}</span>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                      <table class="w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-100">
+                          <tr class="">
+                            <th class="px-4 py-2 text-left">Customer</th>
+                            <th class="px-4 py-2 text-left">Booking No</th>
+                            <th class="px-4 py-2 text-left">Mode of transport</th>
+                            <th class="px-4 py-2 text-left">Port of Loading</th>
+                            <th class="px-4 py-2 text-left">Port of Discharge</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="item in consignments" @click="openConsignment(item.ID)" :key="item.id" class="cursor-pointer hover:bg-yellow-100 duration-300">
+                            <td class="px-4 py-2">{{ item.customer.fullName }}</td>
+                            <td class="px-4 py-2">{{ item.bookingNumber }}</td>
+                            <td class="px-4 py-2">{{ item.modeOfTransport }}</td>
+                            <td class="px-4 py-2">{{ item.portOfLoading }}</td>
+                            <td class="px-4 py-2">{{ item.destination }}</td>
+                            
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
 
                 </div>
