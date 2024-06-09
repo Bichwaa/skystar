@@ -182,6 +182,10 @@ h
 <script setup>
 import { ref, onMounted, watch, onUpdated } from 'vue';
 
+definePageMeta({
+    middleware: 'permissions',
+    permissions: ['can-read-employees']
+  });
 
 const { $axios } = useNuxtApp()
 

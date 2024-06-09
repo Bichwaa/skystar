@@ -38,6 +38,7 @@ const userTemplate = {ID: 1,
   accessToken:"",
   refreshToken:"",
   authenticated:false,
+  avatar:"",
   Roles: [
     {
       ID: 0,
@@ -55,6 +56,22 @@ export const userStore = defineStore('userStore', {
       access_token: (state) => state.user.accessToken,
       refresh_token: (state) => state.user.refreshToken,
       is_authenticated: (state) => state.user.authenticated,
+      flatPerms:(state)=>{
+        let permissions = []
+        const permNames = []
+        const permSet = []
+        state.user.Roles.forEach((role)=>{
+          permissions.push(role.Permissions)
+          permissions = permissions.flat()
+        })
+        permissions.forEach((x)=>{
+          if(!permNames.includes(x?.name)){
+            permNames.push(x?.name)
+            permSet.push(x)
+          }
+        })
+        return permNames
+      }
     },
 
     actions: {
@@ -83,12 +100,16 @@ export const userStore = defineStore('userStore', {
           this.user = user
         }
       },
+      hasPermission (to) {
+        return this.flatPerms.includes(to)
+      },
 
       async getme(){
         const { $axios } = useNuxtApp()
         const res = await $axios.post("/api/users/me",{email:this.user.email})
         if(res.status==200 || 201){
         this.user = {...this.user, ...res.data}
+        // this.user.avatar = res.data.avatar
         this.user.authenticated = true
         }
       },

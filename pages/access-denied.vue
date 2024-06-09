@@ -1,6 +1,6 @@
 <template>
     <center>
-      <h1>The page was not Found!</h1>
+      <h1>Access to this page is restricted. Contact admin if this is a mistake</h1>
       <p>
         <NuxtLink to="/profile">Go home?</NuxtLink>
       </p>

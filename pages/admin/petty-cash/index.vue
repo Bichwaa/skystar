@@ -66,6 +66,12 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
+
+  definePageMeta({
+    middleware: 'permissions',
+    permissions: ['can-read-pettycashbooks']
+  });
+
   const { $axios } = useNuxtApp()
   
   const pettyCashbooks = ref([]);

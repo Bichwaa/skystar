@@ -14,7 +14,8 @@
                 <div class="flex flex-col items-center">
                     <img 
                         class="w-24 h-24 rounded-full border-2 border-white my-1 cursor-pointer" 
-                        src="/images/9.jpg" 
+                        :src="$axios.getUri() + user?.avatar?.substring(1)" 
+                        lazy
                         alt="Profile Image"
                         @click="()=>showAvatarForm=true"
                         >
@@ -54,24 +55,25 @@ const store = userStore()
   
   const { $axios } = useNuxtApp()
   
-  const me = ref({});
+  const me = ref(store.user);
   
   const showChangePWordForm = ref(false)
   const showAvatarForm = ref(false)
   const user = computed(()=>{
+    console.log()
     return store.user
   })
   
 
-  onMounted(async () => {
-    try {
-      const response = await $axios.post('/api/users/me', {email:store.user.email});
-      if(response.status==200 || 201){
-      me.value = response.data;
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  });
+//   onMounted(async () => {
+//     try {
+//       const response = await $axios.post('/api/users/me', {email:store.user.email});
+//       if(response.status==200 || 201){
+//       me.value = response.data;
+//       }
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   });
   
   </script>

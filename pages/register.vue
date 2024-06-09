@@ -42,6 +42,12 @@
 </template>
 
 <script lang="ts" setup>
+
+definePageMeta({
+    middleware: 'permissions',
+    permissions: ['none']
+  });
+
 function formSubmitted(){
     window.alert('form fake submitted')
 }

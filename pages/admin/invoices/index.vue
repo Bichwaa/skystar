@@ -69,6 +69,12 @@
   
   <script setup>
   import { ref, onMounted } from 'vue';
+
+  definePageMeta({
+    middleware: 'permissions',
+    permissions: ['can-read-invoices']
+  });
+
   const { $axios } = useNuxtApp()
   
   const taxInvoices = ref([]);

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { toggleSidebar } from "./store";
-</script>
-
 <template>
   <header
     class="relative z-10 h-16 w-full items-center bg-white shadow md:h-20 lg:rounded-2xl"
@@ -65,7 +61,8 @@ import { toggleSidebar } from "./store";
           <a href="#" class="relative block">
             <img
               alt="Jonathan Ilunga"
-              src="/images/9.jpg"
+              lazy="true"
+              :src="$axios.getUri() + store?.user?.avatar?.substring(1)" 
               class="mx-auto h-10 w-10 rounded-full object-cover"
             />
           </a>
@@ -74,3 +71,17 @@ import { toggleSidebar } from "./store";
     </div>
   </header>
 </template>
+
+<script setup>
+import {onMounted} from "vue";
+import { toggleSidebar } from "./store";
+import {userStore} from "../store";
+
+const store = userStore()
+
+const { $axios } = useNuxtApp()
+
+onMounted(async()=>{
+  await store.getme()
+})
+</script>

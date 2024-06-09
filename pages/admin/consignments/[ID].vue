@@ -68,7 +68,7 @@
                                             <IconsPersonIcon  class="w-5 h-5"/>
                                             <span class=" font-medium">Filed By:</span>
                                         </div>
-                                        <p> {{ consignment.Overseer.firstName + " " + consignment.Overseer.lastName }} </p>
+                                        <p> {{ consignment?.Overseer?.firstName + " " + consignment?.Overseer?.lastName }} </p>
                                     </div>
 
                                     <span class="text-[#292a5e]  mt-3 my-2 uppercase font-semibold"> Consignment Description  </span>
@@ -256,10 +256,10 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in expenses" :key="item.ID">
-                                <td class="px-4 py-2"> <span v-if="item.Requested">{{ item.Requested.firstName + " " + item.Requested.lastName }}</span> </td>
+                                <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested.firstName + " " + item?.Requested.lastName }}</span> </td>
                                 <td class="px-4 py-2">{{ item.amount}}</td>
                                 <td class="px-4 py-2">{{ item.purpose }}</td>
-                                <th class="px-4 py-2 text-left">{{ item.Approved.firstName + " " + item.Approved.lastName }}</th>
+                                <th class="px-4 py-2 text-left">{{ item?.Approved?.firstName + " " + item?.Approved?.lastName }}</th>
                                 <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
                                 <td class="flex items-center gap-6 px-4 py-2">
                                 <!-- <span 
@@ -333,10 +333,10 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in revenues" :key="item.ID">
-                                <td class="px-4 py-2"> <span v-if="item.Requested">{{ item.Requested.firstName + " " + item.Requested.lastName }}</span> </td>
+                                <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> </td>
                                 <td class="px-4 py-2">{{ item.amount}}</td>
                                 <td class="px-4 py-2">{{ item.purpose }}</td>
-                                <th class="px-4 py-2 text-left">{{ item.Approved.firstName + " " + item.Approved.lastName }}</th>
+                                <th class="px-4 py-2 text-left">{{ item?.Approved?.firstName + " " + item?.Approved?.lastName }}</th>
                                 <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
                                 <td class="flex items-center gap-6 px-4 py-2">
                                 <!-- <span 
@@ -350,7 +350,7 @@
                                 </span>
 
                                 <span class="text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer" 
-                                @click="loadDeleteExpenseDialog(item)"
+                                @click="loadDeleteRevenueDialog(item)"
                                 >Delete</span>
                             </td>
                             </tr>
@@ -362,12 +362,18 @@
                     <FormsCreateConsignmentCostForm v-if="showExpenseForm" :consignmentId="consignment.ID" @close="handleExpenseClosed"/>
                     <FormsCreateConsignmentRevenueItemForm v-if="showRevenueForm" :consignmentId="consignment.ID" @close="handleRevenueClosed"/>
                     <FormsEditConsignmentCostForm v-if="showEditExpenseForm" :expensedata="expenseToEdit" @close="handleEditExpenseClosed"/>
-                        <DeleteDialog 
-                            v-if="showDeleteExpenseDialog" 
-                            entity="Consignment expense" 
-                            :loading="deleteInProgress" 
-                            @proceed="deleteExpense" 
-                            @close="showDeleteExpenseDialog=false"/>
+                    <DeleteDialog 
+                        v-if="showDeleteExpenseDialog" 
+                        entity="Consignment expense" 
+                        :loading="deleteInProgress" 
+                        @proceed="deleteExpense" 
+                        @close="showDeleteExpenseDialog=false"/>
+                    <DeleteDialog 
+                    v-if="showDeleteRevenueDialog" 
+                    entity="Consignment revenue" 
+                    :loading="deleteInProgress" 
+                    @proceed="deleteRevenue" 
+                    @close="showDeleteRevenueDialog=false"/>
 
                 </div>
             </div>
@@ -386,11 +392,13 @@ const expenses = ref([])
 const revenues = ref([])
 const expenseToEdit = ref({})
 const expenseToDelete = ref({})
+const revenueToDelete = ref({})
 
 const showExpenseForm = ref(false)
 const showRevenueForm = ref(false)
 const showEditExpenseForm = ref(false)
 const showDeleteExpenseDialog = ref(false)
+const showDeleteRevenueDialog = ref(false)
 const deleteInProgress = ref(false)
 
 const activeSub = ref("details")
@@ -475,6 +483,11 @@ function loadDeleteExpenseDialog(expense){
   showDeleteExpenseDialog.value = true
 }
 
+function loadDeleteRevenueDialog(revenue){
+    revenueToDelete.value = revenue;
+    showDeleteRevenueDialog.value = true
+}
+
 async function getConsignment(){
   try {
     const response = await $axios.get(`/api/consignments/${route.params.ID}`);
@@ -517,6 +530,19 @@ async function deleteExpense(){
       //remove employee from client state
       await getconsignmentExpenses()
       showDeleteExpenseDialog.value = false;
+  }else{
+      console.log(res.statusText)
+  }
+}
+
+async function deleteRevenue(){
+  deleteInProgress.value = true
+  const res = await $axios.delete(`/api/revenue/delete/${revenueToDelete.value.ID}`);
+  console.log(res)
+  if(res.status==200 || 201){
+      deleteInProgress.value = false
+      await getconsignmentRevenues()
+      showDeleteRevenueDialog.value = false;
   }else{
       console.log(res.statusText)
   }
