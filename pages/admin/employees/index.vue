@@ -184,7 +184,7 @@ import { ref, onMounted, watch, onUpdated } from 'vue';
 
 definePageMeta({
     middleware: 'permissions',
-    permissions: ['can-read-employees']
+    permissions: ['can-read-consignments']
   });
 
 const { $axios } = useNuxtApp()

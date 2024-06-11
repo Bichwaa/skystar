@@ -23,15 +23,15 @@ function logout(){
       <IconsAvatarIcon class="h-6 w-6" :currentColor="'#292a5e'" />
     </SidebarItem>
     
-    <SidebarItem title="Dashboard" to="/">
+    <SidebarItem v-if="store.hasPermission('can-view-dashboard')" title="Dashboard" to="/">
       <DashboardIcon />
     </SidebarItem>
 
-    <SidebarItem title="Employees" to="/admin/employees">
+    <SidebarItem v-if="store.hasPermission('can-read-consignments')" title="Employees" to="/admin/employees">
       <ProjectsIcon />
     </SidebarItem>
 
-    <SidebarItem title="Customers" to="/admin/customers">
+    <SidebarItem v-if="store.hasPermission('can-read-customers')" title="Customers" to="/admin/customers">
       <TasksIcon />
     </SidebarItem>
 
@@ -45,15 +45,15 @@ function logout(){
 
     
 
-    <SidebarItem title="Consignments" to="/admin/consignments">
+    <SidebarItem v-if="store.hasPermission('can-read-consignments')" title="Consignments" to="/admin/consignments">
       <DocIcon />
     </SidebarItem>
 
-    <SidebarItem title="Petty Cash" to="/admin/petty-cash">
+    <SidebarItem v-if="store.hasPermission('can-read-pettycashbook')" title="Petty Cash" to="/admin/petty-cash">
       <CalendarIcon />
     </SidebarItem>
 
-    <SidebarItem title="Invoices" to="/admin/invoices">
+    <SidebarItem v-if="store.hasPermission('can-read-invoices')" title="Invoices" to="/admin/invoices">
       <CalendarIcon />
     </SidebarItem>
 
