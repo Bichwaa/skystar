@@ -20,6 +20,7 @@
 
             </div>
             <div class="border-dotted border-2 border-gray-300 rounded-lg p-6 text-center">
+                <label for="pfp" class="text-xs font-medium">Profile Picture</label>
             <svg class="w-16 h-16 mx-auto mb-4 text-[#292a5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 0 1 4-4h10a4 4 0 1 1 0 8H7a4 4 0 0 1-4-4z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11l-4-4-4 4"></path>

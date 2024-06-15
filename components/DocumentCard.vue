@@ -19,11 +19,11 @@
             <span class="text-xs text-blue-500 cursor-pointer" @click="previewClicked">
                 Preview
             </span>
-            <span class="text-xs text-blue-500 cursor-pointer">
+            <span class="hidden text-xs text-blue-500 cursor-pointer">
                 Download
             </span>
 
-            <span class="text-xs text-[#d4af37] cursor-pointer" @click="editClicked">
+            <span class="hidden text-xs text-[#d4af37] cursor-pointer" @click="editClicked">
                 Edit
             </span>
             <span class="text-xs text-red-500 cursor-pointer" @click="deleteClicked">

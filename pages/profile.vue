@@ -14,7 +14,7 @@
                 <div class="flex flex-col items-center">
                     <img 
                         class="w-24 h-24 rounded-full border-2 border-white my-1 cursor-pointer" 
-                        :src="$axios.getUri() + user?.avatar?.substring(1)" 
+                        :src="user.avatar!=undefined ? $axios.getUri() + user?.avatar?.substring(1) : $axios.getUri() + '/uploads/pfp.avif'" 
                         lazy
                         alt="Profile Image"
                         @click="()=>showAvatarForm=true"

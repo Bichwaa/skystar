@@ -17,8 +17,8 @@
             <li class="my-6 flex items-center justify-between space-x-2" v-for="st,i in staff" :key="i">
               <a href="#" class="relative flex gap-8">
                 <img
-                  alt="Maurice Lokumba"
-                  src="/images/2.jpg"
+                  alt="profile photo"
+                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + '/uploads/pfp.avif'"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
                 />
 
@@ -146,7 +146,7 @@
               <a href="#" class="relative block">
                 <img
                   alt="Maurice Lokumba"
-                  src="/images/2.jpg"
+                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + '/uploads/pfp.avif'"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
                 />
               </a>
@@ -184,7 +184,7 @@ import { ref, onMounted, watch, onUpdated } from 'vue';
 
 definePageMeta({
     middleware: 'permissions',
-    permissions: ['can-read-consignments']
+    permissions: ['can-read-users']
   });
 
 const { $axios } = useNuxtApp()
@@ -309,8 +309,11 @@ async function deleteRole(){
 }
 
 
-function handleCreateRoleFormClosed(){
+async function handleCreateRoleFormClosed(role){
   showCreateRoleForm.value = false
+  if(role!=undefined){
+    await getRoles()
+  }
 }
 
 function loadEditRoleForm(roledata){

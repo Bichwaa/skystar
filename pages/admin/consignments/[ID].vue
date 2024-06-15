@@ -302,21 +302,14 @@
 
                         <div class="flex items-center justify-between pr-12 my-5" >
                         <h3 class="text-[#292a5e]  mt-3 my-6 uppercase text-xl font-semibold">Revenue</h3>
-                        <DropDowner>
+                        <div class="group">
                             <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showRevenueForm=true">
                                 <IconsAddIcon class="h-7 w-7 cursor-pointer" />
                                 <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                                Add Item
-                            </span>
+                                    Add Item
+                                </span>
                             </button>
-
-                            <button class="p-2 my-3 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="()=>true">
-                                <!-- <IconsAddIcon class="h-7 w-7 cursor-pointer" /> -->
-                                <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                                Generate Invoive
-                            </span>
-                            </button>
-                        </DropDowner>
+                        </div>
                     </div>
                     <div class="m-auto block">
                        

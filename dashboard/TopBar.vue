@@ -58,14 +58,14 @@
         <div
           class="relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0"
         >
-          <a href="#" class="relative block">
+          <NuxtLink to="/profile" class="relative block">
             <img
               alt="Jonathan Ilunga"
               lazy="true"
-              :src="$axios.getUri() + store?.user?.avatar?.substring(1)" 
+              :src="store?.user?.avatar!=undefined ? $axios.getUri() + store?.user?.avatar?.substring(1): $axios.getUri() + '/uploads/pfp.avif'" 
               class="mx-auto h-10 w-10 rounded-full object-cover"
             />
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>

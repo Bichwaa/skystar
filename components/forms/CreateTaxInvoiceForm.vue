@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="m-auto block mt-3">
+            <!-- <div class="m-auto block mt-3">
             <table class="w-full divide-y divide-gray-200">
               <thead class="bg-gray-100">
                 <tr class="">
@@ -67,9 +67,9 @@
                 </tr>
               </tbody>
             </table>
-          </div> 
+          </div>  -->
 
-            <div class="flex flex-col mb-2 mt-5 text-sm">
+            <!-- <div class="flex flex-col mb-2 mt-5 text-sm">
                 <div 
                     class="flex flex-col transition-all duration-300"
                     :class="revealParticularsFields?'max-h-[500px]':'max-h-[0px] overflow-hidden'"
@@ -114,7 +114,7 @@
                     </span>
                 </div>
                 
-            </div>
+            </div> -->
 
             <div class="grid place-items-center">
                 <button  type="submit" @click.prevent="submitForm" 
@@ -156,7 +156,7 @@ const payload  = ref({
     invoiceNumber:"",
     currency:"TSH",
     vat:0,
-    particulars:[]
+    // particulars:[]
 })
 
 function resetparticularForm(){
@@ -199,7 +199,7 @@ async function getConsignments(){
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    payload.value.particulars = particulars.value
+    // payload.value.particulars = particulars.value
     const res = await $axios.post("/api/tax-invoice",{...payload.value})
     formLoading.value = false
     console.log(res)

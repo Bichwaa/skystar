@@ -27,7 +27,7 @@ function logout(){
       <DashboardIcon />
     </SidebarItem>
 
-    <SidebarItem v-if="store.hasPermission('can-read-consignments')" title="Employees" to="/admin/employees">
+    <SidebarItem v-if="store.hasPermission('can-read-users')" title="Employees" to="/admin/employees">
       <ProjectsIcon />
     </SidebarItem>
 
@@ -49,7 +49,7 @@ function logout(){
       <DocIcon />
     </SidebarItem>
 
-    <SidebarItem v-if="store.hasPermission('can-read-pettycashbook')" title="Petty Cash" to="/admin/petty-cash">
+    <SidebarItem v-if="store.hasPermission('can-read-users')" title="Petty Cash" to="/admin/petty-cash">
       <CalendarIcon />
     </SidebarItem>
 

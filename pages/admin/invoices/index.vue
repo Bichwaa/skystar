@@ -32,13 +32,13 @@
                     INVOICES
                   </span>
 
-                  <span 
+                  <!-- <span 
                   @click="()=>invoicesActive=false"
                       class="px-6 text-sm py-1 my-1 cursor-pointer"
                       :class="!invoicesActive?'bg-gradient-to-r border-r-4 border-blue-500 from-white to-blue-100 text-blue-500':''"
                     >
                     DEBIT NOTES
-                  </span>
+                  </span> -->
                 </div>
               </div>
               <div class="lg:col-span-4 grid grid-cols-4 gap-8">
