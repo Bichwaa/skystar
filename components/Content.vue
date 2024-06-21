@@ -116,28 +116,28 @@ defineProps({
           </div>
           <div class="flex -space-x-2">
             <a href="#">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/5.jpg"
                 alt="Guy"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/6.jpg"
                 alt="Max"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/7.jpg"
                 alt="Charles"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/8.jpg"
                 alt="Jade"
@@ -258,28 +258,28 @@ defineProps({
           </div>
           <div class="flex -space-x-2">
             <a href="#">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/5.jpg"
                 alt="Guy"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/6.jpg"
                 alt="Max"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/7.jpg"
                 alt="Charles"
               />
             </a>
             <a href="#" class="">
-              <img
+              <NuxtImg
                 class="inline-block h-10 w-10 rounded-full object-cover ring-2 ring-white"
                 src="/images/8.jpg"
                 alt="Jade"
@@ -757,7 +757,7 @@ defineProps({
           <ul>
             <li class="my-6 flex items-center space-x-2">
               <a href="#" class="relative block">
-                <img
+                <NuxtImg
                   alt="Maurice Lokumba"
                   src="/images/2.jpg"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
@@ -774,7 +774,7 @@ defineProps({
             </li>
             <li class="my-6 flex items-center space-x-2">
               <a href="#" class="relative block">
-                <img
+                <NuxtImg
                   alt="Enoch Ndika"
                   src="/images/1.jpg"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
@@ -791,7 +791,7 @@ defineProps({
             </li>
             <li class="my-6 flex items-center space-x-2">
               <a href="#" class="relative block">
-                <img
+                <NuxtImg
                   alt="CR7"
                   src="/images/3.png"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
@@ -808,7 +808,7 @@ defineProps({
             </li>
             <li class="my-6 flex items-center space-x-2">
               <a href="#" class="relative block">
-                <img
+                <NuxtImg
                   alt="Lionel Messi"
                   src="/images/4.jpg"
                   class="mx-auto h-10 w-10 rounded-full object-cover"

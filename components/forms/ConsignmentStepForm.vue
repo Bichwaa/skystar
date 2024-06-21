@@ -1,6 +1,6 @@
 <template>
     <Modal @close-modal="close">
-        <div class="flex flex-col transition-all duration-300" :class="currentStepNo==0?'h-[480px]': currentStepNo==1?'h-[380px]':'h-[400px]'">
+        <div class="flex flex-col transition-all duration-300 overflow-y-scroll" :class="currentStepNo==0?'h-[480px]': currentStepNo==1?'h-[380px]':'h-[400px]'">
             <div class="legend grid grid-cols-3 p-4 gap-8 w-full">
                 <div class="prev flex items-center">
                     <button v-if="currentStepNo>0" @click="previousClicked" class="group p-2 rounded-lg w-32 flex gap-3 items-center justify-start">
@@ -76,8 +76,20 @@
                                 <input v-model="payload.portOfLoading" type="text" name="portofLoading" placeholder="kwao" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                             <div class="flex flex-col my-2">
+                                <label for="consigneeName" class="text-sm font-medium my-1">EDT</label>
+                                <input v-model="payload.edt" type="date" name="edt" placeholder="" class="border border-gray-300 p-2 rounded-lg text-sm">
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col my-2">
                                 <label for="consigneeName" class="text-sm font-medium my-1">Port of Discharge</label>
                                 <input v-model="payload.destination" type="text" name="destination" placeholder="Mombasa" class="border border-gray-300 p-2 rounded-lg text-sm">
+                            </div>
+                            <div class="flex flex-col my-2">
+                                <label for="consigneeName" class="text-sm font-medium my-1">ETA</label>
+                                <input v-model="payload.eta" type="date" name="eta" placeholder="" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                         </div>
 
@@ -91,10 +103,54 @@
                                 <label for="email" class="text-sm font-medium my-1">Mode of Transport</label>
                                 <select v-model="payload.modeOfTransport"  class="w-full">
                                     <option value="sea"> By Sea</option>
-                                    <option value="sea"> By Air</option>
-                                    <option value="sea"> By Road</option>
+                                    <option value="air"> By Air</option>
+                                    <option value="road"> By Road</option>
                                 </select>
                             </div>
+
+                        </div>
+                        
+                        <div class="flex flex-col my-2 w-full" v-if="payload.modeOfTransport=='sea'">
+                            <div class="flex items-center my-2 gap-2 w-full" >
+                                <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Vessel Name</label>
+                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div>
+
+                                <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Voy Number</label>
+                                    <input  type="text" name="cont40" placeholder="CNT045hHD" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="flex flex-col my-2 w-full" v-if="payload.modeOfTransport=='air'">
+                            <div class="flex items-center my-2 gap-2 w-full" >
+                                <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Flight Name</label>
+                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div>
+
+                                <!-- <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Voy Number</label>
+                                    <input  type="text" name="cont40" placeholder="CNT045hHD" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div> -->
+                            </div>
+                        </div>
+
+
+                        <div class="flex flex-col my-2 w-full" v-if="payload.modeOfTransport=='road'">
+                            <div class="flex items-center my-2 gap-2 w-full" >
+                                <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Truck Number</label>
+                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center gap-4">
 
                             <div class="flex flex-col my-4 w-full">
                                 <label for="email" class="text-sm font-medium my-1">Type of Cargo</label>
@@ -104,28 +160,45 @@
                                 </select>
                             </div>
 
-                            
-
                         </div>
-                        <div class="flex items-center gap-4">
-<!--                             
-                            <div class="flex flex-col my-2" v-if="cargoType=='loose'">
-                                <label for="consigneeName" class="text-sm font-medium my-1">Loose Cargo Weight (Ton)</label>
-                                <input v-model="payload.looseCargo" type="number" name="cont10" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
-                            </div> -->
 
-                            <div class="flex flex-col my-2" v-if="!isLoose">
-                                <label for="consigneeName" class="text-sm font-medium my-1">20FT Containers</label>
-                                <input v-model="payload.cont20" type="number" name="cont20" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
+
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col my-2 w-full" v-if="cargoType=='containers'">
+                                <div class="flex items-center my-2 gap-2 w-full" >
+                                    <div class="flex flex-col w-full">
+                                        <label for="consigneeName" class="text-sm font-medium my-1">Container Size</label>
+                                        <select class="w-full" v-model="currentContainer.size">
+                                            <option value="20ft">20 Foot</option>
+                                            <option value="40ft" selected> 40 Foot</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="flex flex-col ">
+                                        <label for="consigneeName" class="text-sm font-medium my-1">Container Number</label>
+                                        <input v-model="currentContainer.number"  type="text" name="cont40" placeholder="CNT045hHD" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    </div>
+                                </div>
+
+                                <div class="flex-col mb-1 cursor-pointer justify-center items-center">
+                                    <span class="text-yellow-600 text-sm cursor-ponter"> Added({{ containers.length }})</span>
+                                </div>
+
+                                <div class="flex-col my-2 cursor-pointer justify-center items-center" @click="()=>true">
+                                    <span class="text-blue-400 text-sm cursor-ponter" @click="addContainerToList"> Add Container</span>
+                                </div>
                             </div>
-                            <div class="flex-col my-2 cursor-pointer justify-center items-center" v-if="!isLoose && !showFortyFooters" @click="()=>showFortyFooters =true">
-                                <span class="text-blue-400 text-sm cursor-ponter"> + Add 40ft Containers</span>
+
+                            <div class="flex flex-col my-2 w-full" v-if="cargoType=='loose'">
+                                <div class="flex items-center my-2 gap-2 w-full" >
+
+                                    <div class="flex flex-col ">
+                                        <label for="consigneeName" class="text-sm font-medium my-1">Package Number</label>
+                                        <input v-model="currentLooseCargo.packageNumber"  type="text" name="cont40" placeholder="1" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="flex flex-col my-2" v-if="!isLoose && showFortyFooters">
-                                <label for="consigneeName" class="text-sm font-medium my-1">40FT Containers</label>
-                                <input v-model="payload.cont40" type="number" name="cont40" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
-                            </div>
                         </div>
                     </div>
                     
@@ -252,6 +325,29 @@ const currentStepNo = ref(0)
 
 const totalSteps = computed(()=> props.steps.length)
 
+type Container = {
+    size : string;
+    number:string;
+}
+
+type LooseCargo = {
+    packageNumber : string;
+}
+
+const currentContainer = ref({
+    size:"20ft",
+    number:""
+})
+
+const currentLooseCargo = ref<LooseCargo>({
+    packageNumber : ""
+})
+
+
+const containers = ref<Container[]> ([])
+
+// const looseCargo = ref<LooseCargo[]> ([])
+
 //compute input styles
 function inputsByRowStyle(inputs:Input[]){
     return {
@@ -264,6 +360,11 @@ function nextClicked(){
     if(currentStepNo.value<=2){
         currentStepNo.value += 1
     }
+}
+
+function addContainerToList(){
+    containers.value.push(currentContainer.value);
+    currentContainer.value = {size:"20ft", number:""}
 }
 
 function previousClicked(){
@@ -291,30 +392,38 @@ const sorted:ComputedRef<{half:Input[], full:Input[]}> = computed(()=>{
     return inputsByRowStyle(currentStep.value.inputs)
     })
 
-
-
 const payload  = ref({
    customerId:0,
    luggage:"",
    modeOfTransport:"Ship",
    destination:"",
    portOfLoading:"",
-   looseCargo:0,
-   cont20:0,
-   cont40:0,
+   hasLooseCargo:false,
+   hasContainers:false,
    overseerId:store.user.ID,
    transporterId:0,
    consigneeId:0,
    bookingNumber:"",
    blNumber:"",
-   totalWeight:0
-//    cost:0,
-//    revenue:0
+   totalWeight:0,
+   edt:"",
+   eta:"",
+   containers:[] as Container[],
+   looseCargo:[] as LooseCargo[]
 })
 
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
+
+    if (currentLooseCargo.value.packageNumber!=""){
+        payload.value.looseCargo.push(currentLooseCargo.value)
+    }
+
+    if(containers.value.length>0){
+        payload.value.containers = containers.value
+    }
+
     const res = await $axios.post("/api/consignments",{...payload.value})
     formLoading.value = false
     console.log(res)

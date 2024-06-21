@@ -18,6 +18,11 @@
                 <input v-model="payload.phone" type="phone" name="phone" placeholder="+111000223344" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
+            <div class="flex flex-col my-2">
+                <label for="phone" class="text-xs font-medium my-1">Address</label>
+                <input v-model="payload.address" type="phone" name="text" placeholder="101,Pima Str" class="border border-gray-300 p-2 rounded-lg text-sm">
+            </div>
+
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
@@ -40,7 +45,8 @@ const props = defineProps({
             ID:"",
             name:"",
             email:"",
-            phone:""
+            phone:"",
+            address:""
         }
     }
 })

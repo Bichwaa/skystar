@@ -52,7 +52,7 @@
                                             <IconsUserIcon class="w-5 h-5"/>
                                             <span class=" font-medium">Name:</span>
                                         </div>
-                                        <p>{{ consignment.customer.fullName }}</p>
+                                        <p>{{ consignment?.customer?.fullName }}</p>
                                     </div>
 
                                     <div class="flex gap-3  w-full items-center my-2">
@@ -60,7 +60,7 @@
                                             <IconsEmailIcon  class="w-5 h-5"/>
                                             <span class=" font-medium">Email:</span>
                                         </div>
-                                        <p> {{consignment.customer.email}} </p>
+                                        <p> {{consignment?.customer?.email}} </p>
                                     </div>
 
                                     <div class="flex gap-3  w-full items-center my-2">
@@ -94,7 +94,7 @@
                                                     <IconsBookingIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Booking No:</span>
                                                 </div>
-                                                <p>{{  consignment.bookingNumber }}</p>
+                                                <p>{{  consignment?.bookingNumber }}</p>
                                             </div>
 
                                             <div class="flex gap-3  w-full items-center my-2">
@@ -102,7 +102,7 @@
                                                     <IconsBookingIcon class="w-5 h-5" />
                                                     <span class=" font-medium">BL No:</span>
                                                 </div>
-                                                <p>{{  consignment.blNumber }}</p>
+                                                <p>{{  consignment?.blNumber }}</p>
                                             </div>
 
 
@@ -111,7 +111,7 @@
                                                     <IconsShipIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Type:</span>
                                                 </div>
-                                                <p>{{ consignment.looseCargo == 0 ? "Containers" : "Loose Cargo" }}</p>
+                                                <p>{{ consignment?.looseCargo == 0 ? "Containers" : "Loose Cargo" }}</p>
                                             </div>
 
                                             <div class="flex gap-3  w-full items-center my-2" v-if="consignment.looseCargo==0">
@@ -119,7 +119,7 @@
                                                     <IconsContainerIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Containers:</span>
                                                 </div>
-                                                <p>{{  consignment.cont20 + consignment.cont40 }}</p>
+                                                <p>{{  consignment?.cont20 + consignment?.cont40 }}</p>
                                             </div>
 
                                             <!-- <div class="flex gap-3  w-full items-center my-2" v-else>
@@ -135,15 +135,33 @@
                                                     <IconsDestinationIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Loading Port:</span>
                                                 </div>
-                                                <p>{{ consignment.portOfLoading }}</p>
+                                                <p>{{ consignment?.portOfLoading }}</p>
                                             </div>
+
+                                            <div class="flex gap-3  w-full items-center my-2">
+                                                <div class="flex gap-4 items-center">
+                                                    <IconsDestinationIcon class="w-5 h-5" />
+                                                    <span class=" font-medium">EDT:</span>
+                                                </div>
+                                                <p>{{ consignment?.edt }}</p>
+                                            </div>
+
 
                                             <div class="flex gap-3  w-full items-center my-2">
                                                 <div class="flex gap-4 items-center">
                                                     <IconsDestinationIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Discharge Port:</span>
                                                 </div>
-                                                <p>{{ consignment.destination }}</p>
+                                                <p>{{ consignment?.destination }}</p>
+                                            </div>
+
+                                            
+                                            <div class="flex gap-3  w-full items-center my-2">
+                                                <div class="flex gap-4 items-center">
+                                                    <IconsDestinationIcon class="w-5 h-5" />
+                                                    <span class=" font-medium">ETA:</span>
+                                                </div>
+                                                <p>{{ consignment?.eta }}</p>
                                             </div>
 
                                         </div>
@@ -163,7 +181,7 @@
                                                     <IconsLuggageIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Total Weight:</span>
                                                 </div>
-                                                <p>{{ consignment.totalWeight }} T</p>
+                                                <p>{{ consignment?.totalWeight }} T</p>
                                             </div>
 
                                             <div class="flex gap-3  w-full items-center my-2">
@@ -171,10 +189,10 @@
                                                     <IconsLuggageIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Mode of Transport:</span>
                                                 </div>
-                                                <p>By {{ consignment.modeOfTransport }}</p>
+                                                <p>By {{ consignment?.modeOfTransport }}</p>
                                             </div>
                                         <!-- sea -->
-                                            <div class="sea" v-if="consignment.modeOfTransport=='Sea'">
+                                            <div class="sea" v-if="consignment?.modeOfTransport=='Sea'">
 
 
                                                 <div class="flex gap-3  w-full items-center my-2" >
@@ -182,7 +200,7 @@
                                                         <IconsContainerIcon class="w-5 h-5" />
                                                         <span class=" font-medium">Vessel Numner:</span>
                                                     </div>
-                                                    <p>{{  consignment.vesselNumber }}</p>
+                                                    <p>{{  consignment?.vesselNumber }}</p>
                                                 </div>
 
                                                 <div class="flex gap-3  w-full items-center my-2" >
@@ -190,7 +208,7 @@
                                                         <IconsContainerIcon class="w-5 h-5" />
                                                         <span class=" font-medium">Voyage Number:</span>
                                                     </div>
-                                                    <p>{{  consignment.voyageNumber }}</p>
+                                                    <p>{{  consignment?.voyageNumber }}</p>
                                                 </div>
 
                                             </div>
@@ -201,7 +219,7 @@
                                                     <span class=" font-medium">Shipper:</span>
                                                 </div>
                                                 <div class="flex flex-col">
-                                                    <p>{{ consignment.transporter != null ? consignment.transporter.name: "" }}</p>
+                                                    <p>{{ consignment?.transporter != null ? consignment?.transporter.name: "" }}</p>
                                                     <!-- <p class=" pl-6">{{ consignment.transporter != null ? consignment.transporter.phone: "" }}</p> -->
                                                 </div>
                                             </div>
@@ -211,7 +229,7 @@
                                                     <IconsShipIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Consignee:</span>
                                                 </div>
-                                                <p>{{ consignment.consignee != null ? consignment.consignee.fullName.split(" ")[0]: "" }}</p>
+                                                <p>{{ consignment?.consignee != null ? consignment?.consignee?.fullName.split(" ")[0]: "" }}</p>
                                             </div>
 
                                         </div>
@@ -223,7 +241,7 @@
                                                     <IconsContainerIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Revenue:</span>
                                                 </div>
-                                                <p>{{  consignment.revenue }}</p>
+                                                <p>{{  consignment?.revenue }}</p>
                                             </div>
 
                                             </div>

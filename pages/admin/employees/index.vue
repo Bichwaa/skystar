@@ -16,9 +16,9 @@
           <ul>
             <li class="my-6 flex items-center justify-between space-x-2" v-for="st,i in staff" :key="i">
               <a href="#" class="relative flex gap-8">
-                <img
+                <NuxtImg
                   alt="profile photo"
-                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + '/uploads/pfp.avif'"
+                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + 'uploads/pfp.avif'"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
                 />
 
@@ -144,9 +144,9 @@
             <ul>
             <li class="my-6 flex items-center space-x-2" v-for="st,i in staff.slice(0,2)" :key="i">
               <a href="#" class="relative block">
-                <img
+                <NuxtImg
                   alt="Maurice Lokumba"
-                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + '/uploads/pfp.avif'"
+                  :src="st.avatar ? $axios.getUri() + st.avatar.substring(1): $axios.getUri() + 'uploads/pfp.avif'"
                   class="mx-auto h-10 w-10 rounded-full object-cover"
                 />
               </a>

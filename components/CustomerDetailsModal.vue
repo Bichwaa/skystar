@@ -4,7 +4,7 @@
             <h1 class="font-semibold text-lg Lg:text-xl my-5">Customer Deails</h1>
 
             <div class="role flex flex-col items-start mb-4">
-                <h2 class="font-medium capitalize text-lg lg:text-xl">Name: {{customer.fullName}}</h2>
+                <h2 class="font-medium capitalize text-lg lg:text-xl">Name: {{customer?.fullName}}</h2>
 
                 <div class="flex gap-4">
                     <span class="font-medium">Email: </span>

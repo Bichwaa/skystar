@@ -35,11 +35,11 @@
                         </thead>
                         <tbody>
                           <tr v-for="item in consignments" @click="openConsignment(item.ID)" :key="item.id" class="cursor-pointer hover:bg-yellow-100 duration-300">
-                            <td class="px-4 py-2">{{ item.customer.fullName }}</td>
-                            <td class="px-4 py-2">{{ item.bookingNumber }}</td>
-                            <td class="px-4 py-2">{{ item.modeOfTransport }}</td>
-                            <td class="px-4 py-2">{{ item.portOfLoading }}</td>
-                            <td class="px-4 py-2">{{ item.destination }}</td>
+                            <td class="px-4 py-2">{{ item?.customer?.fullName }}</td>
+                            <td class="px-4 py-2">{{ item?.bookingNumber }}</td>
+                            <td class="px-4 py-2">{{ item?.modeOfTransport }}</td>
+                            <td class="px-4 py-2">{{ item?.portOfLoading }}</td>
+                            <td class="px-4 py-2">{{ item?.destination }}</td>
                             
                           </tr>
                         </tbody>

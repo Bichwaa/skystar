@@ -34,7 +34,7 @@
                   <tr class="">
                     <th class="px-4 py-2 text-left">Consignee</th>
                     <th class="px-4 py-2 text-left">No. Containers</th>
-                    <th class="px-4 py-2 text-left">Loose Cargo (Ton)</th>
+                    <th class="px-4 py-2 text-left">Loose Cargo</th>
                     <th class="px-4 py-2 text-left">Booking No</th>
                     <th class="px-4 py-2 text-left">Shipper</th>
                     <th class="px-4 py-2 text-left">Mode of transport</th>
@@ -46,14 +46,14 @@
                 </thead>
                 <tbody>
                   <tr v-for="item in consignments" :key="item.id">
-                    <td class="px-4 py-2">{{ item.customer.fullName }}</td>
-                    <td class="px-4 py-2">{{ item.cont20 + item.cont40 }}</td>
-                    <td class="px-4 py-2">{{ item.looseCargo }}</td>
-                    <td class="px-4 py-2">{{ item.bookingNumber }}</td>
-                    <td class="px-4 py-2">{{ item.transporter.name}}</td>
-                    <td class="px-4 py-2">{{ item.modeOfTransport }}</td>
-                    <td class="px-4 py-2">{{ item.portOfLoading }}</td>
-                    <td class="px-4 py-2">{{ item.destination }}</td>
+                    <td class="px-4 py-2">{{ item?.customer?.fullName }}</td>
+                    <td class="px-4 py-2">{{ item?.containers?.length?item.containers.length:0 }}</td>
+                    <td class="px-4 py-2">{{ item?.hasLooseCargo?"Yes":"No" }}</td>
+                    <td class="px-4 py-2">{{ item?.bookingNumber }}</td>
+                    <td class="px-4 py-2">{{ item?.transporter?.name}}</td>
+                    <td class="px-4 py-2">{{ item?.modeOfTransport }}</td>
+                    <td class="px-4 py-2">{{ item?.portOfLoading }}</td>
+                    <td class="px-4 py-2">{{ item?.destination }}</td>
                     <td class="px-4 py-2">
                       <span v-if="item.Overseer">{{ item.Overseer.firstName + " " + item.Overseer.lastName }}</span>
                     </td>
@@ -63,10 +63,10 @@
                         @click="viewconsignmentClicked(item.ID)"
                         >View</span>
   
-                      <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                      <!-- <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
                         @click="loadEditconsignmentForm(item)">
                         Edit
-                      </span>
+                      </span> -->
   
                       <span class="text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer" 
                         @click="loadDeleteconsignmentDialog(item)"
