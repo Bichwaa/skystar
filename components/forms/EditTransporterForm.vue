@@ -2,7 +2,7 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Update customer data</p>
+            <p class="font-medium flex items-center mb-3">Update transporter data</p>
             <div class="flex flex-col my-2">
                 <label for="firstName" class="text-xs font-medium my-1">Name</label>
                 <input v-model="payload.name" type="text" name="name" placeholder="Jane" class="border border-gray-300 p-2 rounded-lg text-sm">

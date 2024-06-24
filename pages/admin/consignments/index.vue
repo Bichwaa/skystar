@@ -29,7 +29,7 @@
               </span>
             </div>
             <div class="m-auto block">
-              <table class="w-full divide-y divide-gray-200">
+              <table class="w-full divide-y divide-gray-200 overflow-x-scroll">
                 <thead class="bg-gray-100">
                   <tr class="">
                     <th class="px-4 py-2 text-left">Consignee</th>
