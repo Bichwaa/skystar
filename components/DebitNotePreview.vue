@@ -11,8 +11,8 @@
                     <span class="text-sm font-medium my-1">Samora Avenue/Azikiwe Street,</span>
                     <span class="text-sm font-medium my-1">P.O.Box 8680, Dar-es-salaam</span>
                     <span class="text-sm font-medium my-1">Tel: +255 22 2112049</span>
-                    <span class="text-sm font-medium my-1">Cell: +255 754 276 123, +255 689 303 277</span>
-                    <span class="text-sm font-medium my-1">Email: info@skystarfreight.co.tz</span>
+                    <span class="text-sm font-medium my-1">Cell: +255 784 371 352, +255 689 303 277</span>
+                    <span class="text-sm font-medium my-1">Email: account@skystarfreight.co.tz</span>
                 </div>
             </div>
 
