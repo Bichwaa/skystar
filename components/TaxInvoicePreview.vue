@@ -83,10 +83,10 @@
                         </thead>
                         <tbody>
                             <tr v-for="item, idx in particulars" :key="idx" class=" border-l border-gray-200">
-                            <td class="py-1 px-4 border-b truncate max-w-[250px] text-xs">{{ item.purpose }}</td>
-                            <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount) }}</td>
-                            <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.quantity) }}</td>
-                            <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount * item.quantity) }}</td>
+                                <td class="py-1 px-4 border-b truncate max-w-[250px] text-xs">{{ item.purpose }}</td>
+                                <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount) }}</td>
+                                <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.quantity) }}</td>
+                                <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount * item.quantity) }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -186,7 +186,7 @@ const valueAmount = computed(()=>{
 
 async function getconsignmentExpenses(){
     try {
-    const response = await $axios.get(`/api/filter-expenses?consignment=${props.doc.consignment.ID}`);
+    const response = await $axios.get(`/api/filter-revenue?consignment=${props.doc.consignment.ID}`);
     if(response.status === 200|201){
       particulars.value = response.data;
     }

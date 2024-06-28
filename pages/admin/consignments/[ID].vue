@@ -309,7 +309,7 @@
                     <div v-if="activeSub=='revenue'">
                         <div class="flex flex-col gap-2  items-start">
                             <span class="text-lg font-semibold text-[#292a5e]">
-                                TOTAL REVENUE: {{ revenue}} Tsh
+                                TOTAL REVENUE: {{ revenue}} {{revenues.length>0?revenues[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span class="text-lg font-semibold text-[#292a5e]">

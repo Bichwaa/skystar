@@ -2,7 +2,7 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Update transporter data</p>
+            <p class="font-medium flex items-center mb-3">Update shipper data</p>
             <div class="flex flex-col my-2">
                 <label for="firstName" class="text-xs font-medium my-1">Name</label>
                 <input v-model="payload.name" type="text" name="name" placeholder="Jane" class="border border-gray-300 p-2 rounded-lg text-sm">
@@ -26,7 +26,7 @@
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Update Transporter</span>
+                <span v-if="!formLoading">Update shipper</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>

@@ -174,7 +174,7 @@
       <FormsCreateConsigneeForm v-if="showCreateConsigneeForm" :customerID="customer.ID" @close="handleCreateConsigneeformClosed"/>
       <FormsEditConsigneeForm v-if="showEditConsigneeForm" :data="consigneeToEdit" @close="handleEditConsigneeFormClosed"/>
       <DeleteDialog v-if="showDeleteconsigneeDialog" entity="consignee" :loading="deleteInProgress" @proceed="deleteConsignee" @close="showDeleteconsigneeDialog=false"/>
-      <DeleteDialog v-if="showDeleteTransporterDialog" entity="transporter" :loading="deleteInProgress" @proceed="deleteTransporter" @close="showDeleteTransporterDialog=false"/>
+      <DeleteDialog v-if="showDeleteTransporterDialog" entity="shipper" :loading="deleteInProgress" @proceed="deleteTransporter" @close="showDeleteTransporterDialog=false"/>
     </div>
   </template>
   h

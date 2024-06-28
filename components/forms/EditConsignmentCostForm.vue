@@ -12,6 +12,14 @@
             </div>
 
             <div class="flex flex-col my-2">
+                <label for="limit" class="text-xs font-medium my-1 pl-2">Currency </label>
+                <select v-model="payload.currency" class="w-full p-2 text-sm">
+                    <option class="text-sm" :value="`TSH`">TSH</option>
+                    <option class="text-sm" :value="`USD`">USD</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Amount</label>
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
@@ -48,7 +56,8 @@ const props = defineProps({
             requestedId:0,
             approvedId:0,
             amount:0,
-            purpose:""
+            purpose:"",
+            currency:"Tsh"
         }
     }
 })
@@ -64,7 +73,8 @@ const payload  = ref({
     requestedId:0,
     approvedId:store.user.ID,
     amount:0,
-    purpose:""
+    purpose:"",
+    currency:""
 })
 
 async function getEmployees(){
@@ -103,7 +113,8 @@ onMounted(async()=>{
             requestedId:Number(props.expensedata.requestedId),
             approvedId:store.user.ID,
             amount:props.expensedata.amount,
-            purpose:props.expensedata.purpose
+            purpose:props.expensedata.purpose,
+            currency:props.expensedata.currency
         }
     }
     await getEmployees()
