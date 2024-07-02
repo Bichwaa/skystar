@@ -40,14 +40,14 @@
               <span class="font-medium text-sm">Spent:</span>
               <span class="font-semibold text-sm">Tsh {{ spent }}</span>
             </div>
-            <div class="flex items-center justify-start gap-5">
+            <!-- <div class="flex items-center justify-start gap-5">
               <span class="font-medium text-sm">limit:</span>
               <span class="font-semibold text-sm">Tsh {{ cashbook.limit}}</span>
             </div>
             <div class="flex items-center justify-start gap-5">
               <span class="font-medium text-sm">Overspent:</span>
               <span class="font-semibold text-sm">Tsh {{ overspent }}</span>
-            </div>
+            </div> -->
           </div>
 
           <div class="m-auto block">
@@ -63,7 +63,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in cashbook.expenses" :key="item.id">
+                <tr v-for="item in cashbook.consignment.revenues" :key="item.id">
                   <td class="px-4 py-2"> <span v-if="item.Requested">{{ item.Requested.firstName + " " + item.Requested.lastName }}</span> </td>
                   <td class="px-4 py-2">{{ item.amount}}</td>
                   <td class="px-4 py-2">{{ item.purpose }}</td>

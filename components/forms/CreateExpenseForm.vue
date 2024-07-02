@@ -18,7 +18,21 @@
 
             <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Purpose</label>
-                <input v-model="payload.purpose" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <input v-model="payload.purpose" list="expenses" autocomplete="off" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <datalist id="expenses">
+                    <option value="Positioning Empty Container"></option>
+                    <option value="Offloading & Weighing"></option>
+                    <option value="Stuffing & Weighing"></option>
+                    <option value="Bulk Bag"></option>
+                    <option value="Rope"></option>
+                    <option value="Tansfer Of Full Container"></option>
+                    <option value="Transport TOo The Working Area"></option>
+                    <option value="Facilitation To Accomplish The Task"></option>
+                    <option value="Payment for C.O.O"></option>
+                    <option value="Phytsanitary Certificate"></option>
+                    <option value="Fuel Fee In Motorcycle"></option>
+                    <option value="Maintanance & Services"></option>
+                </datalist>
             </div>
 
 
@@ -81,7 +95,7 @@ async function getEmployees(){
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
-    const res = await $axios.post("/api/expenses",{...payload.value})
+    const res = await $axios.post("/api/revenue",{...payload.value})
     formLoading.value = false
     console.log(res)
     if(res.status==200 || 201){

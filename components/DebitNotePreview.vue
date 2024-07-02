@@ -80,10 +80,18 @@
                     <div class="">
                     <table class="w-full divide-y divide-gray-200 mb-12">
                         <tbody>
-                        <tr class="border border-gray-200">
-                            <td class="px-4 py-2 text-xs">Total Value </td>
-                            <td class="px-4 py-2 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount + doc.vat)}}</td>
-                        </tr>
+                            <tr class="border border-gray-200">
+                                <td class="px-4 py-1 font-semibold text-xs">Value Amount({{ doc.currency }}) </td>
+                                <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount) }}</td>
+                            </tr>
+                            <tr class="border border-gray-200">
+                                <td class="px-4 py-1 font-semibold text-xs">Vat</td>
+                                <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat) }}</td>
+                            </tr>
+                            <tr class="border border-gray-200">
+                                <td class="px-4 py-2 text-xs">Total Value </td>
+                                <td class="px-4 py-2 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount + doc.vat)}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -101,6 +109,11 @@
                     <div class="flex itens-center gap-2">
                         <span class="text-xs">Account name:</span>
                         <span class="text-xs">Skystar Freight Limited</span>
+                    </div>
+
+                    <div class="flex itens-center gap-2">
+                        <span class="text-xs">A/C:</span>
+                        <span class="text-xs">20110058241 For TZS</span>
                     </div>
 
                     <div class="flex itens-center gap-2">

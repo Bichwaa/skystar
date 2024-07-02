@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="flex flex-col my-2">
-                    <label for="limit" class="text-xs font-medium my-1 pl-2">Invoice Number </label>
-                    <input v-model="payload.debitNoteNumber" type="text" name="referenceNumber" placeholder="IV2532" class="border border-gray-300 p-2 rounded-lg text-sm">
+                    <label for="limit" class="text-xs font-medium my-1 pl-2">D/N Number </label>
+                    <input v-model="payload.debitNoteNumber" type="text" name="referenceNumber" placeholder="DBN2532" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
             </div>
 

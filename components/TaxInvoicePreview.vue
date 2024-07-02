@@ -100,7 +100,7 @@
                             <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount) }}</td>
                         </tr>
                         <tr class="border border-gray-200">
-                            <td class="px-4 py-1 font-semibold text-xs">Amount Vat</td>
+                            <td class="px-4 py-1 font-semibold text-xs">Vat</td>
                             <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat) }}</td>
                         </tr>
                         <tr class="border border-gray-200">
@@ -125,7 +125,7 @@
 
                     <div class="flex itens-center gap-2">
                         <span class="text-xs">A/C:</span>
-                        <span class="text-xs">20110058242 For TZS</span>
+                        <span class="text-xs">20110058241 For TZS</span>
                     </div>
 
                     <div class="flex itens-center gap-2">

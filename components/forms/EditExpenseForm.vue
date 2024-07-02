@@ -18,7 +18,14 @@
 
             <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Purpose</label>
-                <input v-model="payload.purpose" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <input v-model="payload.purpose" list="expenses" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <datalist id="expenses">
+                    <option value="Chocolate"></option>
+                    <option value="Coconut"></option>
+                    <option value="Mint"></option>
+                    <option value="Strawberry"></option>
+                    <option value="Vanilla"></option>
+                </datalist>
             </div>
 
 

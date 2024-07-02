@@ -26,7 +26,7 @@
                     <th class="px-4 py-2 text-left">Id</th>
                     <th class="px-4 py-2 text-left">Consignment</th>
                     <th class="px-4 py-2 text-left">Month</th>
-                    <th class="px-4 py-2 text-left">Limit</th>
+                    <!-- <th class="px-4 py-2 text-left">Limit</th> -->
                     <th class="px-4 py-2 text-left">Actions</th>
                   </tr>
                 </thead>
@@ -35,7 +35,7 @@
                     <td class="px-4 py-2">{{ item.ID }}</td>
                     <td class="px-4 py-2">{{ item.consignment.bookingNumber}}</td>
                     <td class="px-4 py-2">{{ item.period}}</td>
-                    <td class="px-4 py-2">{{ item.limit }}</td>
+                    <!-- <td class="px-4 py-2">{{ item.limit }}</td> -->
                     <td class="flex items-center gap-6 px-4 py-2">
                       <span 
                         class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
