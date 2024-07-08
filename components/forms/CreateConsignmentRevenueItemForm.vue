@@ -12,26 +12,23 @@
             </div>
 
             <div class="flex flex-col my-2">
+                <label for="limit" class="text-xs font-medium my-1 pl-2">Currency </label>
+                <select v-model="payload.currency" class="w-full p-2 text-sm">
+                    <option class="text-sm" :value="`TSH`">TSH</option>
+                    <option class="text-sm" :value="`USD`">USD</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Amount</label>
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
             <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Purpose</label>
-                <textarea v-model="payload.purpose" list="expenses" autocomplete="off" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm"></textarea>
-                <datalist id="expenses">
-                    <option value="Positioning Empty Container"></option>
-                    <option value="Offloading & Weighing"></option>
-                    <option value="Stuffing & Weighing"></option>
-                    <option value="Bulk Bag"></option>
-                    <option value="Rope"></option>
-                    <option value="Tansfer Of Full Container"></option>
-                    <option value="Transport TOo The Working Area"></option>
-                    <option value="Facilitation To Accomplish The Task"></option>
-                    <option value="Payment for C.O.O"></option>
-                    <option value="Phytsanitary Certificate"></option>
-                    <option value="Fuel Fee In Motorcycle"></option>
-                    <option value="Maintanance & Services"></option>
+                <input v-model="payload.purpose" list="expenses" autocomplete="off" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <datalist id="expenses" class="max-h-[4rem]">
+                    <option v-for="val, id in commonExpenses" :value="val" :key="id"></option>
                 </datalist>
             </div>
 
@@ -48,6 +45,7 @@
 <script setup>
 import {ref, onMounted} from 'vue';
 import { userStore } from '../../store';
+import {commonExpenses} from '../../commonExpenses'
 
 const store = userStore()
 
@@ -59,6 +57,8 @@ const props = defineProps({
         default:0
     }
 })
+
+// const commonExpenseList = computed(() => commonExpenses)
 
 const emit = defineEmits(['close'])
 

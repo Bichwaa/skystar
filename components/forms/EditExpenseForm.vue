@@ -16,15 +16,12 @@
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
+            
             <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Purpose</label>
-                <input v-model="payload.purpose" list="expenses" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
-                <datalist id="expenses">
-                    <option value="Chocolate"></option>
-                    <option value="Coconut"></option>
-                    <option value="Mint"></option>
-                    <option value="Strawberry"></option>
-                    <option value="Vanilla"></option>
+                <input v-model="payload.purpose" list="expenses" autocomplete="off" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
+                <datalist id="expenses" class="max-h-[4rem]">
+                    <option v-for="val, id in commonExpenses" :value="val" :key="id"></option>
                 </datalist>
             </div>
 
@@ -41,6 +38,7 @@
 <script setup>
 import {ref, onMounted} from 'vue';
 import { userStore } from '../../store';
+import {commonExpenses} from '../../commonExpenses'
 
 const store = userStore()
 

@@ -23,19 +23,19 @@
             <div class="col-span-10 2xl:col-span-11">
                 <div class="flex flex-col gap-2  items-start" v-if="activeSub=='cost'">
                             <span class="text-lg font-semibold text-[#292a5e]">
-                                TOTAL REVENUE: {{ revenue}} Tsh
+                                TOTAL REVENUE: {{ revenue}} {{cost.length>0?cost[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span class="text-lg font-semibold text-[#292a5e]">
-                                TOTAL COST: {{ cost }} Tsh
+                                TOTAL COST: {{ cost }} {{cost.length>0?cost[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span v-if="revenue-cost>=0" class="text-lg font-semibold text-[#292a5e]">
-                                PROFIT: {{ revenue-cost }} Tsh
+                                PROFIT: {{ revenue-cost }} {{cost.length>0?cost[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span v-else class="text-lg font-semibold text-red-400">
-                                LOSS: {{ revenue-cost }} Tsh
+                                LOSS: {{ revenue-cost }} {{cost.length>0?cost[0].currency??'Tsh':"Tsh"}}
                             </span>
                         </div>
                 <div class="w-full rounded-2xl bg-white p-4 shadow-lg overflow-y-scroll">
@@ -282,7 +282,7 @@
                         <tbody>
                             <tr v-for="item in expenses" :key="item.ID">
                                 <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested.firstName + " " + item?.Requested.lastName }}</span> </td>
-                                <td class="px-4 py-2">{{ item.amount}}</td>
+                                <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                                 <td class="px-4 py-2">{{ item.purpose }}</td>
                                 <th class="px-4 py-2 text-left">{{ item?.Approved?.firstName + " " + item?.Approved?.lastName }}</th>
                                 <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
@@ -313,15 +313,15 @@
                             </span>
 
                             <span class="text-lg font-semibold text-[#292a5e]">
-                                TOTAL COST: {{ cost }} Tsh
+                                TOTAL COST: {{ cost }} {{revenues.length>0?revenues[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span v-if="revenue-cost>=0" class="text-lg font-semibold text-[#292a5e]">
-                                PROFIT: {{ revenue-cost }} Tsh
+                                PROFIT: {{ revenue-cost }} {{revenues.length>0?revenues[0].currency??'Tsh':"Tsh"}}
                             </span>
 
                             <span v-else class="text-lg font-semibold text-red-400">
-                                LOSS: {{ revenue-cost }} Tsh
+                                LOSS: {{ revenue-cost }} {{revenues.length>0?revenues[0].currency??'Tsh':"Tsh"}}
                             </span>
                         </div>
 
@@ -352,7 +352,7 @@
                         <tbody>
                             <tr v-for="item in revenues" :key="item.ID">
                                 <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> </td>
-                                <td class="px-4 py-2">{{ item.amount}}</td>
+                                <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                                 <td class="px-4 py-2">{{ item.purpose }}</td>
                                 <th class="px-4 py-2 text-left">{{ item?.Approved?.firstName + " " + item?.Approved?.lastName }}</th>
                                 <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
@@ -363,7 +363,7 @@
                                 >View</span> -->
 
                                 <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
-                                @click="loadEditExpenseForm(item)">
+                                @click="loadEditRevenueForm(item)">
                                 Edit
                                 </span>
 
@@ -380,6 +380,7 @@
                     <FormsCreateConsignmentCostForm v-if="showExpenseForm" :consignmentId="consignment.ID" @close="handleExpenseClosed"/>
                     <FormsCreateConsignmentRevenueItemForm v-if="showRevenueForm" :consignmentId="consignment.ID" @close="handleRevenueClosed"/>
                     <FormsEditConsignmentCostForm v-if="showEditExpenseForm" :expensedata="expenseToEdit" @close="handleEditExpenseClosed"/>
+                    <FormsEditConsignmentRevenueForm v-if="showEditRevenueForm" :revenuedata="revenueToEdit" @close="handleEditRevenueClosed"/>
                     <DeleteDialog 
                         v-if="showDeleteExpenseDialog" 
                         entity="Consignment expense" 
@@ -409,12 +410,14 @@ const route = useRoute()
 const expenses = ref([])
 const revenues = ref([])
 const expenseToEdit = ref({})
+const revenueToEdit = ref({})
 const expenseToDelete = ref({})
 const revenueToDelete = ref({})
 
 const showExpenseForm = ref(false)
 const showRevenueForm = ref(false)
 const showEditExpenseForm = ref(false)
+const showEditRevenueForm = ref(false)
 const showDeleteExpenseDialog = ref(false)
 const showDeleteRevenueDialog = ref(false)
 const deleteInProgress = ref(false)
@@ -488,11 +491,23 @@ function loadEditExpenseForm(expense){
   showEditExpenseForm.value = true
 }
 
+function loadEditRevenueForm(revenue){
+  revenueToEdit.value = revenue;
+  showEditRevenueForm.value = true
+}
+
 async function handleEditExpenseClosed(payload){
     showEditExpenseForm.value=false;
   if(payload!=undefined){
     await getconsignmentExpenses()
   }
+}
+
+async function handleEditRevenueClosed(payload){
+    showEditRevenueForm.value=false;
+    if(payload!=undefined){
+      await getconsignmentRevenues()
+    }
 }
 
 

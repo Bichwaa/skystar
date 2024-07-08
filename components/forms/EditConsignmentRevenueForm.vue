@@ -2,7 +2,7 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Add Expense</p>
+            <p class="font-medium flex items-center mb-3">Update Revenue</p>
             
             <div class="flex flex-col my-4">
                 <label for="email" class="text-xs font-medium my-1">Requested by</label>
@@ -24,6 +24,7 @@
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
 
+            
             <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Purpose</label>
                 <input v-model="payload.purpose" list="expenses" autocomplete="off" type="text" name="amount" placeholder="stationery" class="border border-gray-300 p-2 rounded-lg text-sm">
@@ -32,12 +33,10 @@
                 </datalist>
             </div>
 
-           
-
 
             <button  type="submit" @click.prevent="submitForm" 
                 class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                <span v-if="!formLoading">Add Cost</span>
+                <span v-if="!formLoading">Update</span>
                 <Loader v-else size="small" class="h-4 w-4"/>
             </button>
         </form>
@@ -45,7 +44,7 @@
 </template>
 
 <script setup>
-import {ref, onMounted, computed} from 'vue';
+import {ref, onMounted} from 'vue';
 import { userStore } from '../../store';
 import {commonExpenses} from '../../commonExpenses'
 
@@ -54,22 +53,28 @@ const store = userStore()
 const { $axios } = useNuxtApp()
 
 const props = defineProps({
-    consignmentId:{
-        type:Number,
-        default:0
+    revenuedata:{
+        type:Object,
+        default:{
+            ID:0,
+            consignmentId:0,
+            requestedId:0,
+            approvedId:0,
+            amount:0,
+            purpose:"",
+            currency:"Tsh"
+        }
     }
 })
 
 const emit = defineEmits(['close'])
 
 const employees = ref([])
-const cashbook = ref({})
 
 const formLoading = ref(false)
 
 const payload  = ref({
-    consignmentId:Number(props.consignmentId),
-    pettyCashId:0,
+    consignmentId:Number(props.revenuedata.consignmentId),
     requestedId:0,
     approvedId:store.user.ID,
     amount:0,
@@ -90,26 +95,9 @@ async function getEmployees(){
     }
 }
 
-async function getCashbook(){
-    try{
-        const res = await $axios.get(`/api/petty-cashbooks?consignment=${props.consignmentId}`)
-        if(res.status==200 || 201){
-            cashbook.value = res.data[0]
-        }else{
-            console.log(res.statusText)
-        }
-    }catch(e){
-        throw e
-    }
-}
-
-
-
 async function submitForm(){
-    console.log("calling submit")
     formLoading.value = true
-    payload.value.pettyCashId = cashbook.value.ID
-    const res = await $axios.post("/api/expenses",{...payload.value})
+    const res = await $axios.patch(`/api/revenue/update/${props.revenuedata.ID}`,{...payload.value})
     formLoading.value = false
     console.log(res)
     if(res.status==200 || 201){
@@ -123,9 +111,18 @@ function close(){
     emit("close")
 }
 
-
 onMounted(async()=>{
+    if (props.revenuedata.consignmentId !=""){
+        payload.value = {
+            consignmentId:Number(props.revenuedata.consignmentId),
+            requestedId:Number(props.revenuedata.requestedId),
+            approvedId:store.user.ID,
+            amount:props.revenuedata.amount,
+            purpose:props.revenuedata.purpose,
+            currency:props.revenuedata.currency
+        }
+    }
     await getEmployees()
-    await getCashbook()
 })
+
 </script>
