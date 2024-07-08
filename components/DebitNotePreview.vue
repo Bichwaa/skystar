@@ -1,8 +1,14 @@
 <template>
     <Modal @close-modal="close">
         <div class="flex items-center justify-end my-6 ">
-            <span 
-                
+            <div class="flex gap-4 items-center">
+
+                <span 
+                    class="cursor-pointer text-[#292a5e] hover:text-white hover:bg-[#292a5e] text-xs font-semibold p-3 rounded-lg border border-[#292a5e]"
+                    @click="resetParticulars"    
+                >Reset Particulars</span>
+
+                <span 
                 @click="generateDebitNote"
                 >
                 <Loader class="h-6 w-6" v-if="loading"/>
@@ -10,7 +16,8 @@
                 v-if="!loading"
                     class="cursor-pointer text-orange-400 hover:text-white hover:bg-orange-400 text-xs font-semibold p-3 rounded-lg border border-orange-400"    
                 >Generate</span>
-            </span>
+                </span>
+                </div>
         </div>
         <div class="pdf-wrapper flex flex-col gap-5 W-[100%] overflow-y-auto max-h-[80vh]" ref="note">
 
@@ -68,11 +75,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item, idx in particulars" :key="idx" class=" border-l border-gray-200">
+                            <tr v-for="item, idx in particulars" :key="idx" class=" border-l border-gray-200 group cursor-pointer hover:bg-yellow-50">
                                 <td class="py-1 px-4 border-b truncate max-w-[250px] text-xs">{{ item.purpose }}</td>
                                 <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount) }}</td>
                                 <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.quantity) }}</td>
-                                <td class="py-1 px-4 border-b border-l border-gray-200 text-xs">{{ numberWithCommas(item.amount * item.quantity) }}</td>
+                                <td class="py-1 px-4 border-b border-l border-gray-200 text-xs flex justify-around">
+                                    <span>{{ numberWithCommas(item.amount * item.quantity) }}</span>
+                                    <span class="invisible group-hover:visible duration-300 text-red-500 font-semibold" @click="pluckParticular(idx)">X</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,7 +172,18 @@ const props = defineProps({
 const loading = ref(false)
 
 const particulars = ref([])
+const fixedParticulars = ref([])
 const note = ref(null)
+
+function pluckParticular(idx){
+    particulars.value = particulars.value.filter((val, index)=>{
+        return index!=idx;
+    })
+}
+
+function resetParticulars(){
+    particulars.value = fixedParticulars.value;
+}
 
 
 const emit = defineEmits(["close"])
@@ -184,6 +205,7 @@ async function getconsignmentRevenue(){
     const response = await $axios.get(`/api/filter-revenue?consignment=${props.doc.consignment.ID}`);
     if(response.status === 200|201){
       particulars.value = response.data;
+      fixedParticulars.value = response.data;
     }
   } catch (error) {
     console.error('Error fetching cost data:', error);
