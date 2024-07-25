@@ -178,6 +178,10 @@ const props = defineProps({
         default:{
             ID:1
         }
+    },
+    entries:{
+        type:Array,
+        default:[]
     }
 })
 
@@ -246,6 +250,11 @@ function close(){
 }
 
 onMounted(async()=>{
-    await getconsignmentExpenses()
+    if(props.entries.length == 0){
+        await getconsignmentExpenses()
+    }else{
+        fixedParticulars.value = props.entries;
+    }
+    
 })
 </script>
