@@ -15,7 +15,7 @@
               <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateExpenseForm=true">
                 <IconsAddIcon class="h-7 w-7 cursor-pointer"  />
                 <span class="text-sm text-[#292a5e] group-hover:text-white duration-700">
-                  Add New Expense
+                  Add New Entry
                 </span>
               </button>
             </div>
@@ -35,20 +35,6 @@
             </span>
           </div>
 
-          <div class="summary flex flex-col gap-3 my-4">
-            <div class="flex items-center justify-start gap-5">
-              <span class="font-medium text-sm">Spent:</span>
-              <span class="font-semibold text-sm">Tsh {{ spent }}</span>
-            </div>
-            <!-- <div class="flex items-center justify-start gap-5">
-              <span class="font-medium text-sm">limit:</span>
-              <span class="font-semibold text-sm">Tsh {{ cashbook.limit}}</span>
-            </div>
-            <div class="flex items-center justify-start gap-5">
-              <span class="font-medium text-sm">Overspent:</span>
-              <span class="font-semibold text-sm">Tsh {{ overspent }}</span>
-            </div> -->
-          </div>
 
           <div class="m-auto block">
             <table class="w-full divide-y divide-gray-200">
@@ -64,10 +50,16 @@
               </thead>
               <tbody>
                 <tr v-for="item in cashbook.consignment.revenues" :key="item.id">
-                  <td class="px-4 py-2"> <span v-if="item.Requested">{{ item.Requested.firstName + " " + item.Requested.lastName }}</span> </td>
-                  <td class="px-4 py-2">{{ item.amount}}</td>
+                  <td class="px-4 py-2"> 
+                    <span v-if="item.Requested">{{ item.Requested?.firstName + " " + item.Requested?.lastName }}</span>
+                    <span v-else class="italic">deleted user</span>
+                   </td>
+                  <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                   <td class="px-4 py-2">{{ item.purpose }}</td>
-                  <th class="px-4 py-2 text-left">{{ item.Approved.firstName + " " + item.Approved.lastName }}</th>
+                  <th class="px-4 py-2 text-left">
+                    <span v-if="item.Approved">{{ item.Approved?.firstName + " " + item.Approved?.lastName }}</span>
+                    <span v-else class="italic">not approved</span>
+                  </th>
                   <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
                   <td class="flex items-center gap-6 px-4 py-2">
                     <!-- <span 
@@ -92,8 +84,8 @@
       </div>
     </div>
     <!-- <ExpenseDetailsModal v-if="showExpenseDetails" :expense="currentExpense" @close="showExpenseDetails=false"/> -->
-    <FormsCreateExpenseForm v-if="showCreateExpenseForm" :consignmentId="cashbook.consignment.ID" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
-    <FormsEditExpenseForm v-if="showEditExpenseForm" :expensedata="expenseToEdit" @close="handleEditExpenseformClosed"/>
+    <FormsCreateConsignmentRevenueItemForm v-if="showCreateExpenseForm" :consignmentId="cashbook.consignment.ID" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
+    <FormsEditConsignmentRevenueForm v-if="showEditExpenseForm" :revenuedata="expenseToEdit" @close="handleEditExpenseformClosed"/>
     <DeleteDialog v-if="showDeleteExpenseDialog" entity="expense" :loading="deleteInProgress" @proceed="deleteExpense" @close="showDeleteExpenseDialog=false"/>
   </div>
 </template>

@@ -1,5 +1,5 @@
 ,<template>
-    <div class="rounded-2xl bg-white shadow-lg p-4 my-6">
+    <div class="rounded-2xl bg-white shadow-lg p-2 my-6 min-w-[300px]">
         <div class="flex gap-6">
             <div class="icon-wrapper">
                 <NuxtImg :src="iconSource" width="100"/>
@@ -7,7 +7,7 @@
             <div class="info-wrapper w-full">
                 <div class="flex flex-col gap-4 w-full">
                     <span class="font-semibold text-sm" >
-                       INV: {{doc.invoiceNumber}}
+                       File: <br/> {{doc?.filename?.substring(15,doc?.filename?.length)}}
                     </span>
                     <span class="font-medium text-sm">
                         {{ new Date(doc.CreatedAt).toLocaleDateString('en-US',OPTIONS) }}

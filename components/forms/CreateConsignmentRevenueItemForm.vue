@@ -69,7 +69,7 @@ const formLoading = ref(false)
 const payload  = ref({
     consignmentId:Number(props.consignmentId),
     requestedId:0,
-    approvedId:store.user.ID,
+    // approvedId:store.user.ID,
     amount:0,
     purpose:""
 })

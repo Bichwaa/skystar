@@ -6,9 +6,9 @@ export const commonExpenses = [
     "Treatment and inspection fee",
     "Phytosanitary & processing fee",
     "TFS charge(Export permit) & processing",
-    "Fimigation charge",
+    "Fumigation charges",
     "Certificate of origin",
-    "Tripping/stuffing charges & weight charge",
+    "Stripping/stuffing charges & weight charge",
     "Storage charges",
     "Tax payment",
     "TBS charges",
@@ -59,10 +59,9 @@ export const commonExpenses = [
     "Bulk Bag",
     "Rope",
     "Tansfer Of Full Container",
-    "Transport TOo The Working Area",
+    "Transport To The Working Area",
     "Facilitation To Accomplish The Task",
     "Payment for C.O.O",
-    "Phytsanitary Certificate",
     "Fuel Fee In Motorcycle",
-    "Maintanance & Services",
-]
+    "Maintanance & Services"
+  ];

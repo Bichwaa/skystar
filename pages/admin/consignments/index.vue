@@ -56,6 +56,7 @@
                     <td class="px-4 py-2">{{ item?.destination }}</td>
                     <td class="px-4 py-2">
                       <span v-if="item.Overseer">{{ item.Overseer.firstName + " " + item.Overseer.lastName }}</span>
+                      <span v-else class="italic">deleted user</span>
                     </td>
                     <td class="flex items-center gap-6 px-4 py-2">
                       <span 
@@ -63,10 +64,10 @@
                         @click="viewconsignmentClicked(item.ID)"
                         >View</span>
   
-                      <!-- <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                      <span class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"
                         @click="loadEditconsignmentForm(item)">
                         Edit
-                      </span> -->
+                      </span>
   
                       <span class="text-red-600 text-sm font-medium hover:text-black duration-300 cursor-pointer" 
                         @click="loadDeleteconsignmentDialog(item)"

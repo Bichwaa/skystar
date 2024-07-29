@@ -166,6 +166,10 @@ async function getConsignments(){
   }
 }
 
+function openConsignment(consignmentId){
+    navigateTo(`/admin/consignments/${consignmentId}`)
+  }
+
 
 async function getEmployee(){
   try {

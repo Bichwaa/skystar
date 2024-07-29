@@ -23,7 +23,15 @@
                 <form class="lg:mx-12 my-6 w-full">
                     <div class="step1 w-full"  v-show="currentStepNo==0">
 
-                        <p class="font-semibold flex items-center mb-3">Add consignment</p>
+                        <p class="font-semibold flex items-center mb-3">Add Consigment</p>
+                        <!-- <div class="flex flex-col my-4 w-full">
+                            <label for="email" class="text-sm font-medium my-1">Status</label>
+                            <select v-model="payload.customerId" class="w-full">
+                                <option >Active</option>
+                                <option >Closed</option>
+                            </select>
+                        </div> -->
+
                         <div class="flex flex-col my-4 w-full">
                             <label for="email" class="text-sm font-medium my-1">Customer</label>
                             <select v-model="payload.customerId" @change="getCustomerConsignees" class="w-full">
@@ -76,8 +84,8 @@
                                 <input v-model="payload.portOfLoading" type="text" name="portofLoading" placeholder="kwao" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                             <div class="flex flex-col my-2">
-                                <label for="consigneeName" class="text-sm font-medium my-1">EDT</label>
-                                <input v-model="payload.edt" type="date" name="edt" placeholder="" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                <label for="consigneeName" class="text-sm font-medium my-1">ETD</label>
+                                <input v-model="payload.etd" type="date" name="edt" placeholder="" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                             
                         </div>
@@ -111,15 +119,22 @@
                         </div>
                         
                         <div class="flex flex-col my-2 w-full" v-if="payload.modeOfTransport=='sea'">
-                            <div class="flex items-center my-2 gap-2 w-full" >
+                            <div class="flex items-center my-2 gap-2 w-full">
                                 <div class="flex flex-col ">
                                     <label for="consigneeName" class="text-sm font-medium my-1">Vessel Name</label>
-                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    <input  type="text" v-model="payload.vesselName"  name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                </div>
+                                <div class="flex flex-col ">
+                                    <label for="consigneeName" class="text-sm font-medium my-1">Vessel Number</label>
+                                    <input  type="text" v-model="payload.vesselNumber"  name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
                                 </div>
 
+                            </div>
+                            <div class="flex items-center my-2 gap-2 w-full" >
+                                
                                 <div class="flex flex-col ">
                                     <label for="consigneeName" class="text-sm font-medium my-1">Voy Number</label>
-                                    <input  type="text" name="cont40" placeholder="CNT045hHD" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    <input  type="text" v-model="payload.voyageNumber"  name="cont40" placeholder="CNT045hHD" class="border border-gray-300 p-2 rounded-lg text-sm">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +144,7 @@
                             <div class="flex items-center my-2 gap-2 w-full" >
                                 <div class="flex flex-col ">
                                     <label for="consigneeName" class="text-sm font-medium my-1">Flight Name</label>
-                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    <input  type="text" v-model="payload.flightName"  name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
                                 </div>
 
                                 <!-- <div class="flex flex-col ">
@@ -144,7 +159,7 @@
                             <div class="flex items-center my-2 gap-2 w-full" >
                                 <div class="flex flex-col ">
                                     <label for="consigneeName" class="text-sm font-medium my-1">Truck Number</label>
-                                    <input  type="text" name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
+                                    <input  type="text" v-model="payload.truckNumber"  name="cont40" placeholder="FOXTROT" class="border border-gray-300 p-2 rounded-lg text-sm">
                                 </div>
                             </div>
                         </div>
@@ -206,7 +221,7 @@
                    <div class="flex items-center justify-center">
                         <button  type="submit" @click.prevent="submitForm" v-if="currentStepNo==2"
                             class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-whiem font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                            <span v-if="!formLoading" class="text-white font-medium">Create Consignment</span>
+                            <span v-if="!formLoading" class="text-white font-medium">Update Consignment</span>
                             <Loader v-else size="small" class="h-4 w-4"/>
                         </button>
                    </div>
@@ -393,9 +408,15 @@ const sorted:ComputedRef<{half:Input[], full:Input[]}> = computed(()=>{
     })
 
 const payload  = ref({
-   customerId:0,
+    customerId:0,
    luggage:"",
    modeOfTransport:"Ship",
+   vesselName:"",
+   vesselNumber:"",
+   voyageNumber:"",
+   truckNumber:"",
+   flightNumber:"",
+   flightName:"",
    destination:"",
    portOfLoading:"",
    hasLooseCargo:false,
@@ -406,7 +427,7 @@ const payload  = ref({
    bookingNumber:"",
    blNumber:"",
    totalWeight:0,
-   edt:"",
+   etd:"",
    eta:"",
    containers:[] as Container[],
    looseCargo:[] as LooseCargo[]

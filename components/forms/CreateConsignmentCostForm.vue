@@ -71,7 +71,7 @@ const payload  = ref({
     consignmentId:Number(props.consignmentId),
     pettyCashId:0,
     requestedId:0,
-    approvedId:store.user.ID,
+    // approvedId:store.user.ID,
     amount:0,
     purpose:"",
     currency:""

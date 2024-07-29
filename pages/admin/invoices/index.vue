@@ -60,6 +60,8 @@
                   v-for="val,i in taxInvoices" 
                   :doc="val" 
                   :key="i" 
+                  :show-delete="true"
+                  :show-preview="true"
                   @preview="previewTaxInvoiceClicked"
                   @edit="loadEditTaxInvoiceForm"
                   @delete="loadDeleteTaxInvoiceDialog"
@@ -68,6 +70,8 @@
                   v-for="val,i in debitNotes"  
                   :doc="val" 
                   :key="`key-${i}`" 
+                  :show-delete="true"
+                  :show-preview="true" 
                   @preview="previewDebitNoteClicked"
                   @delete="loadDeleteDebitNote"
                 />

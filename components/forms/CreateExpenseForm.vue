@@ -12,6 +12,15 @@
             </div>
 
             <div class="flex flex-col my-2">
+                <label for="limit" class="text-xs font-medium my-1 pl-2">Currency </label>
+                <select v-model="payload.currency" class="w-full p-2 text-sm">
+                    <option class="text-sm" :value="`TSH`">TSH</option>
+                    <option class="text-sm" :value="`USD`">USD</option>
+                </select>
+            </div>
+
+
+            <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Amount</label>
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
@@ -65,9 +74,10 @@ const payload  = ref({
     pettyCashId:Number(props.cashbookId),
     consignmentId:Number(props.consignmentId),
     requestedId:0,
-    approvedId:store.user.ID,
+    // approvedId:store.user.ID,
     amount:0,
-    purpose:""
+    purpose:"",
+    currency:""
 })
 
 async function getEmployees(){

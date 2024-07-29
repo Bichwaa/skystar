@@ -49,13 +49,19 @@ function logout(){
       <DocIcon />
     </SidebarItem>
 
-    <SidebarItem v-if="store.hasPermission('can-read-users')" title="Petty Cash" to="/admin/petty-cash">
-      <CalendarIcon />
-    </SidebarItem>
+    <TitledAccordion title="ACCOUNTING">
+      <SidebarItem v-if="store.hasPermission('can-read-users')" title="Petty Cash" to="/admin/petty-cash">
+        <CalendarIcon />
+      </SidebarItem>
 
-    <SidebarItem v-if="store.hasPermission('can-read-invoices')" title="Invoices" to="/admin/invoices">
-      <CalendarIcon />
-    </SidebarItem>
+      <SidebarItem v-if="store.hasPermission('can-read-invoices')" title="Invoices" to="/admin/invoices">
+        <IconsInvoiceIcon class="h-5 w-5" />
+      </SidebarItem>
+
+      <SidebarItem v-if="store.hasPermission('can-read-invoices')" title="statements" to="/admin/statements">
+        <IconsFolderIcon class="h-5 w-5" />
+      </SidebarItem>
+    </TitledAccordion>
 
     <SidebarItem v-if="!store.is_authenticated" title="login" to="/login">
       <DocIcon />
@@ -66,7 +72,7 @@ function logout(){
     </SidebarItem>  -->
 
     <SidebarItem v-if="store.is_authenticated" @click.prevent="logout" title="Logout" to="/login">
-      <IconsBoltIcon />
+      <IconsLogoutIcon />
     </SidebarItem>
   </ul>
 </template>

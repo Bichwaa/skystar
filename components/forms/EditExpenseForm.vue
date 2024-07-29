@@ -12,6 +12,14 @@
             </div>
 
             <div class="flex flex-col my-2">
+                <label for="limit" class="text-xs font-medium my-1 pl-2">Currency </label>
+                <select v-model="payload.currency" class="w-full p-2 text-sm">
+                    <option class="text-sm" :value="`TSH`">TSH</option>
+                    <option class="text-sm" :value="`USD`">USD</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col my-2">
                 <label for="amount" class="text-xs font-medium my-1">Amount</label>
                 <input v-model="payload.amount" type="number" name="amount" placeholder="John@doe.dot" class="border border-gray-300 p-2 rounded-lg text-sm">
             </div>
@@ -40,8 +48,6 @@ import {ref, onMounted} from 'vue';
 import { userStore } from '../../store';
 import {commonExpenses} from '../../commonExpenses'
 
-const store = userStore()
-
 const { $axios } = useNuxtApp()
 
 const props = defineProps({
@@ -53,7 +59,8 @@ const props = defineProps({
             requestedId:0,
             approvedId:0,
             amount:0,
-            purpose:""
+            purpose:"",
+            currency:""
         }
     }
 })
@@ -67,9 +74,10 @@ const formLoading = ref(false)
 const payload  = ref({
     pettyCashId:Number(props.pettyCashId),
     requestedId:0,
-    approvedId:store.user.ID,
+    approvedId:"",
     amount:0,
-    purpose:""
+    purpose:"",
+    currency:""
 })
 
 async function getEmployees(){
@@ -106,9 +114,10 @@ onMounted(async()=>{
         payload.value = {
             pettyCashId:Number(props.expensedata.pettyCashId),
             requestedId:Number(props.expensedata.requestedId),
-            approvedId:store.user.ID,
+            approvedId:props.expensedata.approvedId,
             amount:props.expensedata.amount,
-            purpose:props.expensedata.purpose
+            purpose:props.expensedata.purpose,
+            currency:props.expensedata.currency
         }
     }
     await getEmployees()

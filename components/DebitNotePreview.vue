@@ -43,8 +43,13 @@
                         <span class="text-xs">REF:</span>
                         <span class="reference-number text-xs">{{doc.referenceNumber}}</span>
                     </div>
-                    <span class="date text-xs">{{ new Date(doc.CreatedAt).toLocaleDateString('en-US',OPTIONS) }}</span>
+                    <span class="date text-xs">
+                        {{ doc.CreatedAt? 
+                            new Date(doc.CreatedAt).toLocaleDateString('en-US',OPTIONS):
+                            new Date().toLocaleDateString('en-US',OPTIONS)}}
+                    </span>
                 </div>
+
                 <p class="my-2 text-xs">D/N no: {{ doc.debitNoteNumber }}</p>
             </div>
 
@@ -55,7 +60,7 @@
                 </div>
                 <div class="flex itens-center gap-2">
                     <span class="text-xs">BOOKING NUMBER:</span>
-                    <span class="text-xs">{{ doc.consignment.bookingNumber }}</span>
+                    <span class="text-xs">{{ doc.consignment?.bookingNumber }}</span>
                 </div>
             
                 <h3 class="uppercase text-xs text-center font-semibold mb-2">
@@ -95,12 +100,12 @@
                                 <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount) }}</td>
                             </tr>
                             <tr class="border border-gray-200">
-                                <td class="px-4 py-1 font-semibold text-xs">Vat</td>
-                                <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat) }}</td>
+                                <td class="px-4 py-1 font-semibold text-xs">Vat({{ doc.vat }}%)</td>
+                                <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat*valueAmount*0.01) }}</td>
                             </tr>
                             <tr class="border border-gray-200">
                                 <td class="px-4 py-2 text-xs">Total Value </td>
-                                <td class="px-4 py-2 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount + doc.vat)}}</td>
+                                <td class="px-4 py-2 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount + doc.vat*valueAmount*0.01)}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -166,6 +171,10 @@ const props = defineProps({
         default:{
             ID:1
         }
+    },
+    entries:{
+        type:Array,
+        default:[]
     }
 })
 
@@ -232,6 +241,12 @@ function numberWithCommas(x) {
 
 
 onMounted(async()=>{
-    await getconsignmentRevenue()
+    if(props.entries.length == 0){
+        await getconsignmentRevenue()
+    }else{
+        fixedParticulars.value = props.entries;
+        particulars.value = props.entries;
+    }
+    console.log(props.entries)
 })
 </script>

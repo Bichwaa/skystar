@@ -40,9 +40,13 @@
             <div class="invoice-id-info flex flex-col w-full">
                 <div class="flex items-center justify-between w-full">
                     <span class="reference-number text-xs">Ref no:{{doc.referenceNumber}}</span>
-                    <span class="date text-xs">{{ new Date(doc.CreatedAt).toLocaleDateString('en-US',OPTIONS) }}</span>
+                    <span class="date text-xs">
+                        {{ doc.CreatedAt? 
+                            new Date(doc.CreatedAt).toLocaleDateString('en-US',OPTIONS):
+                            new Date().toLocaleDateString('en-US',OPTIONS)}}
+                    </span>
                 </div>
-                <p class="my-1 text-xs">Invo no: {{doc.invoiceNumber}}7</p>
+                <p class="my-1 text-xs">Invo no: {{doc.invoiceNumber}}</p>
             </div>
 
             <div class="flex flex-col">
@@ -62,11 +66,11 @@
                   </tr>
                   <tr class="border border-gray-200">
                     <td class="px-4 py-1 text-xs"> B.L Number</td>
-                    <td class="px-4 py-1 border-l border-gray-200 text-xs">{{ doc.consignment.blNumber }}</td>
+                    <td class="px-4 py-1 border-l border-gray-200 text-xs">{{ doc.consignment?.blNumber }}</td>
                   </tr>
                   <tr class="border border-gray-200">
                     <td class="px-4 py-1 text-xs"> Booking Number</td>
-                    <td class="px-4 py-1 border-l border-gray-200 text-xs">{{ doc.consignment.bookingNumber }}</td>
+                    <td class="px-4 py-1 border-l border-gray-200 text-xs">{{ doc.consignment?.bookingNumber }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -110,12 +114,12 @@
                             <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(valueAmount) }}</td>
                         </tr>
                         <tr class="border border-gray-200">
-                            <td class="px-4 py-1 font-semibold text-xs">Vat</td>
-                            <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat) }}</td>
+                            <td class="px-4 py-1 font-semibold text-xs">Vat({{ doc.vat }}%)</td>
+                            <td class="px-4 py-1 border-l border-gray-200 text-center text-xs">{{ numberWithCommas(doc.vat*valueAmount*0.01) }}</td>
                         </tr>
                         <tr class="border border-gray-200">
                             <td class="px-4 py-1 font-semibold text-xs"> Total Amount </td>
-                            <td class="px-2 py-1 border-l border-gray-200 font-medium text-center w-[138px] text-xs">{{ numberWithCommas(valueAmount + doc.vat) }}</td>
+                            <td class="px-2 py-1 border-l border-gray-200 font-medium text-center w-[138px] text-xs">{{ numberWithCommas(valueAmount + doc.vat*valueAmount*0.01) }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -240,7 +244,7 @@ async function generateInvoice(){
 
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const emit = defineEmits(["close"])
@@ -254,7 +258,8 @@ onMounted(async()=>{
         await getconsignmentExpenses()
     }else{
         fixedParticulars.value = props.entries;
+        particulars.value = props.entries;
     }
-    
+    console.log(props.entries)
 })
 </script>

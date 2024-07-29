@@ -76,7 +76,7 @@ const formLoading = ref(false)
 const payload  = ref({
     consignmentId:Number(props.consignmentId),
     requestedId:0,
-    approvedId:store.user.ID,
+    approvedId:"",
     amount:0,
     purpose:"",
     currency:""
@@ -116,7 +116,7 @@ onMounted(async()=>{
         payload.value = {
             consignmentId:Number(props.expensedata.consignmentId),
             requestedId:Number(props.expensedata.requestedId),
-            approvedId:store.user.ID,
+            approvedId:props.expensedata.approvedId,
             amount:props.expensedata.amount,
             purpose:props.expensedata.purpose,
             currency:props.expensedata.currency

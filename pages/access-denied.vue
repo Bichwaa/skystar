@@ -1,17 +1,13 @@
 <template>
-    <center>
+    <div class="h-[90vh] grid place-items-center">
       <h1>Access to this page is restricted. Contact admin if this is a mistake</h1>
       <p>
         <NuxtLink to="/profile">Go home?</NuxtLink>
       </p>
-    </center>
+    </div>
   </template>
   
-  <script>
-  
-    export default {
-      name: 'NotFound'
-    }
+  <script setup>
   
   </script>
   

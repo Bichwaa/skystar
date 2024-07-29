@@ -35,7 +35,7 @@
                     <span class="text-blue-500 hover:underline my-1 cursor-pointer" @click="()=>showChangePWordForm=true">Change password</span>
                 </div>
                 <div class="flex flex-cil items-center mt-4">
-                    <button class="flex-1 ml-2 py-2 px-4 bg-gray-100 rounded-lg hover:bg-gray-200">Logout</button>
+                    <button class="flex-1 ml-2 py-2 px-4 bg-gray-100 rounded-lg hover:bg-gray-200" @click.prevent="logout">Logout</button>
                 </div>
                 </div>
             </div>
@@ -51,7 +51,13 @@
   import { ref, onMounted, computed } from 'vue';
   import {userStore} from "../store"
 
-const store = userStore()
+  const store = userStore()
+
+function logout(){
+  store.resetState();
+  navigateTo('/login'); 
+}
+
   
   const { $axios } = useNuxtApp()
   
@@ -60,7 +66,7 @@ const store = userStore()
   const showChangePWordForm = ref(false)
   const showAvatarForm = ref(false)
   const user = computed(()=>{
-    console.log()
+    // console.log()
     return store.user
   })
   
