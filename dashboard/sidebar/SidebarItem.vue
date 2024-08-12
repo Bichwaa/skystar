@@ -12,10 +12,12 @@ defineProps({
   },
 });
 const route = useRoute();
+console.log(route.path ,"route");
 </script>
 
 <template>
-  <li>
+  <div>
+    <li>
     <router-link :to="to">
       <span
         class="my-2 flex w-full items-center justify-start p-4 font-thin uppercase text-gray-500 transition-colors duration-200 lg:hover:text-blue-500"
@@ -33,4 +35,5 @@ const route = useRoute();
       </span>
     </router-link>
   </li>
+  </div>
 </template>

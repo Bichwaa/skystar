@@ -35,21 +35,11 @@ function logout(){
       <TasksIcon />
     </SidebarItem>
 
-    <!-- <SidebarItem title="Time Manage" to="/admin/time-manage">
-      <TimeManageIcon />
-    </SidebarItem>
-
-    <SidebarItem title="Reports" to="/admin/reports">
-      <ReportsIcon />
-    </SidebarItem> -->
-
-    
-
     <SidebarItem v-if="store.hasPermission('can-read-consignments')" title="Consignments" to="/admin/consignments">
       <DocIcon />
     </SidebarItem>
 
-    <TitledAccordion title="ACCOUNTING">
+    <TitledAccordion title="ACCOUNTING" class="cursor-pointer">
       <SidebarItem v-if="store.hasPermission('can-read-users')" title="Petty Cash" to="/admin/petty-cash">
         <CalendarIcon />
       </SidebarItem>

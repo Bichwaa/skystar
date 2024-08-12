@@ -91,9 +91,9 @@
         </div>
       </div>
     </div>
-  </div>
-  <FormsApproveCostForm v-if="showApproveCostForm" @close="closeApproveCostForm" :cost="costToApprove" :consignments="consignments" />
+    <FormsApproveCostForm v-if="showApproveCostForm" @close="closeApproveCostForm" :cost="costToApprove" :consignments="consignments" />
   <FormsApproveRevenueForm v-if="showApproveRevenueForm" @close="closeApproveRevenueForm" :revenue="revenueToApprove" :consignments="consignments" />
+  </div>
 </template>
 
 

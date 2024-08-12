@@ -1,4 +1,5 @@
 <template>
+    <ClientOnly>
     <Modal  @close-modal="close">
         <div class="flex items-center justify-end my-6 ">
             <div class="flex gap-4 items-center">
@@ -166,12 +167,15 @@
 
         </div>
     </Modal>
+</ClientOnly>
 </template>
 
 <script setup>
 import html2pdf from "html2pdf.js"
 import {computed, ref, onMounted} from 'vue';
+import {userStore} from "../store";
 
+const store = userStore()
 const { $axios } = useNuxtApp()
 
 const OPTIONS = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -225,10 +229,29 @@ async function getconsignmentExpenses(){
   }
 }
 
+async function submitInvoice(){
+    // console.log("calling submit", props.doc)
+    const {consignment, ...rest} = props.doc;
+    rest.particulars = particulars.value;
+    rest.generatedById = store.user.ID;
+    const res = await $axios.post("/api/tax-invoice",{...rest});
+    // console.log(res)
+    // if(res.status==200 || 201){
+    //     console.log(res.data)
+    //     emit("close", res.data)
+    // }else{
+    //     console.log(res.statusText)
+    // }
+    return res
+    
+}
 
 
 
 async function generateInvoice(){
+    loading.value = true
+    const res = await submitInvoice();
+    if(res.status==200 || 201){
     const opt = {
     margin:       1,
     filename:     'invoice.pdf',
@@ -236,10 +259,11 @@ async function generateInvoice(){
     html2canvas:  { scale: 2, scrollY: 0, windowHeight: ivc.value.scrollHeight*2},
     jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
-    
-    loading.value = true
     await  html2pdf(ivc.value, opt);
     loading.value = false
+    }else{
+        window.alert("something went wrong") //TODO, do better
+    }
 }
 
 
@@ -252,6 +276,7 @@ const emit = defineEmits(["close"])
 function close(){
     emit("close")
 }
+
 
 onMounted(async()=>{
     if(props.entries.length == 0){

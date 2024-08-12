@@ -1,4 +1,5 @@
 <template>
+    <ClientOnly>
     <Modal @close-modal="close">
         <div class="flex items-center justify-end my-6 ">
             <div class="flex gap-4 items-center">
@@ -155,6 +156,7 @@
 
         </div>
     </Modal>
+</ClientOnly>
 </template>
 
 <script setup>

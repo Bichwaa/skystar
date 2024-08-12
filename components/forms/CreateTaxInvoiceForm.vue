@@ -65,7 +65,7 @@
             </div>
         </form>
     </Modal>
-    <TaxInvoicePreview v-if="showPreview" @close="showPreview=false" :doc="payload" :entries="entries"/>
+    <TaxInvoicePreview v-if="showPreview" @close="previewClosed" :doc="payload" :entries="entries"/>
     </div>  
 </template>
 
@@ -141,6 +141,11 @@ function pushCurrentParticular(){
 
 function toggleRevealParticularsFields(){
     revealParticularsFields.value = ! revealParticularsFields.value
+}
+
+function previewClosed(){
+    showPreview.value = false;
+    emit("close")
 }
 
 async function getConsignments(){
