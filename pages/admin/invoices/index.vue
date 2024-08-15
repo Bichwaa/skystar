@@ -11,7 +11,7 @@
                     <span v-else>Debit Notes</span>
                      List</p>
                 </div>
-                <DropDowner class="inline-flex flex-col gap-3 lg:mr-8">
+                <!-- <DropDowner class="inline-flex flex-col gap-3 lg:mr-8">
                   <div class="group">
                     <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateTaxInvoiceForm=true">
                       <IconsAddIcon class="h-7 w-7 cursor-pointer"/>
@@ -29,7 +29,7 @@
                     </span>
                     </button>
                   </div>
-                </DropDowner>
+                </DropDowner> -->
                 
               </div>
               
@@ -82,7 +82,7 @@
           </div>
         </div>
       </div>
-      <TaxInvoicePreview v-if="showTaxInvcPreview" :doc="taxInvoiceToPreview" @close="taxInvoicePreviewClosed"/>
+      <TaxInvoicePreview v-if="showTaxInvcPreview" :doc="taxInvoiceToPreview" :entries="taxInvoiceToPreview.particulars" @close="taxInvoicePreviewClosed"/>
       <DebitNotePreview v-if="showDebitNotePreview" :doc="debitNoteToPreview" @close="debitNotePreviewClosed"/>
       <FormsCreateTaxInvoiceForm v-if="showCreateTaxInvoiceForm"  @close="handleCreateTaxInvoiceClosed"/>
       <FormsCreateDebitNoteForm v-if="showCreateDebitNoteForm"  @close="handleCreateDebitNoteformClosed"/>

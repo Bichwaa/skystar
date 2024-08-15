@@ -235,13 +235,6 @@ async function submitInvoice(){
     rest.particulars = particulars.value;
     rest.generatedById = store.user.ID;
     const res = await $axios.post("/api/tax-invoice",{...rest});
-    // console.log(res)
-    // if(res.status==200 || 201){
-    //     console.log(res.data)
-    //     emit("close", res.data)
-    // }else{
-    //     console.log(res.statusText)
-    // }
     return res
     
 }
@@ -280,7 +273,7 @@ function close(){
 
 onMounted(async()=>{
     if(props.entries.length == 0){
-        await getconsignmentExpenses()
+        // await getconsignmentExpenses()
     }else{
         fixedParticulars.value = props.entries;
         particulars.value = props.entries;

@@ -18,6 +18,7 @@
                     :item="item" 
                     :key="item.ID"
                     @delete-clicked="loadDeleteStatementDialog(item.ID)"
+                    @preview-clicked="loadTaxInvoicePreview"
                     />
                 </tbody>
               </table>
@@ -29,6 +30,8 @@
         :loading="deleteInProgress" 
         @proceed="deleteStatement" 
         @close="closeDeleteDialog"/>
+
+        <TaxInvoicePreview v-if="showTaxInvcPreview" :doc="taxInvoiceToPreview" :entries="taxInvoiceToPreview.particulars" @close="taxInvoicePreviewClosed"/>
     </div>
   </template>
   
@@ -52,13 +55,22 @@
   
   //CRUD SHIT
   const showCreateStatementForm = ref(false)
-  const showEditStatementForm = ref(false)
+  const showTaxInvcPreview = ref(false)
   const showDeleteStatementDialog = ref(false)
-  const taxInvoiceToEdit = ref({});
+  const taxInvoiceToPreview = ref({});
   const statementToDelete = ref(0);
   const deleteInProgress = ref(false)
 
-  
+  function taxInvoicePreviewClosed(invoice){
+    showTaxInvcPreview.value = false
+  }
+
+  function loadTaxInvoicePreview(id){
+    if(id){
+      taxInvoiceToPreview.value = taxInvoices.value.find(item => item.ID === id)?.taxInvoice
+    }
+    showTaxInvcPreview.value = true
+  }
 
   async function getStatements(){
     try {
