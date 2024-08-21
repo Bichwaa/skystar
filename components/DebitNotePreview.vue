@@ -153,7 +153,7 @@
                     <hr class="w-[26%]" /> <span class="text-xs font-semibold">HELPING YOU PLAN FOR TOMORROW</span> <hr class="w-[26%]" />
                 </div>
             </div>
-
+            <Toast v-if="toastMessage" :message="toastMessage" :type="toastType" />
         </div>
     </Modal>
 </ClientOnly>
@@ -162,6 +162,9 @@
 <script setup>
 import html2pdf from "html2pdf.js"
 import {computed, ref, onMounted} from 'vue';
+import {userStore} from "../store";
+
+const store = userStore()
 
 const { $axios } = useNuxtApp()
 
@@ -185,6 +188,20 @@ const loading = ref(false)
 const particulars = ref([])
 const fixedParticulars = ref([])
 const note = ref(null)
+
+const toastMessage = ref('');
+const toastType = ref('info');
+
+function showToast(message, type = 'info') {
+  toastMessage.value = message;
+  toastType.value = type;
+
+  setTimeout(() => {
+    toastMessage.value = '';
+  }, 7000); // Same duration as the Toast component's default duration
+  
+}
+
 
 function pluckParticular(idx){
     particulars.value = particulars.value.filter((val, index)=>{
@@ -212,6 +229,9 @@ const valueAmount = computed(()=>{
 })
 
 async function getconsignmentRevenue(){
+    /**
+     * Obsolete
+     */
     try {
     const response = await $axios.get(`/api/filter-revenue?consignment=${props.doc.consignment.ID}`);
     if(response.status === 200|201){
@@ -223,18 +243,40 @@ async function getconsignmentRevenue(){
   }
 }
 
-async function generateDebitNote(){
-    const opt = {
-    margin:       1,
-    filename:     'invoice.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, scrollY: 0, windowHeight: note.value.scrollHeight*2},
-    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
+async function submitNote(){
+    // console.log("calling submit", props.doc)
+    const {consignment, ...rest} = props.doc;
+    rest.particulars = particulars.value;
+    rest.generatedById = store.user.ID;
+    const res = await $axios.post("/api/debit-note",{...rest});
+    return res
     
+}
+
+async function generateDebitNote(){
     loading.value = true
-    await  html2pdf(note.value, opt);
-    loading.value = false
+    try{
+        const res = await submitNote();
+        if(res.status==200 || 201){
+            const opt = {
+            margin:       1,
+            filename:     'debit-note.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, scrollY: 0, windowHeight: note.value.scrollHeight*2},
+            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+        
+            loading.value = true
+            await  html2pdf(note.value, opt);
+            loading.value = false
+            }else{
+                showToast(`error: ${res.status} jamaa`,"error")
+        }
+    }catch(e){
+        showToast(`error: ${e}`, 'error')
+        
+    }
+    
 }
 
 function numberWithCommas(x) {
@@ -244,7 +286,7 @@ function numberWithCommas(x) {
 
 onMounted(async()=>{
     if(props.entries.length == 0){
-        await getconsignmentRevenue()
+        // await getconsignmentRevenue()
     }else{
         fixedParticulars.value = props.entries;
         particulars.value = props.entries;

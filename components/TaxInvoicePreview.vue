@@ -164,7 +164,7 @@
                     <hr class="w-[26%]" /> <span class="text-xs font-semibold">HELPING YOU PLAN FOR TOMORROW</span> <hr class="w-[26%]" />
                 </div>
             </div>
-
+            <Toast v-if="toastMessage" :message="toastMessage" :type="toastType" />
         </div>
     </Modal>
 </ClientOnly>
@@ -199,6 +199,19 @@ const particulars = ref([])
 const fixedParticulars = ref([])
 const ivc = ref(null)
 
+const toastMessage = ref('');
+const toastType = ref('info');
+
+function showToast(message, type = 'info') {
+  toastMessage.value = message;
+  toastType.value = type;
+
+  setTimeout(() => {
+    toastMessage.value = '';
+  }, 7000); // Same duration as the Toast component's default duration
+}
+
+
 function pluckParticular(idx){
     particulars.value = particulars.value.filter((val, index)=>{
         return index!=idx;
@@ -218,6 +231,9 @@ const valueAmount = computed(()=>{
 })
 
 async function getconsignmentExpenses(){
+    /**
+     * Obsolete
+     */
     try {
     const response = await $axios.get(`/api/filter-revenue?consignment=${props.doc.consignment.ID}`);
     if(response.status === 200|201){
@@ -226,6 +242,7 @@ async function getconsignmentExpenses(){
     }
   } catch (error) {
     console.error('Error fetching cost data:', error);
+    showToast(error)
   }
 }
 
@@ -255,7 +272,7 @@ async function generateInvoice(){
     await  html2pdf(ivc.value, opt);
     loading.value = false
     }else{
-        window.alert("something went wrong") //TODO, do better
+        showToast(`error: ${res.status}`, 'error')
     }
 }
 

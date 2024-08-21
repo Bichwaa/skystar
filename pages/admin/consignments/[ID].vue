@@ -413,14 +413,14 @@
                                 >Generate invoice
                                 </span>
                             </div>
-                            <!-- <div class="flex gap-1 items-center cursor-pointer">
+                            <div class="flex gap-1 items-center cursor-pointer">
                                 <IconsWalletIcon class="w-4 h-4" current-color="#d4af37"/>
                                 <span class="text-sm text-[#d4af37] font-semibold"
                                     @click="showCreateDebitNoteForm=true"
                                 >
                                 Generate debit Note
                                 </span>
-                            </div> -->
+                            </div>
                         </div>
                         <table class="w-full divide-y divide-gray-200">
                         <thead class="bg-gray-100">

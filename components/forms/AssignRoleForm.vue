@@ -88,7 +88,7 @@ async function getRoles() {
 
 async function submitForm() {
   formLoading.value = true;
-  const res = await $axios.post("/api/roles/assign", { ...payload.value });
+  const res = await $axios.post(`/api/roles/assign`, { ...payload.value });
   formLoading.value = false;
   if (res.status == 200 || 201) {
     emit("close", res.data);

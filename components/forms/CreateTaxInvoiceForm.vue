@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="flex flex-col my-2">
-                    <label for="limit" class="text-xs font-medium my-1 pl-2">Vat %</label>
+                    <label for="limit" class="text-xs font-medium my-1 pl-2">VAT (%)</label>
                     <input v-model="payload.vat" type="number" max="100" name="referenceNumber" placeholder="JSFL/PIC454/04/2024" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
             </div>

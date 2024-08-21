@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="flex flex-col my-2">
-                        <label for="limit" class="text-xs font-medium my-1 pl-2">Vat Amount</label>
+                        <label for="limit" class="text-xs font-medium my-1 pl-2">VAT (%)</label>
                         <input v-model="payload.vat" type="number" name="referenceNumber" placeholder="JSFL/PIC454/04/2024" class="border border-gray-300 p-2 rounded-lg text-sm">
                     </div>
                 </div>
@@ -48,18 +48,10 @@
                     </div>
                 </div>
 
-                <div class="grid place-items-center" v-if="consignment.ID!=0">
+                <div class="grid place-items-center" >
                 <button  type="submit" @click.prevent="showPreview = true" 
                     class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
                     <span v-if="!formLoading">Show Preview</span>
-                    <Loader v-else size="small" class="h-4 w-4"/>
-                </button>
-            </div>
-
-            <div class="grid place-items-center" v-else>
-                <button  type="submit" @click.prevent="submitForm" 
-                    class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-white font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                    <span v-if="!formLoading">Create Invoice</span>
                     <Loader v-else size="small" class="h-4 w-4"/>
                 </button>
             </div>
