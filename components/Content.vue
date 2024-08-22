@@ -58,6 +58,11 @@
                     @click="loadApproveCostForm(item)">
                     Approve
                     </span>
+
+                    <span class="text-red-500 text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                    @click="loadRejectCostDialog(item)">
+                    Reject
+                    </span>
                 </td>
                 </tr>
             </tbody>
@@ -84,6 +89,11 @@
                     @click="loadApproveRevenueForm(item)">
                     Approve
                     </span>
+
+                    <span class="text-red-500 text-sm font-medium hover:text-black duration-300 cursor-pointer"
+                    @click="rejectRevenueForm(item)">
+                    Reject
+                    </span>
                 </td>
                 </tr>
             </tbody>
@@ -93,6 +103,21 @@
     </div>
     <FormsApproveCostForm v-if="showApproveCostForm" @close="closeApproveCostForm" :cost="costToApprove" :consignments="consignments" />
   <FormsApproveRevenueForm v-if="showApproveRevenueForm" @close="closeApproveRevenueForm" :revenue="revenueToApprove" :consignments="consignments" />
+  <RejectDialog 
+    entity="revenue" 
+    v-if="showRejectRevenueDialog" 
+    :loading="rejectLoading"
+    @close="showRejectRevenueDialog=false"
+    @proceed="rejectRevenue"
+    />
+
+    <RejectDialog 
+    entity="cost" 
+    v-if="showRejectCostDialog" 
+    :loading="rejectLoading"
+    @close="showRejectCostDialog=false"
+    @proceed="rejectCost"
+    />
   </div>
 </template>
 
@@ -104,8 +129,13 @@ import {ref} from 'vue';
 const { $axios } = useNuxtApp();
 
 const showApproveCostForm = ref(false);
+const rejectLoading = ref(false)
 const costToApprove = ref({});
 const showApproveRevenueForm = ref(false);
+const showRejectCostDialog = ref(false);
+const showRejectRevenueDialog = ref(false)
+const revenueToReject = ref({})
+const costToReject = ref({})
 const revenueToApprove = ref({});
 
 
@@ -140,6 +170,16 @@ function loadApproveCostForm(item){
 function loadApproveRevenueForm(item){
   showApproveRevenueForm.value = true;
   revenueToApprove.value = item;
+}
+
+function loadRejectCostDialog(item){
+  showRejectCostDialog.value = true;
+  costToReject.value = item;
+}
+
+function rejectRevenueForm(item){
+  showRejectRevenueDialog.value = true;
+  revenueToReject.value = item;
 }
 
 async function closeApproveCostForm(item){
@@ -184,6 +224,28 @@ async function getUnapprovedExpenses(){
 function viewconsignmentClicked(consignmentId){
     navigateTo(`/admin/consignments/${consignmentId}`)
   }
+
+async function rejectRevenue(){
+    rejectLoading.value = true
+  const res = await $axios.delete(`/api/revenue/delete/${revenueToReject.value.ID}`)
+  if(res.status==200 || 201){
+      rejectLoading.value = false
+      await getUnapprovedRevenues()
+      showRejectRevenueDialog.value = false;
+  }else{
+  }
+}
+
+async function rejectCost(){
+    rejectLoading.value = true
+  const res = await $axios.delete(`/api/expenses/delete/${costToReject.value.ID}`)
+  if(res.status==200 || 201){
+      rejectLoading.value = false
+      await getUnapprovedExpenses()
+      showRejectCostDialog.value = false;
+  }else{
+  }
+}
 
 onMounted(async () => {
   await getConsignments()

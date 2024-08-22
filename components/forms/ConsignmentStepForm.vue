@@ -71,7 +71,7 @@
 
                     <div class="step2" v-show="currentStepNo==1">
                         <div class="flex flex-col my-2 w-full">
-                                <label for="consigneeName" class="text-sm font-medium my-1">Cargo Weight(Ton)</label>
+                                <label for="consigneeName" class="text-sm font-medium my-1">Cargo Weight(Kgs)</label>
                                 <input v-model="payload.totalWeight" type="number" name="portofLoading" placeholder="10" class="border border-gray-300 p-2 rounded-lg text-sm">
                             </div>
                         <div class="flex flex-col my-2 w-full">
@@ -235,6 +235,9 @@
 import {ref, computed} from "vue";
 import { userStore } from '../../store';
 import type { Input, Step } from './types';
+
+import { useForm } from 'vee-validate';
+import * as yup from 'yup';
 
 const { $axios } = useNuxtApp()
 const store = userStore()
@@ -406,6 +409,16 @@ const isLoose = computed(()=>{
 const sorted:ComputedRef<{half:Input[], full:Input[]}> = computed(()=>{
     return inputsByRowStyle(currentStep.value.inputs)
     })
+
+const { values, errors, defineField } = useForm({
+  validationSchema: yup.object({
+    luggage: yup.string().required(),
+    modeOfTransport:yup.string().required(),
+  }),
+});
+
+const [luggage, luggageAttrs] = defineField('email');
+
 
 const payload  = ref({
     customerId:0,

@@ -17,7 +17,7 @@
                     No
                 </button>
 
-                <span class="text-red-600 cursor-pointer" @click="proceed">Yes, Delete</span>
+                <span class="text-red-600 cursor-pointer font-semibold" @click="proceed">Yes, Delete</span>
             </div>
         </div>
     </Modal>

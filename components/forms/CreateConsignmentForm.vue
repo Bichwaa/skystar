@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="flex flex-col my-2">
-                    <label for="consigneeName" class="text-sm font-medium my-1">Loose Cargo (Ton)</label>
+                    <label for="consigneeName" class="text-sm font-medium my-1">Loose Cargo (Kgs)</label>
                     <input v-model="payload.looseCargo" type="number" name="cont10" placeholder="0" class="border border-gray-300 p-2 rounded-lg text-sm">
                 </div>
 

@@ -436,7 +436,7 @@
                         <tbody>
                             <tr v-for="item in revenues" :key="item.ID">
                                 <td class="px-4 py-2">
-                                    <input type="checkbox" class="mr-2" @change="updateParticulars(item, $event)"/> 
+                                    <input type="checkbox" class="mr-2" v-if="item.Approved" @change="updateParticulars(item, $event)"/> 
                                     <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> 
                                 </td>
                                 <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
