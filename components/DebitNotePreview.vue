@@ -75,8 +75,8 @@
                             <th class="py-2 px-4 border-b text-xs">Particulars 
                                 <span class="text-xs invisible">exra content to shift the table </span>
                             </th>
-                            <th class="py-2 px-4 border-b text-xs">Quantity</th>
                             <th class="py-2 px-4 border-b text-xs">unit Price</th>
+                            <th class="py-2 px-4 border-b text-xs">Quantity</th>
                             <th class="py-2 px-4 border-b text-xs">Amount(Tsh)</th>
                             </tr>
                         </thead>

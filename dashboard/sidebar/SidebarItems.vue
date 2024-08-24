@@ -39,8 +39,8 @@ function logout(){
       <DocIcon />
     </SidebarItem>
 
-    <TitledAccordion title="ACCOUNTING" class="cursor-pointer">
-      <SidebarItem v-if="store.hasPermission('can-read-users')" title="Petty Cash" to="/admin/petty-cash">
+    <TitledAccordion v-if="store.hasPermission('can-create-invoices')" title="ACCOUNTING" class="cursor-pointer">
+      <SidebarItem  title="Petty Cash" to="/admin/petty-cash">
         <CalendarIcon />
       </SidebarItem>
 

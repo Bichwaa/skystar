@@ -405,7 +405,11 @@
                         </div>
                     </div>
                     <div class="m-auto block">
-                        <div class="flex gap-11 pl-4 mb-4 opacity-0 transition duration-300" :class="showGenBtns?'opacity-100':'opacity-0'">
+                        <div 
+                            class="flex gap-11 pl-4 mb-4 opacity-0 transition duration-300" 
+                            :class="showGenBtns?'opacity-100':'opacity-0'"
+                            v-if="store.hasPermission('can-create-invoices')"
+                            >
                             <div class="flex gap-1 items-center cursor-pointer">
                                 <IconsInvoiceIcon class="w-4 h-4" current-color="#d4af37"/>
                                 <span class="text-sm text-[#d4af37] font-semibold" 
@@ -436,7 +440,7 @@
                         <tbody>
                             <tr v-for="item in revenues" :key="item.ID">
                                 <td class="px-4 py-2">
-                                    <input type="checkbox" class="mr-2" v-if="item.Approved" @change="updateParticulars(item, $event)"/> 
+                                    <input type="checkbox" class="mr-2" v-if="item.Approved && store.hasPermission('can-create-invoices')" @change="updateParticulars(item, $event)"/> 
                                     <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> 
                                 </td>
                                 <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
@@ -528,6 +532,10 @@
 import {ref, onMounted, computed} from 'vue';
 
 const { $axios } = useNuxtApp()
+import {userStore} from "../../../store"
+
+
+const store = userStore()
 
 const route = useRoute()
 

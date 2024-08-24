@@ -33,6 +33,7 @@
         @close="closeDeleteDialog"/>
 
         <TaxInvoicePreview v-if="showTaxInvcPreview" :doc="taxInvoiceToPreview" :entries="taxInvoiceToPreview.particulars" @close="taxInvoicePreviewClosed"/>
+        <DebitNotePreview v-if="showDNotePreview" :doc="debitNoteToPreview" :entries="debitNoteToPreview.particulars" @close="debitNotePreviewClosed"/>
     </div>
   </template>
   
@@ -57,6 +58,7 @@
   //CRUD SHIT
   const showCreateStatementForm = ref(false)
   const showTaxInvcPreview = ref(false)
+  const showDNotePreview = ref(false)
   const showDeleteStatementDialog = ref(false)
   const taxInvoiceToPreview = ref({});
   const debitNoteToPreview = ref({});
@@ -65,6 +67,9 @@
 
   function taxInvoicePreviewClosed(invoice){
     showTaxInvcPreview.value = false
+  }
+  function debitNotePreviewClosed(){
+    showDNotePreview.value = false
   }
 
   function loadTaxInvoicePreview(id){
@@ -75,7 +80,11 @@
   }
 
   function loadDebitNotePreview(id){
-    debitNoteToPreview.value = debitNotes.value.find(item => item.ID === id)
+    console.log(debitNotes.value.find(item => item.ID === id))
+    if(id){
+      debitNoteToPreview.value = taxInvoices.value.find(item => item.ID === id)?.debitNote
+    }
+    showDNotePreview.value = true;
   }
 
   async function getStatements(){

@@ -69,7 +69,7 @@
           </table>
 
 
-          <p class="font-bold text-black mt-6 mb-2">Revenue Entries</p>
+          <p class="font-bold text-black mt-6 mb-2">Petty Cash Entries</p>
           <table class="w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
                 <tr class="">

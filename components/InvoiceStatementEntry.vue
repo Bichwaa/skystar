@@ -24,7 +24,7 @@
         <span 
           class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
           @click="previewClicked(item)"
-        >Preview Invoice</span>
+        >{{ item.taxInvoiceId ? 'Preview Invoice':'Preview D/Note'}}</span>
         <!-- Uncomment the below span if you want to enable the edit functionality
         <span 
           class="text-[#d4af37] text-sm font-medium hover:text-black duration-300 cursor-pointer"

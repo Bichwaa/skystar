@@ -221,7 +221,7 @@
                    <div class="flex items-center justify-center">
                         <button  type="submit" @click.prevent="submitForm" v-if="currentStepNo==2"
                             class="flex items-center justify-center py-2 px-3  mt-6 text-xs rounded-lg bg-[#292a5e] min-w-[150px] text-whiem font-medium hover:bg-gray-300 hover:text-[#292a5e] disabled:bg-gray-600 duration-300">
-                            <span v-if="!formLoading" class="text-white font-medium">Update Consignment</span>
+                            <span v-if="!formLoading" class="text-white font-medium">Create Consignment</span>
                             <Loader v-else size="small" class="h-4 w-4"/>
                         </button>
                    </div>
@@ -451,6 +451,7 @@ async function submitForm(){
     formLoading.value = true
 
     if (currentLooseCargo.value.packageNumber!=""){
+        payload.value.hasLooseCargo = true;
         payload.value.looseCargo.push(currentLooseCargo.value)
     }
 
