@@ -64,6 +64,10 @@ const props = defineProps({
             purpose:"",
             currency:"Tsh"
         }
+    },
+    consignmentId:{
+        default:0,
+        
     }
 })
 
@@ -97,7 +101,7 @@ async function getEmployees(){
 
 async function submitForm(){
     formLoading.value = true
-    const res = await $axios.patch(`/api/expenses/update/${props.expensedata.ID}`,{...payload.value})
+        
     formLoading.value = false
     console.log(res)
     if(res.status==200 || 201){

@@ -49,7 +49,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="item in cashbook.consignment.revenues" :key="item.id">
+                <tr v-for="item in cashbook.consignment.expenses" :key="item.id">
                   <td class="px-4 py-2"> 
                     <span v-if="item.Requested">{{ item.Requested?.firstName + " " + item.Requested?.lastName }}</span>
                     <span v-else class="italic">deleted user</span>
@@ -84,8 +84,8 @@
       </div>
     </div>
     <!-- <ExpenseDetailsModal v-if="showExpenseDetails" :expense="currentExpense" @close="showExpenseDetails=false"/> -->
-    <FormsCreateConsignmentRevenueItemForm v-if="showCreateExpenseForm" :consignmentId="cashbook.consignment.ID" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
-    <FormsEditConsignmentRevenueForm v-if="showEditExpenseForm" :revenuedata="expenseToEdit" @close="handleEditExpenseformClosed"/>
+    <FormsCreateConsignmentCostForm v-if="showCreateExpenseForm" :consignmentId="cashbook.consignment.ID" :cashbook-id="route.params.ID"  @close="handleCreateExpenseformClosed"/>
+    <FormsEditConsignmentCostForm v-if="showEditExpenseForm" :revenuedata="expenseToEdit" @close="handleEditExpenseformClosed"/>
     <DeleteDialog v-if="showDeleteExpenseDialog" entity="expense" :loading="deleteInProgress" @proceed="deleteExpense" @close="showDeleteExpenseDialog=false"/>
   </div>
 </template>

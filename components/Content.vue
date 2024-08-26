@@ -4,7 +4,7 @@
       <div class="mx-0 mb-4 sm:ml-4 xl:mr-4">
         <div class="w-full rounded-2xl bg-white shadow-lg">
           <p class="p-4 font-bold text-black text-xl">
-            Latest Consignments
+            Pending Consignments
             <!-- <span class="ml-2 text-sm text-gray-500">(10)</span> -->
           </p>
           <div class="m-auto block">
@@ -16,7 +16,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in consignments" :key="item.id" class="hover:bg-yellow-100 hover:cursor-pointer" @click="viewconsignmentClicked(item.ID)">
+                  <tr v-for="item in pendingConsignments" :key="item.id" class="hover:bg-yellow-100 hover:cursor-pointer" @click="viewconsignmentClicked(item.ID)">
                     <td class="px-4 py-2 ">{{ item?.bookingNumber }}</td>
                     <td class="px-4 py-2">{{ item?.customer?.fullName }}</td>
                     <!-- <td class="flex items-center gap-6 px-4 py-2">
@@ -38,11 +38,12 @@
         <div class="w-full rounded-2xl bg-white p-4 shadow-lg">
           <p class="font-bold text-black text-xl">Waiting Approval</p>
 
-          <p class="font-bold text-black mt-6 mb-2">Cost Entries</p>
+          <p class="font-bold text-black mt-6 mb-2">Cost & Petty Cash Voucher Entries</p>
           <table class="w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
                 <tr class="">
                 <th class="px-4 py-2 text-left">Requested By</th>
+                <th class="px-4 py-2 text-left">Consignment</th>
                 <th class="px-4 py-2 text-left">Amount</th>
                 <th class="px-4 py-2 text-left">Purpose</th>
                 <th class="px-4 py-2 text-left">Actions</th>
@@ -51,6 +52,7 @@
             <tbody>
                 <tr v-for="item in expenses" :key="item.ID">
                     <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> </td>
+                    <td class="px-4 py-2">{{ consignmentNumberFromId(item.consignmentId) }}</td>
                     <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                     <td class="px-4 py-2">{{ item.purpose }}</td>
                     <td class="flex items-center gap-6 px-4 py-2">
@@ -69,7 +71,7 @@
           </table>
 
 
-          <p class="font-bold text-black mt-6 mb-2">Petty Cash Entries</p>
+          <!-- <p class="font-bold text-black mt-6 mb-2">Petty Cash Entries</p>
           <table class="w-full divide-y divide-gray-200">
             <thead class="bg-gray-100">
                 <tr class="">
@@ -80,7 +82,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in revenues" :key="item.ID">
+                <tr v-for="item in expenses" :key="item.ID">
                     <td class="px-4 py-2"> <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> </td>
                     <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                     <td class="px-4 py-2">{{ item.purpose }}</td>
@@ -97,7 +99,7 @@
                 </td>
                 </tr>
             </tbody>
-            </table>
+            </table> -->
         </div>
       </div>
     </div>
@@ -123,7 +125,7 @@
 
 
 <script setup>
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 
 
 const { $axios } = useNuxtApp();
@@ -160,6 +162,17 @@ async function getConsignments(){
     console.error('Error fetching data:', error);
     consignments.value = null; // Set items to an empty array or handle error as needed
   }
+}
+
+const pendingConsignments = computed(() => {
+  //return consignments that match the consignmentId filed of each item in "expenses"
+  return consignments.value.filter(
+    consignment => expenses.value.some(item => item.consignmentId==consignment.ID)
+  )
+})
+
+function consignmentNumberFromId(id){
+  return consignments.value.find(consignment => consignment.ID == id).bookingNumber
 }
 
 function loadApproveCostForm(item){

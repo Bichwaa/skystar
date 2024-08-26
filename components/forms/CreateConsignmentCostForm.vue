@@ -2,14 +2,14 @@
     <Modal @close-modal="close">
         
         <form class="lg:m-24">
-            <p class="font-medium flex items-center mb-3">Add Expense</p>
+            <p class="font-medium flex items-center mb-3">Add Cost</p>
             
-            <div class="flex flex-col my-4">
+            <!-- <div class="flex flex-col my-4">
                 <label for="email" class="text-xs font-medium my-1">Requested by</label>
                 <select v-model="payload.requestedId">
                     <option v-for="em in employees" :value="em.ID">{{ em.firstName + " " + em.lastName }}</option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="flex flex-col my-2">
                 <label for="limit" class="text-xs font-medium my-1 pl-2">Currency </label>
@@ -62,7 +62,7 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const employees = ref([])
+// const employees = ref([])
 const cashbook = ref({})
 
 const formLoading = ref(false)
@@ -70,25 +70,25 @@ const formLoading = ref(false)
 const payload  = ref({
     consignmentId:Number(props.consignmentId),
     pettyCashId:0,
-    requestedId:0,
+    requestedId:store.user.ID,
     // approvedId:store.user.ID,
     amount:0,
     purpose:"",
     currency:""
 })
 
-async function getEmployees(){
-    try{
-        const res = await $axios.get("api/users")
-        if(res.status==200 || 201){
-            employees.value = res.data
-        }else{
-            console.log(res.statusText)
-        }
-    }catch(e){
-        throw e
-    }
-}
+// async function getEmployees(){
+//     try{
+//         const res = await $axios.get("api/users")
+//         if(res.status==200 || 201){
+//             employees.value = res.data
+//         }else{
+//             console.log(res.statusText)
+//         }
+//     }catch(e){
+//         throw e
+//     }
+// }
 
 async function getCashbook(){
     try{

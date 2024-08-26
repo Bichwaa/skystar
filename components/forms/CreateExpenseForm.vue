@@ -7,7 +7,7 @@
             <div class="flex flex-col my-4">
                 <label for="email" class="text-xs font-medium my-1">Requested by</label>
                 <select v-model="payload.requestedId">
-                    <option v-for="em in employees" :value="em.ID">{{ em.firstName + " " + em.lastName }}</option>
+                    <option v-for="em in employees" :value="em?.ID">{{ em?.firstName + " " + em?.lastName }}</option>
                 </select>
             </div>
 
@@ -98,11 +98,9 @@ async function submitForm(){
     formLoading.value = true
     const res = await $axios.post("/api/revenue",{...payload.value})
     formLoading.value = false
-    console.log(res)
+    // console.log(res)
     if(res.status==200 || 201){
         emit("close", res.data)
-    }else{
-        console.log(res.statusText)
     }
 }
 
