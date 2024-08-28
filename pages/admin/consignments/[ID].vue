@@ -224,6 +224,14 @@
                                                 <p>{{ consignment?.consignee != null ? consignment?.consignee?.fullName.split(" ")[0]: "" }}</p>
                                             </div>
 
+                                            <div class="flex gap-3  w-full items-center my-2">
+                                                <div class="flex gap-4 items-center">
+                                                    <IconsDestinationIcon class="w-5 h-5" />
+                                                    <span class=" font-medium">Status:</span>
+                                                </div>
+                                                <p>{{ "Pending" }}</p>
+                                            </div>
+
                                         </div>
                                     </div>
 

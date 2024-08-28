@@ -49,7 +49,8 @@ const userTemplate = {ID: 1,
 
 export const userStore = defineStore('userStore', {
     state:()=>({
-      user:userTemplate
+      user:userTemplate,
+      groupedStatements: []
     }),
 
      getters: {
@@ -71,7 +72,8 @@ export const userStore = defineStore('userStore', {
           }
         })
         return permNames
-      }
+      },
+      getGroupedStatements: (state) => state.groupedStatements
     },
 
     actions: {
@@ -120,9 +122,39 @@ export const userStore = defineStore('userStore', {
         if(res.status==200 || 201){
         this.storeTokens(res.data)
         }
-      }
+      },
 
+      updateGroupedStatements(statements) {
+        this.groupedStatements = statements;
+      },
 
+      // Update persistState to include groupedStatements
+      persistState(){
+        safestorage.setItem("user", this.user)
+        safestorage.setItem("groupedStatements", this.groupedStatements)
+      },
+
+      // Update resetState to clear groupedStatements
+      resetState(){
+        this.$reset()
+        safestorage.clearStorage()
+      },
+
+      // Update checkPersistedState to load groupedStatements
+      checkPersistedState(){
+        let user = safestorage.getItem("user");
+        user = JSON.parse(user)
+        if(user!=null){
+          this.user = user
+        }
+        
+        let statements = safestorage.getItem("groupedStatements");
+        statements = JSON.parse(statements)
+        if(statements!=null){
+          this.groupedStatements = statements
+        }
+      },
+      
     },
 
 

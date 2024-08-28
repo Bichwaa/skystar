@@ -60,7 +60,7 @@
         >
           <NuxtLink to="/profile" class="relative block">
             <NuxtImg
-              alt="Jonathan Ilunga"
+              alt="profile pic"
               lazy="true"
               :src="store?.user?.avatar!=undefined ? $axios.getUri() + store?.user?.avatar?.substring(1): $axios.getUri() + 'uploads/pfp.avif'" 
               class="mx-auto h-10 w-10 rounded-full object-cover"
