@@ -269,6 +269,7 @@ async function generateDebitNote(){
             loading.value = true
             await  html2pdf(note.value, opt);
             loading.value = false
+            close()
             }else{
                 showToast(`error: ${res.status} jamaa`,"error")
         }

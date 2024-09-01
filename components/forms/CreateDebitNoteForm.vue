@@ -59,7 +59,7 @@
         </Modal>
         <DebitNotePreview
             v-if="showPreview" 
-            @close="showPreview=false" 
+            @close="previewClosed" 
             :doc="payload" 
             :entries="entries"
         />
@@ -118,6 +118,10 @@ function resetparticularForm(){
     quantity:"",
     unitPrice:null
 }
+}
+function previewClosed(){
+    showPreview.value = false;
+    emit("close")
 }
 
 async function getUidPair(){
