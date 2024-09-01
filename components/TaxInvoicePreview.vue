@@ -192,6 +192,7 @@ const props = defineProps({
         default:[]
     }
 })
+const emit = defineEmits(["close"])
 
 const loading = ref(false)
 
@@ -271,6 +272,7 @@ async function generateInvoice(){
     };
     await  html2pdf(ivc.value, opt);
     loading.value = false
+    close()
     }else{
         showToast(`error: ${res.status}`, 'error')
     }
@@ -281,7 +283,7 @@ function numberWithCommas(x) {
     return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const emit = defineEmits(["close"])
+
 
 function close(){
     emit("close")

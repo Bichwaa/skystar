@@ -99,6 +99,7 @@ const showPreview  = ref(false)
 const consignments = ref([])
 const revealParticularsFields =ref(false)
 const particulars = ref([])
+const idPair = ref({})
 
 const currentParticular = ref({
     description:"",
@@ -158,6 +159,18 @@ async function getConsignments(){
     }
   }
 
+
+  async function getUidPair(){
+    try {
+      const response = await $axios.get('/api/id-pair');
+      idPair.value = response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+
+
 async function submitForm(){
     console.log("calling submit")
     formLoading.value = true
@@ -179,6 +192,11 @@ function close(){
 }
 
 onMounted(async()=>{
+    await getUidPair()
+    if(idPair.value.invoiceNumber){
+        payload.value.invoiceNumber = idPair.value.invoiceNumber;
+        payload.value.referenceNumber = idPair.value.refNumber;
+    }
     if(props.consignment.ID==0){
         await getConsignments()
         console.log("did fetch consignmen'ts")
