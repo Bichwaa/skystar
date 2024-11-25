@@ -229,7 +229,7 @@
                                                     <IconsDestinationIcon class="w-5 h-5" />
                                                     <span class=" font-medium">Status:</span>
                                                 </div>
-                                                <p>{{ "Pending" }}</p>
+                                                <p>{{ consignment?.status }}</p>
                                             </div>
 
                                         </div>
@@ -296,10 +296,10 @@
                                         <div class="flex flex-col gap-3  w-full items-start my-2" >
                                             <div class="flex gap-4 items-center">
                                                 <IconsContainerIcon class="w-5 h-5" />
-                                                <span class=" font-medium">Containers:</span>
+                                                <span class=" font-medium">Containers ({{ consignment?.containers ? consignment.containers.length : 0 }}):</span>
                                             </div>
-                                            <div class="flex flex-col">
-                                                <p v-for="container in consignment?.containers">{{ container.size }} : {{ container.number }}  </p>
+                                            <div class="flex flex-col pl-8">
+                                                <p v-for="container in consignment?.containers">&#x2022; {{ container.size }} : {{ container.number }}  </p>
                                             </div>
                                         </div>
                                     </div>
@@ -440,7 +440,7 @@
                             <th class="px-4 py-2 text-left">Requested By</th>
                             <th class="px-4 py-2 text-left">Amount</th>
                             <th class="px-4 py-2 text-left">Purpose</th>
-                            <th class="px-4 py-2 text-left">Approved By</th>
+                            <!-- <th class="px-4 py-2 text-left">Approved By</th> -->
                             <th class="px-4 py-2 text-left">Date requested</th>
                             <th class="px-4 py-2 text-left">Actions</th>
                             </tr>
@@ -448,15 +448,15 @@
                         <tbody>
                             <tr v-for="item in revenues" :key="item.ID">
                                 <td class="px-4 py-2">
-                                    <input type="checkbox" class="mr-2" v-if="item.Approved && store.hasPermission('can-create-invoices')" @change="updateParticulars(item, $event)"/> 
+                                    <input type="checkbox" class="mr-2"  @change.prevent="updateParticulars(item, $event)"/> 
                                     <span v-if="item.Requested">{{ item?.Requested?.firstName + " " + item?.Requested?.lastName }}</span> 
                                 </td>
                                 <td class="px-4 py-2">{{ item.amount}} ({{ item.currency }})</td>
                                 <td class="px-4 py-2">{{ item.purpose }}</td>
-                                <th class="px-4 py-2 text-left">
+                                <!-- <th class="px-4 py-2 text-left">
                                     <span v-if="item.Approved">{{ item.Approved?.firstName + " " + item.Approved?.lastName }}</span>
                                     <span v-else class="italic">not approved</span>
-                                </th>
+                                </th> -->
                                 <td class="px-4 py-2">{{ convertDateFormat(item.CreatedAt)}}</td>
                                 <td class="flex items-center gap-6 px-4 py-2">
                                 <!-- <span 
@@ -532,6 +532,7 @@
                     <!-- <TaxInvoicePreview v-if="showTaxInvoicePreview"  :doc="taxInvoiceToPreview" @close="taxInvoicePreviewClosed"/> -->
                 </div>
             </div>
+            <Toast v-if="toastMessage" :message="toastMessage" :type="toastType" />
         </div>
     
 </template>
@@ -544,6 +545,8 @@ import {userStore} from "../../../store"
 
 
 const store = userStore()
+const toastMessage = ref('');
+const toastType = ref('info');
 
 const route = useRoute()
 
@@ -570,6 +573,17 @@ const exchangeRateBoardVisible = ref(false)
 const particulars = ref([]);
 
 const updateParticulars = (val, e)=>{
+    if(particulars.value.length>0){
+        console.log('length detected', val)
+        if (particulars.value.length > 0 && val.currency !== particulars.value[0].currency) {
+            console.log('Currency mismatch detected');
+            toastType.value = 'error';
+            toastMessage.value = 'Entries must be of the same currency';
+            e.target.checked = false;
+            return; // Exit early if currencies don't   match
+        }
+
+    }
     if(e.target.checked){
         particulars.value.push(val)
         console.log("addeed particular", particulars.value)

@@ -6,21 +6,21 @@
                 <thead class="bg-gray-100">
                   <tr class="">
                     <th class="px-4 py-2 text-left">Customer</th>
-                    <th class="px-4 py-2 text-left">Number of Docs</th>
+                    <th class="px-4 py-2 text-left">Invoices/Debit Notes</th>
                     <th class="px-4 py-2 text-left">Last Updated</th>
                     <th class="px-4 py-2 text-left">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(statements, customerName) in groupedStatements" :key="customerName">
-                    <td>{{ customerName }}</td>
-                    <td>{{ statements.length }}</td>
-                    <td>{{ convertDateFormat(Math.max(...statements.map(s => new Date(s.CreatedAt)))) }}</td>
+                  <tr v-for="statement in statements" :key="statement.customerId">
+                    <td class="px-4">{{ statement.customer.fullName }}</td>
+                    <td class="px-4">{{ statement?.debitNotes?.length + statement?.taxInvoices?.length }}</td>
+                    <td class="px-4">{{ convertDateFormat(Math.max( new Date(statement.CreatedAt))) }}</td>
                     <td class="flex items-center gap-6 px-4 py-2">
                       <span 
                         class="text-[#292a5e] text-sm font-medium hover:text-black duration-300 cursor-pointer"
-                        @click="viewClicked(customerName)"
-                      >View Documents</span>
+                        @click="viewClicked(statement.ID)"
+                      >View Statement</span>
                     </td>
                   </tr>
                 </tbody>
@@ -60,24 +60,6 @@
   const debitNoteToPreview = ref({});
   const statementToDelete = ref(0);
   const deleteInProgress = ref(false)
-
-
-//create a function to group statements 
-// by value of either statement.taxInvoice.consignment.customer.fullName or statement.debitNote.consignment.customer.fullName
-  const groupedStatements = computed(() => {
-    return statements.value.reduce((acc, statement) => {
-      const customerName = statement.taxInvoice?.consignment?.customer?.fullName || 
-                           statement.debitNote?.consignment?.customer?.fullName || 
-                           'Unknown Customer';
-      
-      if (!acc[customerName]) {
-        acc[customerName] = [];
-      }
-      
-      acc[customerName].push(statement);
-      return acc;
-    }, {});
-  });
 
 
   function taxInvoicePreviewClosed(invoice){

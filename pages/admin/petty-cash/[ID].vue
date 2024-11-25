@@ -7,9 +7,6 @@
             <div class="flex items-center justify-between w-full group">
               <div class="flex flex-col">
                 <span class="ml-2 font-bold text-black">Petty Cashbook</span>
-                <span class="ml-2 text-xs text-gray-500">
-                  Starting the month of
-                </span>
               </div>
 
               <button class="p-2 rounded-lg flex gap-4 items-center border border-gray-200 group-hover:bg-[#292a5e] duration-300" @click="showCreateExpenseForm=true">
@@ -23,11 +20,11 @@
           </div>
          
           <div class="mb-4 flex flex-col items-start justify-start gap-3">
-            <span
+            <!-- <span
               class="flex items-center rounded-md bg-green-50 px-2 py-1 text-xl font-semibold text-green-600 capitalize"
             >
               {{ cashbook.period }}
-            </span>
+            </span> -->
             <span
               class="flex items-center rounded-md bg-green-50 px-2 py-1 text-sm font-semibold text-green-700 capitalize"
             >
